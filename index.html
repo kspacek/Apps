@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDT s.r.o. — Apps</title>
+    <title>CupWeigh — Privacy Policy</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,219 +13,302 @@
             --text: #e8e6f0;
             --muted: #6b6880;
             --accent: #c4956a;
-            --accent-glow: rgba(196, 149, 106, 0.15);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; min-height: 100vh; }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Outfit', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+        .container { max-width: 680px; margin: 0 auto; padding: 40px 24px 60px; }
 
-        .grain {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 100;
-        }
+        .back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+        .back:hover { color: var(--accent); }
 
-        .glow-orb {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-            top: -200px;
-            right: -100px;
-            pointer-events: none;
-            z-index: 0;
-        }
+        /* Language switcher */
+        .lang-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px; }
+        .lang-btn { padding: 6px 14px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 400; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
+        .lang-btn:hover { border-color: var(--accent); color: var(--text); }
+        .lang-btn.active { border-color: var(--accent); background: rgba(196,149,106,0.1); color: var(--accent); font-weight: 600; }
 
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 24px 60px;
-            position: relative;
-            z-index: 1;
-        }
+        .header { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+        .app-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #5c3d1a, #a06c2a); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 34px); font-weight: 700; }
 
-        .logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 48px;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards;
-        }
+        .meta { font-size: 13px; color: var(--muted); font-weight: 300; margin-bottom: 36px; }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 6vw, 52px);
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 16px;
-            opacity: 0;
-            animation: fadeUp 0.6s ease 0.1s forwards;
-        }
+        .highlight { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 16px 20px; margin-bottom: 32px; }
+        .highlight p { font-size: 15px; line-height: 1.7; font-weight: 400; }
+        .highlight strong { color: var(--accent); }
 
-        .subtitle {
-            font-size: 17px;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 64px;
-            opacity: 0;
-            animation: fadeUp 0.6s ease 0.2s forwards;
-        }
+        .section { margin-bottom: 28px; }
+        .section h2 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--accent); }
+        .section p { font-size: 14px; line-height: 1.75; font-weight: 300; }
 
-        .section-label {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 24px;
-            opacity: 0;
-            animation: fadeUp 0.6s ease 0.3s forwards;
-        }
+        .contact { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .contact h2 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--accent); }
+        .contact p { font-size: 14px; line-height: 1.75; font-weight: 300; }
+        .contact a { color: var(--accent); text-decoration: none; }
+        .contact a:hover { text-decoration: underline; }
 
-        .app-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeUp 0.6s ease 0.4s forwards;
-        }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); font-weight: 300; }
 
-        .app-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 40px rgba(196, 149, 106, 0.08);
-        }
-
-        .app-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            flex-shrink: 0;
-        }
-
-        .app-icon.cupweigh {
-            background: linear-gradient(135deg, #5c3d1a, #a06c2a);
-        }
-
-        .app-info h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .app-info p {
-            font-size: 14px;
-            color: var(--muted);
-            font-weight: 300;
-        }
-
-        .app-links {
-            margin-left: auto;
-            display: flex;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-
-        .app-links a {
-            font-size: 13px;
-            color: var(--accent);
-            text-decoration: none;
-            padding: 6px 14px;
-            border: 1px solid rgba(196, 149, 106, 0.3);
-            border-radius: 8px;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .app-links a:hover {
-            background: rgba(196, 149, 106, 0.1);
-            border-color: var(--accent);
-        }
-
-        .footer {
-            margin-top: 80px;
-            padding-top: 32px;
-            border-top: 1px solid var(--border);
-            font-size: 13px;
-            color: var(--muted);
-            font-weight: 300;
-            opacity: 0;
-            animation: fadeUp 0.6s ease 0.5s forwards;
-        }
-
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 560px) {
-            .app-card { flex-wrap: wrap; padding: 24px; }
-            .app-links { margin-left: 0; margin-top: 8px; width: 100%; }
-        }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
     </style>
 </head>
 <body>
-    <div class="grain"></div>
-    <div class="glow-orb"></div>
-
     <div class="container">
-        <div class="logo">UDT s.r.o.</div>
+        <a href="../" class="back">← All Apps</a>
 
-        <h1>Apps & Privacy</h1>
-        <p class="subtitle">
-            Privacy policies and legal information for all our apps.
-            Each app respects your data — most work entirely offline with zero data collection.
-        </p>
+        <div class="header">
+            <div class="app-icon">☕</div>
+            <h1>CupWeigh</h1>
+        </div>
 
-        <div class="section-label">Applications</div>
+        <!-- Language switcher -->
+        <div class="lang-bar" id="langBar">
+            <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+            <button class="lang-btn" data-lang="cs">🇨🇿 Čeština</button>
+            <button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+            <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+            <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+        </div>
 
-        <div class="app-card">
-            <div class="app-icon cupweigh">☕</div>
-            <div class="app-info">
-                <h3>CupWeigh</h3>
-                <p>Kitchen cup-to-weight converter for baking</p>
+        <!-- ═══ ENGLISH ═══ -->
+        <div class="lang-content active" id="lang-en">
+            <p class="meta">Privacy Policy · Effective April 9, 2026</p>
+
+            <div class="highlight">
+                <p><strong>The short version:</strong> CupWeigh does not collect, store, or share any of your personal data. The app works entirely offline on your device.</p>
             </div>
-            <div class="app-links">
-                <a href="cupweigh/">Privacy Policy</a>
+
+            <div class="section">
+                <h2>Data Collection</h2>
+                <p>CupWeigh does not collect any personal information. The app does not require an account, login, or any form of registration. No names, email addresses, or other identifiers are ever requested or stored.</p>
+            </div>
+            <div class="section">
+                <h2>Usage Data</h2>
+                <p>CupWeigh does not collect analytics, usage statistics, crash reports, or any other telemetry data. The app does not contain any third-party tracking or analytics SDKs.</p>
+            </div>
+            <div class="section">
+                <h2>Network Access</h2>
+                <p>CupWeigh operates entirely offline. The app does not connect to the internet and does not send or receive any data over a network. All ingredient data and conversion calculations are performed locally on your device.</p>
+            </div>
+            <div class="section">
+                <h2>Data Storage</h2>
+                <p>Any preferences or saved conversions are stored locally on your device only. This data is never transmitted to any server or third party. Uninstalling the app removes all locally stored data.</p>
+            </div>
+            <div class="section">
+                <h2>In-App Purchases</h2>
+                <p>CupWeigh offers optional tip jar purchases ("Buy me a coffee"). These are processed securely through Apple's App Store. UDT s.r.o. does not collect or store any payment information — all transactions are handled entirely by Apple.</p>
+            </div>
+            <div class="section">
+                <h2>Third-Party Services</h2>
+                <p>CupWeigh does not integrate with any third-party services, advertising networks, or analytics platforms. There are no ads in the app.</p>
+            </div>
+            <div class="section">
+                <h2>Children's Privacy</h2>
+                <p>CupWeigh does not collect any personal information from anyone, including children under the age of 13. The app is safe for users of all ages.</p>
+            </div>
+            <div class="section">
+                <h2>Changes to This Policy</h2>
+                <p>If this privacy policy is updated, the changes will be posted on this page with an updated effective date. Since the app collects no data, significant changes are unlikely.</p>
             </div>
         </div>
 
-        <!-- Future apps: copy the app-card block and adjust -->
+        <!-- ═══ ČEŠTINA ═══ -->
+        <div class="lang-content" id="lang-cs">
+            <p class="meta">Ochrana soukromí · Účinnost od 9. dubna 2026</p>
+
+            <div class="highlight">
+                <p><strong>Stručně:</strong> CupWeigh neshromažďuje, neukládá ani nesdílí žádné vaše osobní údaje. Aplikace funguje zcela offline na vašem zařízení.</p>
+            </div>
+
+            <div class="section">
+                <h2>Sběr dat</h2>
+                <p>CupWeigh neshromažďuje žádné osobní údaje. Aplikace nevyžaduje účet, přihlášení ani jakoukoli formu registrace. Žádná jména, e-mailové adresy ani jiné identifikátory nejsou nikdy požadovány ani ukládány.</p>
+            </div>
+            <div class="section">
+                <h2>Údaje o používání</h2>
+                <p>CupWeigh neshromažďuje analytická data, statistiky používání, hlášení o pádech ani žádná jiná telemetrická data. Aplikace neobsahuje žádné sledovací ani analytické SDK třetích stran.</p>
+            </div>
+            <div class="section">
+                <h2>Přístup k síti</h2>
+                <p>CupWeigh funguje zcela offline. Aplikace se nepřipojuje k internetu a neodesílá ani nepřijímá žádná data přes síť. Veškerá data o surovinách a výpočty převodů probíhají lokálně na vašem zařízení.</p>
+            </div>
+            <div class="section">
+                <h2>Ukládání dat</h2>
+                <p>Veškeré předvolby nebo uložené převody jsou uloženy výhradně lokálně na vašem zařízení. Tato data nejsou nikdy přenášena na žádný server ani třetí straně. Odinstalování aplikace odstraní veškerá lokálně uložená data.</p>
+            </div>
+            <div class="section">
+                <h2>Nákupy v aplikaci</h2>
+                <p>CupWeigh nabízí volitelné dobrovolné příspěvky („Kup mi kafe"). Tyto nákupy jsou bezpečně zpracovány prostřednictvím Apple App Store. UDT s.r.o. neshromažďuje ani neukládá žádné platební údaje — všechny transakce zpracovává výhradně Apple.</p>
+            </div>
+            <div class="section">
+                <h2>Služby třetích stran</h2>
+                <p>CupWeigh neintegruje žádné služby třetích stran, reklamní sítě ani analytické platformy. V aplikaci nejsou žádné reklamy.</p>
+            </div>
+            <div class="section">
+                <h2>Ochrana soukromí dětí</h2>
+                <p>CupWeigh neshromažďuje žádné osobní údaje od nikoho, včetně dětí mladších 13 let. Aplikace je bezpečná pro uživatele všech věkových kategorií.</p>
+            </div>
+            <div class="section">
+                <h2>Změny těchto zásad</h2>
+                <p>Pokud budou tyto zásady ochrany soukromí aktualizovány, změny budou zveřejněny na této stránce s aktualizovaným datem účinnosti. Vzhledem k tomu, že aplikace neshromažďuje žádná data, jsou významné změny nepravděpodobné.</p>
+            </div>
+        </div>
+
+        <!-- ═══ DEUTSCH ═══ -->
+        <div class="lang-content" id="lang-de">
+            <p class="meta">Datenschutzrichtlinie · Gültig ab 9. April 2026</p>
+
+            <div class="highlight">
+                <p><strong>Kurzfassung:</strong> CupWeigh sammelt, speichert oder teilt keine Ihrer persönlichen Daten. Die App funktioniert vollständig offline auf Ihrem Gerät.</p>
+            </div>
+
+            <div class="section">
+                <h2>Datenerfassung</h2>
+                <p>CupWeigh erfasst keine persönlichen Daten. Die App erfordert kein Konto, keine Anmeldung und keine Registrierung. Es werden keine Namen, E-Mail-Adressen oder andere Identifikatoren angefordert oder gespeichert.</p>
+            </div>
+            <div class="section">
+                <h2>Nutzungsdaten</h2>
+                <p>CupWeigh erfasst keine Analysedaten, Nutzungsstatistiken, Absturzberichte oder andere Telemetriedaten. Die App enthält keine Tracking- oder Analyse-SDKs von Drittanbietern.</p>
+            </div>
+            <div class="section">
+                <h2>Netzwerkzugriff</h2>
+                <p>CupWeigh funktioniert vollständig offline. Die App stellt keine Verbindung zum Internet her und sendet oder empfängt keine Daten über ein Netzwerk. Alle Zutatendaten und Umrechnungsberechnungen werden lokal auf Ihrem Gerät durchgeführt.</p>
+            </div>
+            <div class="section">
+                <h2>Datenspeicherung</h2>
+                <p>Alle Einstellungen oder gespeicherten Umrechnungen werden ausschließlich lokal auf Ihrem Gerät gespeichert. Diese Daten werden niemals an einen Server oder Dritte übermittelt. Die Deinstallation der App entfernt alle lokal gespeicherten Daten.</p>
+            </div>
+            <div class="section">
+                <h2>In-App-Käufe</h2>
+                <p>CupWeigh bietet optionale freiwillige Beiträge („Kauf mir einen Kaffee"). Diese werden sicher über den Apple App Store abgewickelt. UDT s.r.o. erfasst oder speichert keine Zahlungsinformationen — alle Transaktionen werden vollständig von Apple abgewickelt.</p>
+            </div>
+            <div class="section">
+                <h2>Dienste Dritter</h2>
+                <p>CupWeigh integriert keine Dienste Dritter, Werbenetzwerke oder Analyseplattformen. Es gibt keine Werbung in der App.</p>
+            </div>
+            <div class="section">
+                <h2>Datenschutz für Kinder</h2>
+                <p>CupWeigh erfasst keine persönlichen Daten von Personen, einschließlich Kindern unter 13 Jahren. Die App ist für Benutzer jeden Alters sicher.</p>
+            </div>
+            <div class="section">
+                <h2>Änderungen dieser Richtlinie</h2>
+                <p>Falls diese Datenschutzrichtlinie aktualisiert wird, werden die Änderungen auf dieser Seite mit einem aktualisierten Gültigkeitsdatum veröffentlicht. Da die App keine Daten sammelt, sind wesentliche Änderungen unwahrscheinlich.</p>
+            </div>
+        </div>
+
+        <!-- ═══ ESPAÑOL ═══ -->
+        <div class="lang-content" id="lang-es">
+            <p class="meta">Política de privacidad · Vigente desde el 9 de abril de 2026</p>
+
+            <div class="highlight">
+                <p><strong>En resumen:</strong> CupWeigh no recopila, almacena ni comparte ningún dato personal. La aplicación funciona completamente sin conexión en su dispositivo.</p>
+            </div>
+
+            <div class="section">
+                <h2>Recopilación de datos</h2>
+                <p>CupWeigh no recopila ninguna información personal. La aplicación no requiere cuenta, inicio de sesión ni ninguna forma de registro. No se solicitan ni almacenan nombres, direcciones de correo electrónico ni otros identificadores.</p>
+            </div>
+            <div class="section">
+                <h2>Datos de uso</h2>
+                <p>CupWeigh no recopila análisis, estadísticas de uso, informes de errores ni ningún otro dato de telemetría. La aplicación no contiene SDK de seguimiento o análisis de terceros.</p>
+            </div>
+            <div class="section">
+                <h2>Acceso a la red</h2>
+                <p>CupWeigh funciona completamente sin conexión. La aplicación no se conecta a Internet y no envía ni recibe datos a través de una red. Todos los datos de ingredientes y los cálculos de conversión se realizan localmente en su dispositivo.</p>
+            </div>
+            <div class="section">
+                <h2>Almacenamiento de datos</h2>
+                <p>Todas las preferencias o conversiones guardadas se almacenan localmente en su dispositivo. Estos datos nunca se transmiten a ningún servidor ni a terceros. Desinstalar la aplicación elimina todos los datos almacenados localmente.</p>
+            </div>
+            <div class="section">
+                <h2>Compras dentro de la aplicación</h2>
+                <p>CupWeigh ofrece contribuciones voluntarias opcionales ("Invítame un café"). Estas se procesan de forma segura a través del App Store de Apple. UDT s.r.o. no recopila ni almacena información de pago — todas las transacciones son gestionadas exclusivamente por Apple.</p>
+            </div>
+            <div class="section">
+                <h2>Servicios de terceros</h2>
+                <p>CupWeigh no integra servicios de terceros, redes publicitarias ni plataformas de análisis. No hay anuncios en la aplicación.</p>
+            </div>
+            <div class="section">
+                <h2>Privacidad de los niños</h2>
+                <p>CupWeigh no recopila información personal de nadie, incluidos los menores de 13 años. La aplicación es segura para usuarios de todas las edades.</p>
+            </div>
+            <div class="section">
+                <h2>Cambios en esta política</h2>
+                <p>Si esta política de privacidad se actualiza, los cambios se publicarán en esta página con una fecha de vigencia actualizada. Dado que la aplicación no recopila datos, es poco probable que haya cambios significativos.</p>
+            </div>
+        </div>
+
+        <!-- ═══ FRANÇAIS ═══ -->
+        <div class="lang-content" id="lang-fr">
+            <p class="meta">Politique de confidentialité · En vigueur depuis le 9 avril 2026</p>
+
+            <div class="highlight">
+                <p><strong>En bref :</strong> CupWeigh ne collecte, ne stocke ni ne partage aucune de vos données personnelles. L'application fonctionne entièrement hors ligne sur votre appareil.</p>
+            </div>
+
+            <div class="section">
+                <h2>Collecte de données</h2>
+                <p>CupWeigh ne collecte aucune information personnelle. L'application ne nécessite pas de compte, de connexion ni aucune forme d'inscription. Aucun nom, adresse e-mail ou autre identifiant n'est jamais demandé ou stocké.</p>
+            </div>
+            <div class="section">
+                <h2>Données d'utilisation</h2>
+                <p>CupWeigh ne collecte pas de données analytiques, de statistiques d'utilisation, de rapports de plantage ni aucune autre donnée de télémétrie. L'application ne contient aucun SDK de suivi ou d'analyse tiers.</p>
+            </div>
+            <div class="section">
+                <h2>Accès réseau</h2>
+                <p>CupWeigh fonctionne entièrement hors ligne. L'application ne se connecte pas à Internet et n'envoie ni ne reçoit aucune donnée via un réseau. Toutes les données d'ingrédients et les calculs de conversion sont effectués localement sur votre appareil.</p>
+            </div>
+            <div class="section">
+                <h2>Stockage des données</h2>
+                <p>Toutes les préférences ou conversions sauvegardées sont stockées localement sur votre appareil uniquement. Ces données ne sont jamais transmises à un serveur ou à un tiers. La désinstallation de l'application supprime toutes les données stockées localement.</p>
+            </div>
+            <div class="section">
+                <h2>Achats intégrés</h2>
+                <p>CupWeigh propose des contributions volontaires optionnelles (« Offrez-moi un café »). Celles-ci sont traitées de manière sécurisée via l'App Store d'Apple. UDT s.r.o. ne collecte ni ne stocke aucune information de paiement — toutes les transactions sont gérées exclusivement par Apple.</p>
+            </div>
+            <div class="section">
+                <h2>Services tiers</h2>
+                <p>CupWeigh n'intègre aucun service tiers, réseau publicitaire ou plateforme d'analyse. Il n'y a aucune publicité dans l'application.</p>
+            </div>
+            <div class="section">
+                <h2>Confidentialité des enfants</h2>
+                <p>CupWeigh ne collecte aucune information personnelle de quiconque, y compris les enfants de moins de 13 ans. L'application est sûre pour les utilisateurs de tout âge.</p>
+            </div>
+            <div class="section">
+                <h2>Modifications de cette politique</h2>
+                <p>Si cette politique de confidentialité est mise à jour, les modifications seront publiées sur cette page avec une date d'entrée en vigueur actualisée. Étant donné que l'application ne collecte aucune donnée, des modifications significatives sont peu probables.</p>
+            </div>
+        </div>
+
+        <!-- Contact (shared) -->
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>
+                <a href="https://github.com/kspacek">github.com/kspacek</a>
+            </p>
+        </div>
 
         <div class="footer">
-            &copy; 2026 UDT s.r.o. &middot; <a href="https://github.com/kspacek">GitHub</a>
+            &copy; 2026 UDT s.r.o.
         </div>
     </div>
+
+    <script>
+        document.getElementById('langBar').addEventListener('click', function(e) {
+            var btn = e.target.closest('.lang-btn');
+            if (!btn) return;
+            var lang = btn.getAttribute('data-lang');
+
+            document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+
+            document.querySelectorAll('.lang-content').forEach(function(c) { c.classList.remove('active'); });
+            document.getElementById('lang-' + lang).classList.add('active');
+
+            document.documentElement.setAttribute('lang', lang);
+        });
+    </script>
 </body>
 </html>
