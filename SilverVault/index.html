@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Vault — Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #e0e0e0;
+            background-color: #1a1a1a;
+            padding: 2rem 1.5rem 4rem;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: #6cb4ee;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .back-link:hover {
+            color: #aaa;
+        }
+
+        .app-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .policy-header {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .short-version {
+            margin-bottom: 2rem;
+        }
+
+        .short-version strong {
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #cccccc;
+            margin-top: 1.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+            color: #c0c0c0;
+        }
+
+        ul {
+            margin: 0.4rem 0 1rem 1.4rem;
+            color: #c0c0c0;
+        }
+
+        ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        ul li strong {
+            color: #e0e0e0;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #333;
+            margin: 2.5rem 0;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer a {
+            color: #888;
+        }
+
+        .footer a:hover {
+            color: #aaa;
+        }
+
+        .footer p {
+            color: #666;
+            margin-bottom: 0.4rem;
+        }
+
+        .terms-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.6rem 1.4rem;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #aaa;
+            font-size: 0.9rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .terms-link:hover {
+            border-color: #6cb4ee;
+            color: #6cb4ee;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://apps.udt.cz/" class="back-link">← All Apps</a>
+
+    <div class="app-icon">🛡️</div>
+    <h1>Silver Vault</h1>
+
+    <p class="policy-header">Privacy Policy · Effective April 25, 2026</p>
+
+    <p class="short-version"><strong>The short version:</strong> Silver Vault encrypts and stores all your files locally on your device using AES-256-GCM. We do not collect, transmit, or store any of your personal data on external servers. No cloud. No tracking. No ads.</p>
+
+    <hr class="divider">
+
+    <h2>Data Collection</h2>
+    <p>Silver Vault does not collect any personal information. The app does not require an account, login, or any form of registration. No names, email addresses, or other identifiers are ever requested or stored.</p>
+
+    <h2>Usage Data</h2>
+    <p>Silver Vault does not collect analytics, usage statistics, crash reports, or any other telemetry data. The app does not contain any third-party tracking, advertising, or analytics SDKs.</p>
+
+    <h2>Camera Access</h2>
+    <p>Silver Vault uses the device camera for the following purposes:</p>
+    <ul>
+        <li><strong>Direct capture:</strong> You can take photos directly into the vault. These photos are encrypted immediately and never appear in your device's photo library.</li>
+        <li><strong>Document scanning:</strong> The camera is used for multi-page document scanning with automatic cropping and perspective correction.</li>
+        <li><strong>Intruder detection (optional):</strong> When enabled, the app captures a photo using the front-facing camera after a failed unlock attempt. This photo is stored locally within the app's encrypted storage and is never transmitted externally. You can review and delete these photos in the Security Dashboard.</li>
+    </ul>
+
+    <h2>Location Data</h2>
+    <p>Silver Vault accesses location data solely as part of the optional intruder detection feature. When a failed unlock attempt triggers a photo capture, the device's GPS coordinates are recorded alongside the photo. This data is stored locally within the app's encrypted storage and is never transmitted to any server or third party.</p>
+
+    <h2>Photos Library Access</h2>
+    <p>When you choose to import media from your photo library, the app accesses your Photos library with your explicit permission. Imported files are copied into the app's sandbox and encrypted. The app does not modify, delete, or access photos you have not explicitly selected for import.</p>
+
+    <h2>Face ID &amp; Touch ID</h2>
+    <p>Biometric authentication is handled entirely by Apple's LocalAuthentication framework. Silver Vault never accesses, stores, or processes biometric data. The system returns only a success or failure result to the app.</p>
+
+    <h2>Local Network Access</h2>
+    <p>When you activate WiFi Sharing, the app starts a local HTTP server on your device. This server is accessible only to devices on the same local WiFi network and is protected by a password you set. No data is sent to the internet. You control whether the connection is read-only or allows uploads.</p>
+
+    <h2>Files Access</h2>
+    <p>The app can import files from the iOS Files app. Imported files are encrypted and stored within the app's sandboxed storage.</p>
+
+    <h2>Encryption &amp; Data Storage</h2>
+    <p>All files stored in Silver Vault are encrypted using AES-256-GCM. Encryption and decryption occur entirely on your device. Encryption keys are stored in the iOS Keychain, which is protected by the device's Secure Enclave. We have no access to your encryption keys or your encrypted data.</p>
+    <p>If you delete the app, all encrypted data stored within it is permanently removed. Deleted items within the app are moved to a local Trash folder and automatically purged after a configurable retention period (7–90 days).</p>
+
+    <h2>Backup</h2>
+    <p>Silver Vault allows you to create password-protected encrypted backup files (.svault format). These files are created and stored locally. If you choose to transfer a backup file via AirDrop, iMessage, or any other sharing method, that transfer is your decision and responsibility.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>Silver Vault does not integrate with any third-party services, advertising networks, or analytics platforms. There are no ads in the app.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Silver Vault does not collect any personal information from anyone, including children under the age of 13. Since the app collects no personal data from any user, it is compliant with COPPA.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If this privacy policy is updated, the changes will be posted on this page with an updated effective date.</p>
+
+    <hr class="divider">
+
+    <div class="footer">
+        <p><a href="mailto:support@udt.cz?subject=Silver%20Vault%20Support&body=App%20version%3A%20%0ADevice%3A%20%0A%0AMessage%3A%20">support@udt.cz</a></p>
+        <p><a href="https://github.com/kspacek">github.com/kspacek</a></p>
+        <p style="margin-top: 1rem;">© 2026 UDT s.r.o.</p>
+    </div>
+
+</body>
+</html>
