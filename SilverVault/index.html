@@ -363,7 +363,17 @@
             document.querySelector('.nav-tabs a[href="#' + id + '"]').classList.add('active');
             window.scrollTo(0, 0);
         }
-        if (window.location.hash === '#terms') showSection('terms');
+    
+        function handleHash() {
+            if (window.location.hash === '#terms') {
+                showSection('terms');
+            } else {
+                showSection('privacy');
+            }
+        }
+    
+        window.addEventListener('hashchange', handleHash);
+        handleHash();
     </script>
 
 </body>
