@@ -132,6 +132,10 @@
   .tab-link{
     padding:12px 18px;
     color:var(--ink-muted);
+    background:none;
+    border:none;
+    font-family:var(--sans);
+    cursor:pointer;
     text-decoration:none;
     font-size:14px;
     font-weight:500;
@@ -154,6 +158,11 @@
 
   .lang-section{ display:none; }
   .lang-section.active{ display:block; }
+
+  /* Within the active language, only show the document matching the
+     currently selected tab. Body carries the active-tab class. */
+  body.tab-privacy [data-doc="terms"]{ display:none; }
+  body.tab-terms   [data-doc="privacy"]{ display:none; }
 
   .doc-section{
     background:var(--surface);
@@ -270,8 +279,8 @@
 
 <!-- Tab nav -->
 <nav class="tab-nav" aria-label="Documents">
-  <a href="#privacy" class="tab-link active" data-tab="privacy">Privacy Policy</a>
-  <a href="#terms" class="tab-link" data-tab="terms">Terms of Use</a>
+  <button class="tab-link active" type="button" data-tab="privacy" data-i18n="privacy">Privacy Policy</button>
+  <button class="tab-link" type="button" data-tab="terms" data-i18n="terms">Terms of Use</button>
 </nav>
 
 <main>
@@ -281,7 +290,7 @@
 <!-- ============================================================ -->
 <section class="lang-section active" data-lang="en">
 
-  <article class="doc-section" id="privacy">
+  <article class="doc-section" data-doc="privacy">
     <h2>Privacy Policy</h2>
     <p class="updated">Last updated: 10 May 2026 · Version 1.0</p>
 
@@ -337,7 +346,7 @@
     <p>Questions about this Privacy Policy: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
-  <article class="doc-section" id="terms">
+  <article class="doc-section" data-doc="terms">
     <h2>Terms of Use</h2>
     <p class="updated">Last updated: 10 May 2026 · Version 1.0</p>
 
@@ -402,7 +411,7 @@
 <!-- ============================================================ -->
 <section class="lang-section" data-lang="cs">
 
-  <article class="doc-section" id="privacy">
+  <article class="doc-section" data-doc="privacy">
     <h2>Zásady ochrany osobních údajů</h2>
     <p class="updated">Naposledy aktualizováno: 10. května 2026 · Verze 1.0</p>
 
@@ -458,7 +467,7 @@
     <p>Dotazy ohledně těchto zásad: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
-  <article class="doc-section" id="terms">
+  <article class="doc-section" data-doc="terms">
     <h2>Podmínky používání</h2>
     <p class="updated">Naposledy aktualizováno: 10. května 2026 · Verze 1.0</p>
 
@@ -523,7 +532,7 @@
 <!-- ============================================================ -->
 <section class="lang-section" data-lang="de">
 
-  <article class="doc-section" id="privacy">
+  <article class="doc-section" data-doc="privacy">
     <h2>Datenschutzerklärung</h2>
     <p class="updated">Zuletzt aktualisiert: 10. Mai 2026 · Version 1.0</p>
 
@@ -579,7 +588,7 @@
     <p>Fragen zu dieser Datenschutzerklärung: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
-  <article class="doc-section" id="terms">
+  <article class="doc-section" data-doc="terms">
     <h2>Nutzungsbedingungen</h2>
     <p class="updated">Zuletzt aktualisiert: 10. Mai 2026 · Version 1.0</p>
 
@@ -644,7 +653,7 @@
 <!-- ============================================================ -->
 <section class="lang-section" data-lang="es">
 
-  <article class="doc-section" id="privacy">
+  <article class="doc-section" data-doc="privacy">
     <h2>Política de Privacidad</h2>
     <p class="updated">Última actualización: 10 de mayo de 2026 · Versión 1.0</p>
 
@@ -700,7 +709,7 @@
     <p>Preguntas sobre esta Política de Privacidad: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
-  <article class="doc-section" id="terms">
+  <article class="doc-section" data-doc="terms">
     <h2>Términos de Uso</h2>
     <p class="updated">Última actualización: 10 de mayo de 2026 · Versión 1.0</p>
 
@@ -765,7 +774,7 @@
 <!-- ============================================================ -->
 <section class="lang-section" data-lang="pt">
 
-  <article class="doc-section" id="privacy">
+  <article class="doc-section" data-doc="privacy">
     <h2>Política de Privacidade</h2>
     <p class="updated">Última atualização: 10 de maio de 2026 · Versão 1.0</p>
 
@@ -821,7 +830,7 @@
     <p>Questões sobre esta Política de Privacidade: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
-  <article class="doc-section" id="terms">
+  <article class="doc-section" data-doc="terms">
     <h2>Termos de Utilização</h2>
     <p class="updated">Última atualização: 10 de maio de 2026 · Versão 1.0</p>
 
@@ -886,7 +895,7 @@
 <!-- ============================================================ -->
 <section class="lang-section" data-lang="it">
 
-  <article class="doc-section" id="privacy">
+  <article class="doc-section" data-doc="privacy">
     <h2>Informativa sulla privacy</h2>
     <p class="updated">Ultimo aggiornamento: 10 maggio 2026 · Versione 1.0</p>
 
@@ -942,7 +951,7 @@
     <p>Domande su questa Informativa sulla privacy: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
-  <article class="doc-section" id="terms">
+  <article class="doc-section" data-doc="terms">
     <h2>Termini di utilizzo</h2>
     <p class="updated">Ultimo aggiornamento: 10 maggio 2026 · Versione 1.0</p>
 
@@ -1007,7 +1016,7 @@
 <!-- ============================================================ -->
 <section class="lang-section" data-lang="pl">
 
-  <article class="doc-section" id="privacy">
+  <article class="doc-section" data-doc="privacy">
     <h2>Polityka prywatności</h2>
     <p class="updated">Ostatnia aktualizacja: 10 maja 2026 · Wersja 1.0</p>
 
@@ -1063,7 +1072,7 @@
     <p>Pytania dotyczące niniejszej Polityki prywatności: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
-  <article class="doc-section" id="terms">
+  <article class="doc-section" data-doc="terms">
     <h2>Warunki użytkowania</h2>
     <p class="updated">Ostatnia aktualizacja: 10 maja 2026 · Wersja 1.0</p>
 
@@ -1130,49 +1139,111 @@
 </footer>
 
 <script>
-  // Language switcher
+  // ===== State =====
+  const SUPPORTED_LANGS = ['en','cs','de','es','pt','it','pl'];
   const langButtons = document.querySelectorAll('.lang-btn');
   const langSections = document.querySelectorAll('.lang-section');
+  const tabLinks = document.querySelectorAll('.tab-link');
+
+  // Tab labels per language (only the two tab buttons are language-agnostic
+  // in the markup; everything else lives inside its own .lang-section).
+  const I18N = {
+    en: { privacy: 'Privacy Policy',         terms: 'Terms of Use' },
+    cs: { privacy: 'Zásady soukromí',        terms: 'Podmínky používání' },
+    de: { privacy: 'Datenschutz',            terms: 'Nutzungsbedingungen' },
+    es: { privacy: 'Privacidad',             terms: 'Términos de Uso' },
+    pt: { privacy: 'Privacidade',            terms: 'Termos de Utilização' },
+    it: { privacy: 'Privacy',                terms: 'Termini di utilizzo' },
+    pl: { privacy: 'Prywatność',             terms: 'Warunki użytkowania' }
+  };
+
+  // Apply id="privacy" / id="terms" only inside the currently active language
+  // section. This avoids duplicate IDs across the 7 lang sections, which
+  // would otherwise break anchor navigation.
+  function syncDocIds(activeLang) {
+    document.querySelectorAll('[data-doc]').forEach(el => {
+      const isActive = el.closest('.lang-section')?.dataset.lang === activeLang;
+      if (isActive) {
+        el.id = el.dataset.doc;          // e.g. id="privacy"
+      } else {
+        el.removeAttribute('id');         // hide from anchor resolution
+      }
+    });
+  }
+
+  function applyTabLabels(lang) {
+    const dict = I18N[lang] || I18N.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key]) el.textContent = dict[key];
+    });
+  }
 
   function setLang(lang) {
+    if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
     langButtons.forEach(btn => {
-      const isActive = btn.dataset.lang === lang;
-      btn.setAttribute('aria-current', isActive ? 'true' : 'false');
+      btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
     });
     langSections.forEach(sec => {
       sec.classList.toggle('active', sec.dataset.lang === lang);
     });
+    syncDocIds(lang);
+    applyTabLabels(lang);
     document.documentElement.lang = lang;
     try { localStorage.setItem('vellumo-lang', lang); } catch(e) {}
+    // Scroll back to top — same pattern as Silver Vault. Without this,
+    // language swap leaves the user mid-document with no visual context.
+    window.scrollTo(0, 0);
   }
 
+  function setActiveTab(tab, doScroll) {
+    tabLinks.forEach(link => {
+      link.classList.toggle('active', link.dataset.tab === tab);
+    });
+    // Toggle body class so CSS shows only the matching <article data-doc>
+    document.body.classList.toggle('tab-privacy', tab === 'privacy');
+    document.body.classList.toggle('tab-terms',   tab === 'terms');
+    if (doScroll) {
+      // Scroll to top so the new document starts at the top of the
+      // viewport — keeps perceived "no jump" feel from Silver Vault.
+      window.scrollTo(0, 0);
+    }
+    // Reflect in URL hash. Wrapped in try/catch because some sandboxed
+    // contexts (e.g. cross-origin previews using about:srcdoc) reject
+    // History API mutations with a SecurityError.
+    try {
+      if (history.replaceState) {
+        history.replaceState(null, '', '#' + tab);
+      }
+    } catch (e) { /* sandbox or unsupported — ignore */ }
+  }
+
+  // ===== Wire up events =====
   langButtons.forEach(btn => {
     btn.addEventListener('click', () => setLang(btn.dataset.lang));
   });
 
-  // Restore preferred lang or detect from browser
+  tabLinks.forEach(link => {
+    link.addEventListener('click', () => setActiveTab(link.dataset.tab, true));
+  });
+
+  // ===== Init =====
   (function init() {
+    // 1. Determine preferred language
     let preferred = null;
     try { preferred = localStorage.getItem('vellumo-lang'); } catch(e) {}
-    if (!preferred) {
-      const supported = ['en','cs','de','es','pt','it','pl'];
+    if (!preferred || !SUPPORTED_LANGS.includes(preferred)) {
       const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
-      preferred = supported.includes(nav) ? nav : 'en';
+      preferred = SUPPORTED_LANGS.includes(nav) ? nav : 'en';
     }
     setLang(preferred);
-  })();
 
-  // Tab nav highlight (Privacy / Terms)
-  const tabLinks = document.querySelectorAll('.tab-link');
-  function setActiveTab() {
-    const hash = window.location.hash || '#privacy';
-    tabLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === hash);
-    });
-  }
-  tabLinks.forEach(link => link.addEventListener('click', () => setTimeout(setActiveTab, 50)));
-  window.addEventListener('hashchange', setActiveTab);
-  setActiveTab();
+    // 2. Honour incoming hash (#privacy or #terms), default to privacy.
+    //    Don't auto-scroll on initial load — that would push the user past
+    //    the hero on first paint.
+    const initialTab = (window.location.hash === '#terms') ? 'terms' : 'privacy';
+    setActiveTab(initialTab, false);
+  })();
 </script>
 
 </body>
