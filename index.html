@@ -56,106 +56,35 @@
             z-index: 1;
         }
 
-        /* === LOGO BLOCK ===
-           Logo PNG je tmavé (černý text na transparentu), takže ho nemůžeme
-           dát přímo na tmavé pozadí. Místo CSS hacků (invert, blend-mode)
-           ho zasadíme do elegantní "identifikační karty" se světlým gradientem
-           a tagline vedle — tím vyřešíme kontrast a zároveň přidáme charakter. */
+        /* === LOGO PLINTH ===
+           Logo PNG má černý text — proto potřebuje světlý podklad.
+           Drobná krémová "deska" pod logem zachová původní barvy
+           a zároveň drží minimalistický feeling stránky. */
         .logo-block {
             display: inline-flex;
             align-items: center;
-            gap: 20px;
             margin-bottom: 48px;
-            padding: 14px 22px 14px 18px;
-            background: linear-gradient(135deg,
-                rgba(248, 244, 235, 0.97) 0%,
-                rgba(238, 230, 215, 0.95) 100%);
-            border: 1px solid rgba(196, 149, 106, 0.25);
-            border-radius: 14px;
-            position: relative;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #f5efe2, #ebe2cf);
+            border: 1px solid rgba(196, 149, 106, 0.22);
+            border-radius: 12px;
             opacity: 0;
             animation: fadeUp 0.6s ease forwards;
             box-shadow:
-                0 1px 0 rgba(255, 255, 255, 0.1) inset,
-                0 8px 32px rgba(0, 0, 0, 0.35),
-                0 0 40px rgba(196, 149, 106, 0.08);
-            overflow: hidden;
-        }
-
-        /* Jemný shimmer — světelný odraz, který přejede přes logo při načtení.
-           Spustí se po fade-in (delay 0.8s), proběhne jednou. */
-        .logo-block::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -60%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(
-                100deg,
-                transparent 20%,
-                rgba(255, 255, 255, 0.6) 50%,
-                transparent 80%
-            );
-            transform: skewX(-20deg);
-            animation: shimmer 1.4s ease-out 0.8s 1 forwards;
-            pointer-events: none;
+                0 1px 0 rgba(255, 255, 255, 0.4) inset,
+                0 4px 24px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(196, 149, 106, 0.06);
         }
 
         .logo {
             display: block;
             height: 32px;
             width: auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Vertikální oddělovač mezi logem a tagline — vlasový proužek
-           v accent barvě, vizuálně sváže obě části. */
-        .logo-divider {
-            width: 1px;
-            height: 28px;
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                rgba(92, 61, 26, 0.35),
-                transparent
-            );
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-tagline {
-            font-family: 'Outfit', sans-serif;
-            font-size: 11px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: #5c3d1a; /* tmavá tabáková — kontrast na světlé kartě */
-            font-weight: 500;
-            line-height: 1.5;
-            position: relative;
-            z-index: 1;
-            white-space: nowrap;
-        }
-
-        .logo-tagline .accent {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        @keyframes shimmer {
-            0% { left: -60%; }
-            100% { left: 120%; }
         }
 
         @media (max-width: 560px) {
-            .logo-block {
-                gap: 14px;
-                padding: 12px 16px 12px 14px;
-            }
+            .logo-block { padding: 10px 16px; }
             .logo { height: 26px; }
-            .logo-tagline { font-size: 10px; letter-spacing: 2px; }
-            .logo-divider { height: 22px; }
         }
 
         h1 {
@@ -342,10 +271,6 @@
     <div class="container">
         <div class="logo-block">
             <img src="logo_udt.png" alt="UDT s.r.o." class="logo">
-            <div class="logo-divider"></div>
-            <div class="logo-tagline">
-                Independent<br>iOS&nbsp;Studio
-            </div>
         </div>
 
         <h1>Apps & Privacy</h1>
