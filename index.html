@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UDT s.r.o. — Apps</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -56,11 +57,9 @@
         }
 
         .logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--accent);
+            display: block;
+            height: 36px;
+            width: auto;
             margin-bottom: 48px;
             opacity: 0;
             animation: fadeUp 0.6s ease forwards;
@@ -109,8 +108,14 @@
             color: var(--text);
             transition: all 0.3s ease;
             opacity: 0;
-            animation: fadeUp 0.6s ease 0.4s forwards;
+            animation: fadeUp 0.6s ease forwards;
         }
+
+        /* Postupné naskakování karet — každá s vlastním zpožděním */
+        .app-card:nth-of-type(1) { animation-delay: 0.4s; }
+        .app-card:nth-of-type(2) { animation-delay: 0.5s; }
+        .app-card:nth-of-type(3) { animation-delay: 0.6s; }
+        .app-card:nth-of-type(4) { animation-delay: 0.7s; }
 
         .app-card:hover {
             border-color: var(--accent);
@@ -127,10 +132,30 @@
             justify-content: center;
             font-size: 32px;
             flex-shrink: 0;
+            overflow: hidden; /* aby <img> respektoval border-radius */
         }
 
+        /* Img uvnitř ikony se roztáhne přes celou plochu */
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Gradient fallback — viditelný jen pokud obrázek chybí / se nenačte */
         .app-icon.cupweigh {
             background: linear-gradient(135deg, #5c3d1a, #a06c2a);
+        }
+        .app-icon.silvervault {
+            background: linear-gradient(135deg, #2a3a52, #6b7d96);
+        }
+        .app-icon.vellumo {
+            background: linear-gradient(135deg, #4a3826, #8c6a47);
+        }
+
+        .app-info {
+            min-width: 0; /* aby flex-wrap fungoval i s dlouhým textem */
         }
 
         .app-info h3 {
@@ -145,11 +170,29 @@
             font-weight: 300;
         }
 
+        /* Badge pro aplikace ve vývoji / před vydáním */
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(196, 149, 106, 0.1);
+            border: 1px solid rgba(196, 149, 106, 0.25);
+            border-radius: 4px;
+            padding: 2px 8px;
+            margin-left: 8px;
+            vertical-align: middle;
+            font-weight: 400;
+        }
+
         .app-links {
             margin-left: auto;
             display: flex;
             gap: 12px;
             flex-shrink: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .app-links a {
@@ -176,12 +219,16 @@
             color: var(--muted);
             font-weight: 300;
             opacity: 0;
-            animation: fadeUp 0.6s ease 0.5s forwards;
+            animation: fadeUp 0.6s ease 0.8s forwards;
         }
 
         .footer a {
             color: var(--accent);
             text-decoration: none;
+        }
+
+        .footer .contact {
+            margin-top: 8px;
         }
 
         @keyframes fadeUp {
@@ -191,7 +238,7 @@
 
         @media (max-width: 560px) {
             .app-card { flex-wrap: wrap; padding: 24px; }
-            .app-links { margin-left: 0; margin-top: 8px; width: 100%; }
+            .app-links { margin-left: 0; margin-top: 8px; width: 100%; justify-content: flex-start; }
         }
     </style>
 </head>
@@ -200,7 +247,7 @@
     <div class="glow-orb"></div>
 
     <div class="container">
-        <div class="logo">UDT s.r.o.</div>
+        <img src="logo_udt.png" alt="UDT s.r.o." class="logo">
 
         <h1>Apps & Privacy</h1>
         <p class="subtitle">
@@ -211,7 +258,9 @@
         <div class="section-label">Applications</div>
 
         <div class="app-card">
-            <div class="app-icon cupweigh">☕</div>
+            <div class="app-icon cupweigh">
+                <img src="cupweigh/AppIcon.png" alt="CupWeigh app icon" loading="lazy">
+            </div>
             <div class="app-info">
                 <h3>CupWeigh</h3>
                 <p>Kitchen cup-to-weight converter for baking</p>
@@ -221,10 +270,40 @@
             </div>
         </div>
 
-        <!-- Future apps: copy the app-card block and adjust -->
+        <div class="app-card">
+            <div class="app-icon silvervault">
+                <img src="SilverVault/icon-1024.png" alt="Silver Vault app icon" loading="lazy">
+            </div>
+            <div class="app-info">
+                <h3>Silver Vault</h3>
+                <p>Encrypted file vault with Face ID, OCR search & WiFi sharing</p>
+            </div>
+            <div class="app-links">
+                <a href="SilverVault/">Privacy Policy</a>
+            </div>
+        </div>
+
+        <div class="app-card">
+            <div class="app-icon vellumo">
+                <img src="Vellumo/AppIcon-1024.png" alt="Vellumo app icon" loading="lazy">
+            </div>
+            <div class="app-info">
+                <h3>Vellumo</h3>
+                <p>Document scanning & PDF management on iOS</p>
+            </div>
+            <div class="app-links">
+                <a href="Vellumo/">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- Future apps: copy the app-card block, add matching .app-icon.<name> gradient -->
 
         <div class="footer">
             &copy; 2026 UDT s.r.o. &middot; <a href="https://github.com/kspacek">GitHub</a>
+            <div class="contact">
+                Horníkova 2965/32f, Líšeň, 628 00 Brno, Czech Republic &middot;
+                <a href="mailto:support@udt.cz">support@udt.cz</a>
+            </div>
         </div>
     </div>
 </body>
