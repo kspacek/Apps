@@ -234,8 +234,6 @@
 <a href="https://apps.udt.cz/" class="back-link">← All Apps</a>
 
 <div class="app-icon">
-  <!-- Reuses the same crisp shield icon as the live page. Embedded so the
-       file is fully portable: drop it on any static host, no asset deps. -->
   <svg width="96" height="112" viewBox="0 0 96 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
@@ -248,13 +246,10 @@
         <stop offset="100%" stop-color="#5a6478"/>
       </linearGradient>
     </defs>
-    <!-- Shield body -->
     <path d="M48 4 L88 16 L88 56 Q88 88 48 108 Q8 88 8 56 L8 16 Z"
           fill="url(#shield)" stroke="url(#rim)" stroke-width="2"/>
-    <!-- Inner shadow line -->
     <path d="M48 10 L82 20 L82 56 Q82 84 48 100 Q14 84 14 56 L14 20 Z"
           fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-    <!-- Keyhole -->
     <circle cx="48" cy="50" r="8" fill="#1a1f2e"/>
     <rect x="44" y="50" width="8" height="20" rx="1" fill="#1a1f2e"/>
   </svg>
@@ -308,9 +303,9 @@
 <section class="lang-section active" data-lang="en">
 
   <article data-doc="privacy">
-    <p class="policy-header">Privacy Policy · Effective May 16, 2026</p>
+    <p class="policy-header">Privacy Policy · Effective May 17, 2026</p>
 
-    <div class="short-version"><strong>The short version:</strong> Silver Vault encrypts and stores your photos and videos locally on your device using AES-256-GCM. We do not collect, transmit, or store any of your data on external servers. No cloud accounts. No tracking. No ads.</div>
+    <div class="short-version"><strong>The short version:</strong> Silver Vault encrypts and stores your photos, videos, and documents locally on your device using AES-256-GCM. We do not collect, transmit, or store any of your data on external servers. No cloud accounts. No tracking. No ads.</div>
 
     <h2>1. Data Controller</h2>
     <p>The data controller is <strong>UDT s.r.o.</strong>, a company registered in the Czech Republic. Contact: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
@@ -318,34 +313,51 @@
     <h2>2. What Data We Collect</h2>
     <p><strong>We do not operate any server, analytics platform, or backend service that receives data from the App.</strong> We do not collect, transmit, store, or process any of the following on our infrastructure:</p>
     <ul>
-      <li>Photos, videos, or any files you import into the vault</li>
+      <li>Photos, videos, PDFs, scanned documents, or any files you import into the vault</li>
       <li>Your PIN, biometric data, or encryption keys</li>
       <li>Usage analytics, behavioral data, or telemetry</li>
       <li>Crash reports or diagnostic logs</li>
       <li>Personal identifiers, advertising IDs, or device fingerprints</li>
+      <li>OCR text extracted from your documents</li>
+      <li>Photos or location data captured by the Intruder Detection feature</li>
     </ul>
 
     <h2>3. Where Your Data Lives</h2>
-    <p><strong>On your device:</strong> All photos and videos you import or capture are stored locally within the App's encrypted sandbox. Encryption and decryption happen entirely on-device using Apple's CryptoKit (AES-256-GCM). Encryption keys are derived from your PIN via PBKDF2-SHA256 with 200,000 iterations and stored in the iOS Keychain, protected by the Secure Enclave.</p>
+    <p><strong>On your device:</strong> All photos, videos, and documents you import or capture are stored locally within the App's encrypted sandbox. Encryption and decryption happen entirely on-device using Apple's CryptoKit (AES-256-GCM). Encryption keys are derived from your PIN via PBKDF2-SHA256 with 200,000 iterations and stored in the iOS Keychain, protected by the Secure Enclave.</p>
 
     <p><strong>Optional iCloud Drive backup:</strong> If you enable the encrypted backup feature, your files are encrypted locally on your device <em>before</em> being uploaded to your personal iCloud Drive. Apple cannot read the contents. Apple acts as a sub-processor under its own privacy policy (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>).</p>
 
     <h2>4. Photos Library Access</h2>
     <p>When you choose to import media from your iOS Photos library, the App accesses it only with your explicit permission. Imported files are copied into the App's encrypted sandbox. The App does not modify, delete, or access photos you have not selected for import.</p>
 
-    <h2>5. Face ID and Touch ID</h2>
+    <h2>5. Camera Access</h2>
+    <p>Silver Vault uses the device camera for the following purposes:</p>
+    <ul>
+      <li><strong>Direct capture:</strong> You can take photos and videos directly into the vault. Captured media is encrypted immediately and never appears in your device's photo library.</li>
+      <li><strong>Document scanning:</strong> The camera is used for multi-page document scanning with automatic edge detection and perspective correction. Scans are saved directly into the encrypted vault as searchable PDFs.</li>
+      <li><strong>Intruder Detection (optional):</strong> When enabled, the App uses the front camera to capture a photo after repeated failed PIN attempts. This photo is stored locally within the App's encrypted storage and is never transmitted externally. You can review and delete these photos in the Security &amp; Activity section.</li>
+    </ul>
+    <p>The camera is only activated when you initiate an action requiring it (capture, scan) or when the Intruder Detection feature triggers after failed unlock attempts. Camera access is requested at first use and can be revoked anytime in iOS Settings.</p>
+
+    <h2>6. Text Recognition (OCR)</h2>
+    <p>Silver Vault includes built-in text recognition that lets you search for words inside photos and PDFs stored in your vault. <strong>All OCR processing happens entirely on your device</strong> using Apple's Vision framework. No images, text, or metadata are transmitted externally. The OCR index is stored locally within the encrypted vault. Supported languages include over 30 written scripts; you can choose which languages to index in Settings.</p>
+
+    <h2>7. Location Data</h2>
+    <p>Silver Vault accesses location data <strong>solely as part of the optional Intruder Detection feature</strong>. When a failed unlock attempt triggers a photo capture, the device's approximate location at the moment of the attempt is recorded alongside the photo. This data is stored locally within the App's encrypted storage and is <strong>never transmitted to any server or third party</strong>. Location access is requested only if you enable Intruder Detection and can be revoked anytime in iOS Settings.</p>
+
+    <h2>8. Face ID and Touch ID</h2>
     <p>Biometric authentication is handled entirely by Apple's LocalAuthentication framework. Silver Vault never accesses, stores, or processes your biometric data. The system returns only a success or failure result.</p>
 
-    <h2>6. Local Network Access (Wireless Transfer)</h2>
+    <h2>9. Local Network Access (Wireless Transfer)</h2>
     <p>When you activate Wireless Transfer mode, the App starts a temporary local HTTP server on your iPhone, accessible only to devices on the same local Wi-Fi network. Pairing is established by scanning a QR code displayed on your phone. <strong>No data is sent to the internet.</strong> The server stops as soon as you exit transfer mode.</p>
 
-    <h2>7. In-App Purchases</h2>
+    <h2>10. In-App Purchases</h2>
     <p>Silver Vault offers in-app purchases (Yearly Pro subscription and Lifetime Pro one-time purchase) processed by <strong>Apple Inc.</strong> via the App Store and StoreKit. We do not receive, store, or have access to your payment information, credit card numbers, or Apple ID. Apple provides us only with anonymized purchase receipts to validate entitlements.</p>
 
-    <h2>8. System Analysis Exclusion</h2>
-    <p>Vault content is excluded from iOS system analysis services (Live Text, Visual Look Up). Your photos and videos in the vault are not indexed or analyzed by iOS background services.</p>
+    <h2>11. System Analysis Exclusion</h2>
+    <p>Vault content is excluded from iOS system analysis services (Live Text, Visual Look Up). Your photos, videos, and documents in the vault are not indexed or analyzed by iOS background services.</p>
 
-    <h2>9. Legal Basis (GDPR)</h2>
+    <h2>12. Legal Basis (GDPR)</h2>
     <p>For users in the European Economic Area, the United Kingdom, and Switzerland, our legal basis under the GDPR for the limited processing described above is:</p>
     <ul>
       <li><strong>Contract performance</strong> (Art. 6(1)(b) GDPR) — for processing your in-app purchase to deliver the Pro entitlement.</li>
@@ -353,7 +365,7 @@
     </ul>
     <p>We do not rely on consent because we do not collect personal data on our servers.</p>
 
-    <h2>10. Your Rights</h2>
+    <h2>13. Your Rights</h2>
     <p>Under GDPR and similar laws (including the California Consumer Privacy Act), you have the right to access, rectify, erase, restrict, port, and object to the processing of your personal data. Because we hold no personal data on our servers, most of these rights are exercised directly through your device:</p>
     <ul>
       <li><strong>Erase your data:</strong> Delete the App or remove items within the vault.</li>
@@ -362,24 +374,24 @@
       <li><strong>Contact us:</strong> For any other request, write to <a href="mailto:support@udt.cz">support@udt.cz</a>. You also have the right to lodge a complaint with your local supervisory authority (in the Czech Republic: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
     </ul>
 
-    <h2>11. PIN Recovery</h2>
+    <h2>14. PIN Recovery</h2>
     <p>Your PIN is the only key to your encrypted data. <strong>We cannot recover your PIN or decrypt your files under any circumstances.</strong> If you forget your PIN, your vault contents will be unrecoverable. This is a deliberate design choice that protects your privacy from any party, including us.</p>
 
-    <h2>12. Children</h2>
+    <h2>15. Children</h2>
     <p>Silver Vault is not directed to children under 13. We do not knowingly collect personal data from children. As we collect no personal data on our servers at all, this restriction is satisfied by design and the App is compliant with COPPA.</p>
 
-    <h2>13. International Transfers</h2>
+    <h2>16. International Transfers</h2>
     <p>Because we do not collect data on our servers, no international transfers occur on our part. If you use iCloud backup, Apple may store your encrypted data in data centers located outside your country, subject to Apple's privacy policy and Standard Contractual Clauses.</p>
 
-    <h2>14. Changes to this Policy</h2>
+    <h2>17. Changes to this Policy</h2>
     <p>We may update this Privacy Policy. The current version will always be available at <a href="https://apps.udt.cz/SilverVault/">apps.udt.cz/SilverVault</a>. Material changes will be announced in App Store release notes.</p>
 
-    <h2>15. Contact</h2>
+    <h2>18. Contact</h2>
     <p>Questions about this Privacy Policy: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
   <article data-doc="terms">
-    <p class="policy-header">Terms of Use · Effective May 16, 2026</p>
+    <p class="policy-header">Terms of Use · Effective May 17, 2026</p>
 
     <div class="short-version"><strong>The short version:</strong> Silver Vault is free to use with up to 100 files. You can upgrade to Pro for unlimited storage. All your data stays on your device — we never see it.</div>
 
@@ -390,7 +402,7 @@
     <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App on Apple devices that you own or control, in accordance with the Apple Media Services Terms and Conditions and these Terms.</p>
 
     <h2>3. Description of Service</h2>
-    <p>Silver Vault is a personal vault application that allows you to store, organize, and encrypt photos and videos locally on your device. All data is encrypted using AES-256-GCM and stored exclusively on your device. We do not operate any cloud services and do not have access to your files or encryption keys.</p>
+    <p>Silver Vault is a personal vault application that allows you to store, organize, and encrypt photos, videos, and documents locally on your device. The App also provides document scanning, on-device text recognition (OCR) for searching inside your files, wireless transfer over your local Wi-Fi network, and optional intruder detection. All data is encrypted using AES-256-GCM and stored exclusively on your device. We do not operate any cloud services and do not have access to your files or encryption keys.</p>
 
     <h2>4. Eligibility</h2>
     <p>You must be at least 13 years of age to use the App. By using the App, you represent and warrant that you meet this requirement.</p>
@@ -405,7 +417,7 @@
     </ul>
 
     <h2>6. Free Tier</h2>
-    <p>The free version of the App allows you to store up to 100 files with full access to all features (encryption, wireless transfer, biometric unlock, encrypted backup). No payment is required to use the free tier, and there is no trial period or time limit.</p>
+    <p>The free version of the App allows you to store up to 100 files with full access to all features (encryption, wireless transfer, biometric unlock, encrypted backup, document scanning, OCR search, intruder detection). No payment is required to use the free tier, and there is no trial period or time limit.</p>
 
     <h2>7. Subscriptions and Purchases</h2>
     <p>The App offers the following optional in-app purchases to remove the 100-file storage limit:</p>
@@ -479,9 +491,9 @@
 <section class="lang-section" data-lang="cs">
 
   <article data-doc="privacy">
-    <p class="policy-header">Zásady ochrany soukromí · Účinné od 16. května 2026</p>
+    <p class="policy-header">Zásady ochrany soukromí · Účinné od 17. května 2026</p>
 
-    <div class="short-version"><strong>Stručně:</strong> Silver Vault šifruje a ukládá vaše fotky a videa lokálně v zařízení pomocí AES-256-GCM. Nesbíráme, nepřenášíme ani neukládáme žádná vaše data na externí servery. Žádné cloudové účty. Žádné sledování. Žádné reklamy.</div>
+    <div class="short-version"><strong>Stručně:</strong> Silver Vault šifruje a ukládá vaše fotky, videa a dokumenty lokálně v zařízení pomocí AES-256-GCM. Nesbíráme, nepřenášíme ani neukládáme žádná vaše data na externí servery. Žádné cloudové účty. Žádné sledování. Žádné reklamy.</div>
 
     <h2>1. Správce údajů</h2>
     <p>Správcem osobních údajů je <strong>UDT s.r.o.</strong>, společnost se sídlem v České republice. Kontakt: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
@@ -489,34 +501,51 @@
     <h2>2. Jaká data shromažďujeme</h2>
     <p><strong>Neprovozujeme žádný server, analytickou platformu ani backend službu, která by přijímala data z Aplikace.</strong> Na naší infrastruktuře nesbíráme, nepřenášíme, neukládáme ani nezpracováváme:</p>
     <ul>
-      <li>Fotky, videa ani jakékoliv soubory, které do trezoru importujete</li>
+      <li>Fotky, videa, PDF, naskenované dokumenty ani jakékoliv soubory, které do trezoru importujete</li>
       <li>Váš PIN, biometrická data ani šifrovací klíče</li>
       <li>Analytická data, údaje o chování ani telemetrii</li>
       <li>Hlášení o pádech ani diagnostické logy</li>
       <li>Osobní identifikátory, reklamní ID ani otisky zařízení</li>
+      <li>OCR text extrahovaný z vašich dokumentů</li>
+      <li>Fotky ani polohu pořízené funkcí Detekce nepovolených pokusů</li>
     </ul>
 
     <h2>3. Kde vaše data leží</h2>
-    <p><strong>Na vašem zařízení:</strong> Veškeré fotky a videa, které importujete nebo pořídíte, jsou uloženy lokálně v zašifrovaném sandboxu Aplikace. Šifrování a dešifrování probíhá výhradně na zařízení pomocí Apple CryptoKit (AES-256-GCM). Šifrovací klíče jsou odvozeny z vašeho PINu pomocí PBKDF2-SHA256 s 200 000 iteracemi a uloženy v iOS Keychain, který je chráněn Secure Enclave.</p>
+    <p><strong>Na vašem zařízení:</strong> Veškeré fotky, videa a dokumenty, které importujete nebo pořídíte, jsou uloženy lokálně v zašifrovaném sandboxu Aplikace. Šifrování a dešifrování probíhá výhradně na zařízení pomocí Apple CryptoKit (AES-256-GCM). Šifrovací klíče jsou odvozeny z vašeho PINu pomocí PBKDF2-SHA256 s 200 000 iteracemi a uloženy v iOS Keychain, který je chráněn Secure Enclave.</p>
 
     <p><strong>Volitelná záloha na iCloud Drive:</strong> Pokud zapnete funkci šifrované zálohy, vaše soubory se šifrují lokálně v zařízení <em>před</em> nahráním na váš osobní iCloud Drive. Apple obsah nevidí. Apple vystupuje jako zpracovatel podle svých vlastních zásad ochrany osobních údajů (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>).</p>
 
     <h2>4. Přístup ke knihovně Fotky</h2>
     <p>Pokud se rozhodnete importovat média z knihovny iOS Fotky, Aplikace k ní přistupuje pouze s vaším výslovným svolením. Importované soubory jsou zkopírovány do zašifrovaného sandboxu Aplikace. Aplikace neupravuje, nemaže ani nepřistupuje k fotkám, které jste nevybrali k importu.</p>
 
-    <h2>5. Face ID a Touch ID</h2>
+    <h2>5. Přístup ke kameře</h2>
+    <p>Silver Vault používá kameru zařízení pro následující účely:</p>
+    <ul>
+      <li><strong>Přímé pořízení:</strong> Můžete pořizovat fotky a videa přímo do trezoru. Pořízená média jsou okamžitě zašifrována a nikdy se neobjeví v knihovně Fotky zařízení.</li>
+      <li><strong>Skenování dokumentů:</strong> Kamera se používá pro vícestránkové skenování dokumentů s automatickou detekcí okrajů a korekcí perspektivy. Skeny jsou ukládány přímo do šifrovaného trezoru jako prohledávatelné PDF.</li>
+      <li><strong>Detekce nepovolených pokusů (volitelná):</strong> Při povolení Aplikace použije přední kameru k pořízení fotky po opakovaně chybném PINu. Tato fotka je uložena lokálně v zašifrovaném úložišti Aplikace a nikdy se nikam neposílá. Můžete si ji prohlédnout a smazat v sekci Zabezpečení &amp; Aktivita.</li>
+    </ul>
+    <p>Kamera se aktivuje pouze tehdy, kdy zahájíte akci, která ji vyžaduje (pořízení, skenování), nebo když se spustí funkce Detekce nepovolených pokusů po chybných pokusech o odemčení. O povolení kamery je požádáno při prvním použití a lze ho kdykoliv odebrat v Nastavení iOS.</p>
+
+    <h2>6. Rozpoznávání textu (OCR)</h2>
+    <p>Silver Vault obsahuje vestavěné rozpoznávání textu, které umožňuje vyhledávání slov uvnitř fotek a PDF uložených v trezoru. <strong>Veškeré OCR zpracování probíhá výhradně na vašem zařízení</strong> pomocí Apple Vision frameworku. Žádné obrázky, texty ani metadata se nepřenášejí mimo zařízení. OCR index je uložen lokálně v zašifrovaném trezoru. Podporováno je více než 30 jazyků; volbu jazyků pro indexaci najdete v Nastavení.</p>
+
+    <h2>7. Údaje o poloze</h2>
+    <p>Silver Vault přistupuje k údajům o poloze <strong>výhradně v rámci volitelné funkce Detekce nepovolených pokusů</strong>. Pokud chybný pokus o odemčení spustí pořízení fotky, přibližná poloha zařízení v okamžiku pokusu je zaznamenána spolu s fotkou. Tato data jsou uložena lokálně v zašifrovaném úložišti Aplikace a <strong>nikdy se nepřenášejí na žádný server ani třetí stranu</strong>. O přístup k poloze je požádáno pouze pokud zapnete Detekci nepovolených pokusů a lze ho kdykoliv odebrat v Nastavení iOS.</p>
+
+    <h2>8. Face ID a Touch ID</h2>
     <p>Biometrickou autentizaci zajišťuje výhradně Apple framework LocalAuthentication. Silver Vault nikdy nepřistupuje k vašim biometrickým údajům, neukládá je ani je nezpracovává. Systém vrací pouze výsledek úspěch / neúspěch.</p>
 
-    <h2>6. Přístup k lokální síti (bezdrátový přenos)</h2>
+    <h2>9. Přístup k lokální síti (bezdrátový přenos)</h2>
     <p>Pokud aktivujete režim bezdrátového přenosu, Aplikace spustí dočasný lokální HTTP server na vašem iPhonu, dostupný pouze pro zařízení ve stejné lokální Wi-Fi síti. Spárování probíhá naskenováním QR kódu zobrazeného na vašem telefonu. <strong>Žádná data se neposílají na internet.</strong> Server se vypne, jakmile režim přenosu opustíte.</p>
 
-    <h2>7. Nákupy v aplikaci</h2>
+    <h2>10. Nákupy v aplikaci</h2>
     <p>Silver Vault nabízí nákupy v aplikaci (roční předplatné Yearly Pro a jednorázový nákup Lifetime Pro), které zpracovává <strong>Apple Inc.</strong> přes App Store a StoreKit. Neobdržíme, neukládáme ani nemáme přístup k vašim platebním údajům, číslům karet ani k vašemu Apple ID. Apple nám poskytuje pouze anonymizované účtenky pro ověření aktivního předplatného.</p>
 
-    <h2>8. Vyloučení ze systémových analytických služeb</h2>
-    <p>Obsah trezoru je vyňatý ze systémových analytických služeb iOS (Live Text, Vizuální vyhledávání). Vaše fotky a videa v trezoru nejsou indexovány ani analyzovány systémovými službami iOS na pozadí.</p>
+    <h2>11. Vyloučení ze systémových analytických služeb</h2>
+    <p>Obsah trezoru je vyňatý ze systémových analytických služeb iOS (Live Text, Vizuální vyhledávání). Vaše fotky, videa a dokumenty v trezoru nejsou indexovány ani analyzovány systémovými službami iOS na pozadí.</p>
 
-    <h2>9. Právní základ (GDPR)</h2>
+    <h2>12. Právní základ (GDPR)</h2>
     <p>Pro uživatele v Evropském hospodářském prostoru, Spojeném království a Švýcarsku je naším právním základem podle GDPR pro omezené zpracování popsané výše:</p>
     <ul>
       <li><strong>Plnění smlouvy</strong> (čl. 6 odst. 1 písm. b GDPR) — pro zpracování vašeho nákupu a poskytnutí Pro funkcí.</li>
@@ -524,7 +553,7 @@
     </ul>
     <p>Souhlas jako právní základ nepoužíváme, protože na našich serverech neshromažďujeme žádné osobní údaje.</p>
 
-    <h2>10. Vaše práva</h2>
+    <h2>13. Vaše práva</h2>
     <p>Podle GDPR a obdobných zákonů máte právo na přístup, opravu, výmaz, omezení zpracování, přenositelnost a vznesení námitky proti zpracování svých osobních údajů. Protože na našich serverech nedržíme žádné osobní údaje, většina těchto práv se uplatňuje přímo na vašem zařízení:</p>
     <ul>
       <li><strong>Smazání dat:</strong> Odinstalujte Aplikaci nebo smažte položky v trezoru.</li>
@@ -533,24 +562,24 @@
       <li><strong>Kontaktujte nás:</strong> Pro jakýkoliv jiný dotaz pište na <a href="mailto:support@udt.cz">support@udt.cz</a>. Máte rovněž právo podat stížnost u Úřadu pro ochranu osobních údajů (<a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
     </ul>
 
-    <h2>11. Obnova PINu</h2>
+    <h2>14. Obnova PINu</h2>
     <p>Váš PIN je jediným klíčem k vašim šifrovaným datům. <strong>Nemůžeme váš PIN obnovit ani vaše soubory dešifrovat za žádných okolností.</strong> Pokud svůj PIN zapomenete, obsah trezoru bude nenávratně ztracen. Jde o záměrnou volbu návrhu, která chrání vaše soukromí před kýmkoliv, včetně nás.</p>
 
-    <h2>12. Děti</h2>
+    <h2>15. Děti</h2>
     <p>Silver Vault není určen dětem do 13 let. Vědomě neshromažďujeme osobní údaje od dětí. Vzhledem k tomu, že na našich serverech neshromažďujeme žádné osobní údaje, je toto omezení splněno již samotnou architekturou aplikace a Aplikace je v souladu s COPPA.</p>
 
-    <h2>13. Mezinárodní přenosy</h2>
+    <h2>16. Mezinárodní přenosy</h2>
     <p>Protože na našich serverech neshromažďujeme žádná data, z naší strany k mezinárodním přenosům nedochází. Pokud používáte iCloud zálohu, Apple může uchovávat vaše šifrovaná data v datových centrech mimo vaši zemi, v souladu se zásadami Apple a standardními smluvními doložkami.</p>
 
-    <h2>14. Změny těchto zásad</h2>
+    <h2>17. Změny těchto zásad</h2>
     <p>Tyto zásady můžeme aktualizovat. Aktuální verze bude vždy dostupná na <a href="https://apps.udt.cz/SilverVault/">apps.udt.cz/SilverVault</a>. O podstatných změnách budeme informovat v poznámkách k vydání v App Store.</p>
 
-    <h2>15. Kontakt</h2>
+    <h2>18. Kontakt</h2>
     <p>Dotazy ohledně těchto zásad: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
   <article data-doc="terms">
-    <p class="policy-header">Podmínky použití · Účinné od 16. května 2026</p>
+    <p class="policy-header">Podmínky použití · Účinné od 17. května 2026</p>
 
     <div class="short-version"><strong>Stručně:</strong> Silver Vault je zdarma pro uložení až 100 souborů. Můžete přejít na Pro pro neomezené úložiště. Všechna vaše data zůstávají na vašem zařízení — my k nim nikdy nevidíme.</div>
 
@@ -561,7 +590,7 @@
     <p>Udělujeme vám omezenou, nevýhradní, nepřenosnou a odvolatelnou licenci k používání Aplikace na zařízeních Apple, která vlastníte nebo ovládáte, v souladu s podmínkami Apple Media Services a těmito Podmínkami.</p>
 
     <h2>3. Popis služby</h2>
-    <p>Silver Vault je osobní trezorová aplikace, která vám umožňuje ukládat, organizovat a šifrovat fotky a videa lokálně ve vašem zařízení. Veškerá data jsou šifrována pomocí AES-256-GCM a uložena výhradně ve vašem zařízení. Neprovozujeme žádné cloudové služby a nemáme přístup k vašim souborům ani šifrovacím klíčům.</p>
+    <p>Silver Vault je osobní trezorová aplikace, která vám umožňuje ukládat, organizovat a šifrovat fotky, videa a dokumenty lokálně ve vašem zařízení. Aplikace nabízí také skenování dokumentů, rozpoznávání textu (OCR) přímo v zařízení pro vyhledávání ve vašich souborech, bezdrátový přenos přes lokální Wi-Fi síť a volitelnou detekci nepovolených pokusů. Veškerá data jsou šifrována pomocí AES-256-GCM a uložena výhradně ve vašem zařízení. Neprovozujeme žádné cloudové služby a nemáme přístup k vašim souborům ani šifrovacím klíčům.</p>
 
     <h2>4. Způsobilost</h2>
     <p>Pro používání Aplikace musíte být starší 13 let. Používáním Aplikace prohlašujete a zaručujete, že tuto podmínku splňujete.</p>
@@ -576,7 +605,7 @@
     </ul>
 
     <h2>6. Bezplatná verze</h2>
-    <p>Bezplatná verze Aplikace umožňuje uložit až 100 souborů s plným přístupem ke všem funkcím (šifrování, bezdrátový přenos, biometrické odemčení, šifrovaná záloha). Pro používání bezplatné verze není potřeba platit a neexistuje žádná zkušební doba ani časový limit.</p>
+    <p>Bezplatná verze Aplikace umožňuje uložit až 100 souborů s plným přístupem ke všem funkcím (šifrování, bezdrátový přenos, biometrické odemčení, šifrovaná záloha, skenování dokumentů, OCR vyhledávání, detekce nepovolených pokusů). Pro používání bezplatné verze není potřeba platit a neexistuje žádná zkušební doba ani časový limit.</p>
 
     <h2>7. Předplatné a nákupy</h2>
     <p>Aplikace nabízí následující volitelné nákupy v aplikaci pro odstranění limitu 100 souborů:</p>
@@ -650,9 +679,9 @@
 <section class="lang-section" data-lang="de">
 
   <article data-doc="privacy">
-    <p class="policy-header">Datenschutzerklärung · Gültig ab 16. Mai 2026</p>
+    <p class="policy-header">Datenschutzerklärung · Gültig ab 17. Mai 2026</p>
 
-    <div class="short-version"><strong>Kurzfassung:</strong> Silver Vault verschlüsselt und speichert Ihre Fotos und Videos lokal auf Ihrem Gerät mit AES-256-GCM. Wir erheben, übertragen oder speichern keine Ihrer Daten auf externen Servern. Keine Cloud-Konten. Kein Tracking. Keine Werbung.</div>
+    <div class="short-version"><strong>Kurzfassung:</strong> Silver Vault verschlüsselt und speichert Ihre Fotos, Videos und Dokumente lokal auf Ihrem Gerät mit AES-256-GCM. Wir erheben, übertragen oder speichern keine Ihrer Daten auf externen Servern. Keine Cloud-Konten. Kein Tracking. Keine Werbung.</div>
 
     <h2>1. Verantwortlicher</h2>
     <p>Verantwortlich im Sinne der DSGVO ist <strong>UDT s.r.o.</strong>, ein in der Tschechischen Republik registriertes Unternehmen. Kontakt: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
@@ -660,34 +689,51 @@
     <h2>2. Welche Daten wir erheben</h2>
     <p><strong>Wir betreiben keinen Server, keine Analyseplattform und keinen Backend-Dienst, der Daten von der App empfängt.</strong> Auf unserer Infrastruktur erheben, übertragen, speichern oder verarbeiten wir keines der folgenden Daten:</p>
     <ul>
-      <li>Fotos, Videos oder andere Dateien, die Sie in den Tresor importieren</li>
+      <li>Fotos, Videos, PDFs, gescannte Dokumente oder andere Dateien, die Sie in den Tresor importieren</li>
       <li>Ihre PIN, biometrische Daten oder Verschlüsselungsschlüssel</li>
       <li>Nutzungsanalysen, Verhaltensdaten oder Telemetrie</li>
       <li>Absturzberichte oder Diagnoseprotokolle</li>
       <li>Persönliche Identifikatoren, Werbe-IDs oder Geräte-Fingerprints</li>
+      <li>OCR-Text, der aus Ihren Dokumenten extrahiert wurde</li>
+      <li>Fotos oder Standortdaten, die von der Einbruchs-Erkennung aufgezeichnet wurden</li>
     </ul>
 
     <h2>3. Wo Ihre Daten liegen</h2>
-    <p><strong>Auf Ihrem Gerät:</strong> Alle Fotos und Videos, die Sie importieren oder aufnehmen, werden lokal im verschlüsselten Sandbox-Bereich der App gespeichert. Verschlüsselung und Entschlüsselung erfolgen vollständig auf dem Gerät über Apple CryptoKit (AES-256-GCM). Verschlüsselungsschlüssel werden aus Ihrer PIN mittels PBKDF2-SHA256 mit 200.000 Iterationen abgeleitet und im iOS-Schlüsselbund gespeichert, der durch die Secure Enclave geschützt ist.</p>
+    <p><strong>Auf Ihrem Gerät:</strong> Alle Fotos, Videos und Dokumente, die Sie importieren oder aufnehmen, werden lokal im verschlüsselten Sandbox-Bereich der App gespeichert. Verschlüsselung und Entschlüsselung erfolgen vollständig auf dem Gerät über Apple CryptoKit (AES-256-GCM). Verschlüsselungsschlüssel werden aus Ihrer PIN mittels PBKDF2-SHA256 mit 200.000 Iterationen abgeleitet und im iOS-Schlüsselbund gespeichert, der durch die Secure Enclave geschützt ist.</p>
 
     <p><strong>Optionale iCloud-Drive-Sicherung:</strong> Wenn Sie die verschlüsselte Sicherungsfunktion aktivieren, werden Ihre Dateien lokal auf Ihrem Gerät verschlüsselt, <em>bevor</em> sie auf Ihr persönliches iCloud Drive hochgeladen werden. Apple kann die Inhalte nicht lesen. Apple agiert als Auftragsverarbeiter gemäß seiner eigenen Datenschutzrichtlinie (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>).</p>
 
     <h2>4. Zugriff auf die Fotos-Mediathek</h2>
     <p>Wenn Sie Medien aus Ihrer iOS-Fotos-Mediathek importieren möchten, greift die App nur mit Ihrer ausdrücklichen Genehmigung darauf zu. Importierte Dateien werden in den verschlüsselten Sandbox-Bereich der App kopiert. Die App ändert, löscht oder greift nicht auf Fotos zu, die Sie nicht zum Import ausgewählt haben.</p>
 
-    <h2>5. Face ID und Touch ID</h2>
+    <h2>5. Kamerazugriff</h2>
+    <p>Silver Vault verwendet die Gerätekamera für folgende Zwecke:</p>
+    <ul>
+      <li><strong>Direkte Aufnahme:</strong> Sie können Fotos und Videos direkt in den Tresor aufnehmen. Aufgenommene Medien werden sofort verschlüsselt und erscheinen nie in der Fotomediathek des Geräts.</li>
+      <li><strong>Dokumentenscan:</strong> Die Kamera wird für mehrseitige Dokumentenscans mit automatischer Kantenerkennung und Perspektivenkorrektur verwendet. Scans werden direkt als durchsuchbare PDFs in den verschlüsselten Tresor gespeichert.</li>
+      <li><strong>Einbruchs-Erkennung (optional):</strong> Wenn aktiviert, verwendet die App nach wiederholt fehlgeschlagenen PIN-Eingaben die Frontkamera, um ein Foto aufzunehmen. Dieses Foto wird lokal im verschlüsselten Speicher der App gespeichert und nie nach außen übertragen. Sie können diese Fotos im Bereich Sicherheit &amp; Aktivität einsehen und löschen.</li>
+    </ul>
+    <p>Die Kamera wird nur aktiviert, wenn Sie eine Aktion einleiten, die sie erfordert (Aufnahme, Scan), oder wenn die Einbruchs-Erkennung nach fehlgeschlagenen Entsperrversuchen ausgelöst wird. Der Kamerazugriff wird bei der ersten Verwendung angefordert und kann jederzeit in den iOS-Einstellungen widerrufen werden.</p>
+
+    <h2>6. Texterkennung (OCR)</h2>
+    <p>Silver Vault enthält eine integrierte Texterkennung, mit der Sie Wörter in Fotos und PDFs im Tresor suchen können. <strong>Die gesamte OCR-Verarbeitung erfolgt vollständig auf Ihrem Gerät</strong> mit dem Vision-Framework von Apple. Es werden keine Bilder, Texte oder Metadaten nach außen übertragen. Der OCR-Index wird lokal im verschlüsselten Tresor gespeichert. Über 30 Sprachen werden unterstützt; welche Sprachen indexiert werden, legen Sie in den Einstellungen fest.</p>
+
+    <h2>7. Standortdaten</h2>
+    <p>Silver Vault greift <strong>ausschließlich im Rahmen der optionalen Einbruchs-Erkennung</strong> auf Standortdaten zu. Wenn ein fehlgeschlagener Entsperrversuch eine Fotoaufnahme auslöst, wird der ungefähre Standort des Geräts zum Zeitpunkt des Versuchs zusammen mit dem Foto aufgezeichnet. Diese Daten werden lokal im verschlüsselten Speicher der App gespeichert und <strong>nie an einen Server oder Dritten übertragen</strong>. Der Standortzugriff wird nur angefordert, wenn Sie die Einbruchs-Erkennung aktivieren, und kann jederzeit in den iOS-Einstellungen widerrufen werden.</p>
+
+    <h2>8. Face ID und Touch ID</h2>
     <p>Die biometrische Authentifizierung wird vollständig vom LocalAuthentication-Framework von Apple verwaltet. Silver Vault greift nie auf Ihre biometrischen Daten zu, speichert oder verarbeitet sie nicht. Das System gibt nur ein Erfolgs- oder Fehlerergebnis zurück.</p>
 
-    <h2>6. Zugriff auf lokales Netzwerk (drahtlose Übertragung)</h2>
+    <h2>9. Zugriff auf lokales Netzwerk (drahtlose Übertragung)</h2>
     <p>Wenn Sie den drahtlosen Übertragungsmodus aktivieren, startet die App einen temporären lokalen HTTP-Server auf Ihrem iPhone, der nur für Geräte im selben lokalen WLAN zugänglich ist. Die Kopplung erfolgt durch Scannen eines QR-Codes, der auf Ihrem Telefon angezeigt wird. <strong>Es werden keine Daten ins Internet gesendet.</strong> Der Server wird beendet, sobald Sie den Übertragungsmodus verlassen.</p>
 
-    <h2>7. In-App-Käufe</h2>
+    <h2>10. In-App-Käufe</h2>
     <p>Silver Vault bietet In-App-Käufe (Jahres-Pro-Abonnement und Lifetime-Pro-Einmalkauf), die von <strong>Apple Inc.</strong> über den App Store und StoreKit verarbeitet werden. Wir erhalten, speichern oder haben keinen Zugriff auf Ihre Zahlungsinformationen, Kreditkartennummern oder Ihre Apple-ID. Apple stellt uns nur anonymisierte Kaufbelege zur Validierung der Berechtigungen zur Verfügung.</p>
 
-    <h2>8. Ausschluss aus Systemanalysediensten</h2>
-    <p>Tresor-Inhalte sind von den iOS-Systemanalysediensten ausgeschlossen (Live Text, Visuelles Nachschlagen). Ihre Fotos und Videos im Tresor werden nicht durch iOS-Hintergrunddienste indexiert oder analysiert.</p>
+    <h2>11. Ausschluss aus Systemanalysediensten</h2>
+    <p>Tresor-Inhalte sind von den iOS-Systemanalysediensten ausgeschlossen (Live Text, Visuelles Nachschlagen). Ihre Fotos, Videos und Dokumente im Tresor werden nicht durch iOS-Hintergrunddienste indexiert oder analysiert.</p>
 
-    <h2>9. Rechtsgrundlage (DSGVO)</h2>
+    <h2>12. Rechtsgrundlage (DSGVO)</h2>
     <p>Für Nutzer im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz ist unsere Rechtsgrundlage gemäß DSGVO für die oben beschriebene begrenzte Verarbeitung:</p>
     <ul>
       <li><strong>Vertragserfüllung</strong> (Art. 6 Abs. 1 lit. b DSGVO) — für die Verarbeitung Ihres In-App-Kaufs zur Bereitstellung der Pro-Berechtigung.</li>
@@ -695,7 +741,7 @@
     </ul>
     <p>Wir stützen uns nicht auf Einwilligung, da wir auf unseren Servern keine personenbezogenen Daten erheben.</p>
 
-    <h2>10. Ihre Rechte</h2>
+    <h2>13. Ihre Rechte</h2>
     <p>Gemäß DSGVO und ähnlichen Gesetzen haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten. Da wir keine personenbezogenen Daten auf unseren Servern speichern, werden die meisten dieser Rechte direkt über Ihr Gerät ausgeübt:</p>
     <ul>
       <li><strong>Daten löschen:</strong> Deinstallieren Sie die App oder entfernen Sie Elemente aus dem Tresor.</li>
@@ -704,24 +750,24 @@
       <li><strong>Kontakt:</strong> Für jede andere Anfrage schreiben Sie an <a href="mailto:support@udt.cz">support@udt.cz</a>. Sie haben außerdem das Recht, eine Beschwerde bei Ihrer örtlichen Aufsichtsbehörde einzureichen.</li>
     </ul>
 
-    <h2>11. PIN-Wiederherstellung</h2>
+    <h2>14. PIN-Wiederherstellung</h2>
     <p>Ihre PIN ist der einzige Schlüssel zu Ihren verschlüsselten Daten. <strong>Wir können Ihre PIN unter keinen Umständen wiederherstellen oder Ihre Dateien entschlüsseln.</strong> Wenn Sie Ihre PIN vergessen, sind die Tresor-Inhalte unwiederbringlich verloren. Dies ist eine bewusste Designentscheidung, die Ihre Privatsphäre vor jedem Dritten, einschließlich uns, schützt.</p>
 
-    <h2>12. Kinder</h2>
+    <h2>15. Kinder</h2>
     <p>Silver Vault richtet sich nicht an Kinder unter 13 Jahren. Wir erheben wissentlich keine personenbezogenen Daten von Kindern. Da wir generell keine personenbezogenen Daten auf unseren Servern erheben, ist diese Einschränkung bereits durch das Design erfüllt und die App entspricht COPPA.</p>
 
-    <h2>13. Internationale Übermittlungen</h2>
+    <h2>16. Internationale Übermittlungen</h2>
     <p>Da wir keine Daten auf unseren Servern erheben, finden auf unserer Seite keine internationalen Übermittlungen statt. Wenn Sie die iCloud-Sicherung verwenden, kann Apple Ihre verschlüsselten Daten in Rechenzentren außerhalb Ihres Landes speichern, vorbehaltlich der Datenschutzrichtlinie und der Standardvertragsklauseln von Apple.</p>
 
-    <h2>14. Änderungen dieser Erklärung</h2>
+    <h2>17. Änderungen dieser Erklärung</h2>
     <p>Wir können diese Datenschutzerklärung aktualisieren. Die aktuelle Version ist immer unter <a href="https://apps.udt.cz/SilverVault/">apps.udt.cz/SilverVault</a> verfügbar. Wesentliche Änderungen werden in den App Store-Versionshinweisen angekündigt.</p>
 
-    <h2>15. Kontakt</h2>
+    <h2>18. Kontakt</h2>
     <p>Fragen zu dieser Datenschutzerklärung: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
   </article>
 
   <article data-doc="terms">
-    <p class="policy-header">Nutzungsbedingungen · Gültig ab 16. Mai 2026</p>
+    <p class="policy-header">Nutzungsbedingungen · Gültig ab 17. Mai 2026</p>
 
     <div class="short-version"><strong>Kurzfassung:</strong> Silver Vault ist kostenlos für bis zu 100 Dateien. Sie können auf Pro für unbegrenzten Speicher upgraden. Alle Ihre Daten bleiben auf Ihrem Gerät — wir sehen sie nie.</div>
 
@@ -732,7 +778,7 @@
     <p>Wir gewähren Ihnen eine eingeschränkte, nicht-exklusive, nicht übertragbare und widerrufliche Lizenz zur Nutzung der App auf Apple-Geräten, die Sie besitzen oder kontrollieren, in Übereinstimmung mit den Apple Media Services-Bedingungen und diesen Bedingungen.</p>
 
     <h2>3. Beschreibung des Dienstes</h2>
-    <p>Silver Vault ist eine persönliche Tresor-Anwendung, mit der Sie Fotos und Videos lokal auf Ihrem Gerät speichern, organisieren und verschlüsseln können. Alle Daten werden mit AES-256-GCM verschlüsselt und ausschließlich auf Ihrem Gerät gespeichert. Wir betreiben keine Cloud-Dienste und haben keinen Zugriff auf Ihre Dateien oder Verschlüsselungsschlüssel.</p>
+    <p>Silver Vault ist eine persönliche Tresor-Anwendung, mit der Sie Fotos, Videos und Dokumente lokal auf Ihrem Gerät speichern, organisieren und verschlüsseln können. Die App bietet außerdem Dokumentenscan, Texterkennung (OCR) direkt auf dem Gerät für die Suche in Ihren Dateien, drahtlose Übertragung über Ihr lokales WLAN und optionale Einbruchs-Erkennung. Alle Daten werden mit AES-256-GCM verschlüsselt und ausschließlich auf Ihrem Gerät gespeichert. Wir betreiben keine Cloud-Dienste und haben keinen Zugriff auf Ihre Dateien oder Verschlüsselungsschlüssel.</p>
 
     <h2>4. Berechtigung</h2>
     <p>Sie müssen mindestens 13 Jahre alt sein, um die App zu verwenden. Durch die Nutzung der App versichern und garantieren Sie, dass Sie diese Anforderung erfüllen.</p>
@@ -747,7 +793,7 @@
     </ul>
 
     <h2>6. Kostenlose Version</h2>
-    <p>Die kostenlose Version der App ermöglicht das Speichern von bis zu 100 Dateien mit vollem Zugriff auf alle Funktionen (Verschlüsselung, drahtlose Übertragung, biometrisches Entsperren, verschlüsselte Sicherung). Für die Nutzung der kostenlosen Version ist keine Zahlung erforderlich, und es gibt keine Testphase oder Zeitbegrenzung.</p>
+    <p>Die kostenlose Version der App ermöglicht das Speichern von bis zu 100 Dateien mit vollem Zugriff auf alle Funktionen (Verschlüsselung, drahtlose Übertragung, biometrisches Entsperren, verschlüsselte Sicherung, Dokumentenscan, OCR-Suche, Einbruchs-Erkennung). Für die Nutzung der kostenlosen Version ist keine Zahlung erforderlich, und es gibt keine Testphase oder Zeitbegrenzung.</p>
 
     <h2>7. Abonnements und Käufe</h2>
     <p>Die App bietet die folgenden optionalen In-App-Käufe zur Aufhebung des Limits von 100 Dateien:</p>
@@ -821,9 +867,9 @@
 <section class="lang-section" data-lang="ja">
 
   <article data-doc="privacy">
-    <p class="policy-header">プライバシーポリシー · 2026年5月16日施行</p>
+    <p class="policy-header">プライバシーポリシー · 2026年5月17日施行</p>
 
-    <div class="short-version"><strong>要約:</strong> Silver Vault は、お客様の写真と動画を AES-256-GCM を使用してデバイス上にローカルで暗号化し保存します。当社は、お客様のデータを外部サーバーに収集、送信、保存することはありません。クラウドアカウントなし。トラッキングなし。広告なし。</div>
+    <div class="short-version"><strong>要約:</strong> Silver Vault は、お客様の写真、動画、ドキュメントを AES-256-GCM を使用してデバイス上にローカルで暗号化し保存します。当社は、お客様のデータを外部サーバーに収集、送信、保存することはありません。クラウドアカウントなし。トラッキングなし。広告なし。</div>
 
     <h2>1. データ管理者</h2>
     <p>データ管理者は、チェコ共和国に登録された会社である <strong>UDT s.r.o.</strong> です。連絡先: <a href="mailto:support@udt.cz">support@udt.cz</a>。</p>
@@ -831,34 +877,51 @@
     <h2>2. 収集するデータ</h2>
     <p><strong>当社は、アプリからデータを受信するサーバー、分析プラットフォーム、バックエンドサービスを一切運営していません。</strong>当社のインフラストラクチャ上で、以下のいずれも収集、送信、保存、処理しません:</p>
     <ul>
-      <li>保管庫にインポートした写真、動画、ファイル</li>
+      <li>保管庫にインポートした写真、動画、PDF、スキャンしたドキュメント、その他のファイル</li>
       <li>PIN、生体認証データ、暗号化鍵</li>
       <li>使用状況分析、行動データ、テレメトリ</li>
       <li>クラッシュレポート、診断ログ</li>
       <li>個人識別子、広告 ID、デバイスフィンガープリント</li>
+      <li>ドキュメントから抽出された OCR テキスト</li>
+      <li>不正アクセス検出機能によって記録された写真や位置情報</li>
     </ul>
 
     <h2>3. データの所在</h2>
-    <p><strong>お客様のデバイス上:</strong> インポートまたは撮影したすべての写真と動画は、アプリの暗号化されたサンドボックス内にローカルに保存されます。暗号化と復号は Apple CryptoKit (AES-256-GCM) を使用して完全にデバイス上で行われます。暗号化鍵は PBKDF2-SHA256 (200,000 回反復) によって PIN から導出され、Secure Enclave で保護された iOS キーチェーンに保管されます。</p>
+    <p><strong>お客様のデバイス上:</strong> インポートまたは撮影したすべての写真、動画、ドキュメントは、アプリの暗号化されたサンドボックス内にローカルに保存されます。暗号化と復号は Apple CryptoKit (AES-256-GCM) を使用して完全にデバイス上で行われます。暗号化鍵は PBKDF2-SHA256 (200,000 回反復) によって PIN から導出され、Secure Enclave で保護された iOS キーチェーンに保管されます。</p>
 
     <p><strong>オプションの iCloud Drive バックアップ:</strong> 暗号化バックアップ機能を有効にした場合、ファイルは個人の iCloud Drive にアップロードされる<em>前に</em>デバイス上でローカルに暗号化されます。Apple は内容を読み取ることができません。Apple は自身のプライバシーポリシー (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>) に従って下請処理者として行動します。</p>
 
     <h2>4. 写真ライブラリへのアクセス</h2>
     <p>iOS の写真ライブラリからメディアをインポートする場合、アプリはお客様の明示的な許可がある場合にのみアクセスします。インポートされたファイルは、アプリの暗号化されたサンドボックスにコピーされます。アプリは、インポート用に選択していない写真を変更、削除、またはアクセスすることはありません。</p>
 
-    <h2>5. Face ID および Touch ID</h2>
+    <h2>5. カメラへのアクセス</h2>
+    <p>Silver Vault は以下の目的でデバイスのカメラを使用します:</p>
+    <ul>
+      <li><strong>直接撮影:</strong> 写真や動画を直接保管庫に撮影できます。撮影されたメディアは即座に暗号化され、デバイスの写真ライブラリには表示されません。</li>
+      <li><strong>ドキュメントスキャン:</strong> 自動エッジ検出と遠近補正による複数ページのドキュメントスキャンにカメラを使用します。スキャンは検索可能な PDF として暗号化された保管庫に直接保存されます。</li>
+      <li><strong>不正アクセス検出 (オプション):</strong> 有効にすると、PIN を何度も間違えた後、アプリはフロントカメラを使用して写真を撮影します。この写真はアプリの暗号化されたストレージ内にローカルに保存され、外部に送信されることはありません。これらの写真は「セキュリティとアクティビティ」セクションで確認・削除できます。</li>
+    </ul>
+    <p>カメラは、それを必要とするアクション (撮影、スキャン) を開始したとき、または失敗した解錠試行後に不正アクセス検出機能がトリガーされたときにのみ起動します。カメラへのアクセスは初回使用時に要求され、iOS の設定でいつでも取り消すことができます。</p>
+
+    <h2>6. テキスト認識 (OCR)</h2>
+    <p>Silver Vault には、保管庫に保存された写真や PDF 内の言葉を検索できる内蔵テキスト認識機能が含まれています。<strong>すべての OCR 処理は Apple の Vision フレームワークを使用して完全にデバイス上で実行されます。</strong>画像、テキスト、メタデータが外部に送信されることはありません。OCR インデックスは暗号化された保管庫内にローカルに保存されます。30 以上の言語に対応しており、インデックス化する言語は設定で選択できます。</p>
+
+    <h2>7. 位置情報データ</h2>
+    <p>Silver Vault は<strong>オプションの不正アクセス検出機能の一部としてのみ</strong>位置情報データにアクセスします。失敗した解錠試行が写真撮影をトリガーした場合、試行時のデバイスのおおよその位置が写真と一緒に記録されます。このデータはアプリの暗号化されたストレージ内にローカルに保存され、<strong>サーバーや第三者に送信されることはありません</strong>。位置情報へのアクセスは不正アクセス検出を有効にした場合のみ要求され、iOS の設定でいつでも取り消すことができます。</p>
+
+    <h2>8. Face ID および Touch ID</h2>
     <p>生体認証は Apple の LocalAuthentication フレームワークによって完全に処理されます。Silver Vault は生体認証データに一切アクセス、保存、処理しません。システムは成功または失敗の結果のみを返します。</p>
 
-    <h2>6. ローカルネットワークアクセス (ワイヤレス転送)</h2>
+    <h2>9. ローカルネットワークアクセス (ワイヤレス転送)</h2>
     <p>ワイヤレス転送モードを有効にすると、アプリは iPhone 上で一時的なローカル HTTP サーバーを起動します。これは同じローカル Wi-Fi ネットワーク上のデバイスからのみアクセス可能です。ペアリングは電話に表示される QR コードのスキャンによって確立されます。<strong>データはインターネットに送信されません。</strong>転送モードを終了するとサーバーは停止します。</p>
 
-    <h2>7. アプリ内課金</h2>
+    <h2>10. アプリ内課金</h2>
     <p>Silver Vault はアプリ内課金 (年間 Pro サブスクリプションと買い切り Lifetime Pro) を提供しており、これらは App Store および StoreKit を介して <strong>Apple Inc.</strong> によって処理されます。当社はお客様の支払い情報、クレジットカード番号、Apple ID を受信、保存、アクセスすることはありません。Apple は権利を検証するために匿名化された購入領収書のみを当社に提供します。</p>
 
-    <h2>8. システム分析からの除外</h2>
-    <p>保管庫の内容は iOS のシステム分析サービス (テキスト認識、画像を調べる) から除外されます。保管庫内の写真と動画は iOS のバックグラウンドサービスによってインデックス化または分析されません。</p>
+    <h2>11. システム分析からの除外</h2>
+    <p>保管庫の内容は iOS のシステム分析サービス (テキスト認識、画像を調べる) から除外されます。保管庫内の写真、動画、ドキュメントは iOS のバックグラウンドサービスによってインデックス化または分析されません。</p>
 
-    <h2>9. 法的根拠 (GDPR)</h2>
+    <h2>12. 法的根拠 (GDPR)</h2>
     <p>欧州経済領域、英国、スイスのユーザーについて、上記の限定的な処理に関する GDPR に基づく法的根拠は次のとおりです:</p>
     <ul>
       <li><strong>契約の履行</strong> (GDPR 第 6 条 1 項 b) — Pro 権利の提供のためにアプリ内購入を処理するため。</li>
@@ -866,7 +929,7 @@
     </ul>
     <p>当社のサーバーで個人データを収集していないため、同意を法的根拠としていません。</p>
 
-    <h2>10. お客様の権利</h2>
+    <h2>13. お客様の権利</h2>
     <p>GDPR および類似の法律に基づき、お客様には個人データの処理に対するアクセス、訂正、消去、制限、移管、異議申し立ての権利があります。当社のサーバー上に個人データを保持していないため、これらの権利のほとんどはお客様のデバイスを通じて直接行使されます:</p>
     <ul>
       <li><strong>データの消去:</strong> アプリをアンインストールするか、保管庫内のアイテムを削除します。</li>
@@ -875,24 +938,24 @@
       <li><strong>お問い合わせ:</strong> その他のご要望は <a href="mailto:support@udt.cz">support@udt.cz</a> までご連絡ください。お住まいの地域の監督機関に苦情を申し立てる権利もあります。</li>
     </ul>
 
-    <h2>11. PIN の復旧</h2>
+    <h2>14. PIN の復旧</h2>
     <p>PIN は暗号化されたデータへの唯一の鍵です。<strong>当社はいかなる状況においても、お客様の PIN を復旧したり、ファイルを復号したりすることはできません。</strong>PIN を忘れた場合、保管庫の内容は復元不可能となります。これは当社を含む第三者からお客様のプライバシーを保護する、意図的な設計上の選択です。</p>
 
-    <h2>12. 子供について</h2>
+    <h2>15. 子供について</h2>
     <p>Silver Vault は 13 歳未満の子供を対象としていません。子供から個人データを意図的に収集することはありません。当社のサーバー上で個人データを一切収集していないため、この制限は設計上満たされており、アプリは COPPA に準拠しています。</p>
 
-    <h2>13. 国際的なデータ転送</h2>
+    <h2>16. 国際的なデータ転送</h2>
     <p>当社のサーバー上でデータを収集していないため、当社側で国際的なデータ転送は発生しません。iCloud バックアップを使用する場合、Apple は Apple のプライバシーポリシーおよび標準契約条項に従って、お客様の暗号化されたデータをお住まいの国外のデータセンターに保存することがあります。</p>
 
-    <h2>14. このポリシーの変更</h2>
+    <h2>17. このポリシーの変更</h2>
     <p>このプライバシーポリシーを更新する場合があります。現在のバージョンは常に <a href="https://apps.udt.cz/SilverVault/">apps.udt.cz/SilverVault</a> で利用可能です。重要な変更は App Store のリリースノートで発表されます。</p>
 
-    <h2>15. お問い合わせ</h2>
+    <h2>18. お問い合わせ</h2>
     <p>このプライバシーポリシーに関するご質問: <a href="mailto:support@udt.cz">support@udt.cz</a>。</p>
   </article>
 
   <article data-doc="terms">
-    <p class="policy-header">利用規約 · 2026年5月16日施行</p>
+    <p class="policy-header">利用規約 · 2026年5月17日施行</p>
 
     <div class="short-version"><strong>要約:</strong> Silver Vault は最大 100 ファイルまで無料でご利用いただけます。無制限ストレージのために Pro にアップグレードできます。すべてのデータはお客様のデバイス上に残り、当社が見ることはありません。</div>
 
@@ -903,7 +966,7 @@
     <p>当社は、お客様が所有または管理する Apple デバイスにおいて、Apple Media Services 利用規約および本規約に従ってアプリを使用するための、限定的、非独占的、譲渡不可、取消可能なライセンスを付与します。</p>
 
     <h2>3. サービスの説明</h2>
-    <p>Silver Vault は、デバイス上でローカルに写真と動画を保存、整理、暗号化できる個人用保管庫アプリケーションです。すべてのデータは AES-256-GCM を使用して暗号化され、デバイス上にのみ保存されます。当社はクラウドサービスを運営しておらず、お客様のファイルや暗号化鍵にアクセスすることはできません。</p>
+    <p>Silver Vault は、デバイス上でローカルに写真、動画、ドキュメントを保存、整理、暗号化できる個人用保管庫アプリケーションです。アプリは、ドキュメントスキャン、ファイル内検索のためのオンデバイス・テキスト認識 (OCR)、ローカル Wi-Fi ネットワーク経由のワイヤレス転送、オプションの不正アクセス検出も提供します。すべてのデータは AES-256-GCM を使用して暗号化され、デバイス上にのみ保存されます。当社はクラウドサービスを運営しておらず、お客様のファイルや暗号化鍵にアクセスすることはできません。</p>
 
     <h2>4. 利用資格</h2>
     <p>アプリを使用するには 13 歳以上である必要があります。アプリを使用することにより、お客様はこの要件を満たしていることを表明し保証します。</p>
@@ -918,7 +981,7 @@
     </ul>
 
     <h2>6. 無料版</h2>
-    <p>アプリの無料版では、すべての機能 (暗号化、ワイヤレス転送、生体認証ロック解除、暗号化バックアップ) に完全にアクセスでき、最大 100 ファイルまで保存できます。無料版の使用に料金はかからず、試用期間や時間制限もありません。</p>
+    <p>アプリの無料版では、すべての機能 (暗号化、ワイヤレス転送、生体認証ロック解除、暗号化バックアップ、ドキュメントスキャン、OCR 検索、不正アクセス検出) に完全にアクセスでき、最大 100 ファイルまで保存できます。無料版の使用に料金はかからず、試用期間や時間制限もありません。</p>
 
     <h2>7. サブスクリプションと購入</h2>
     <p>アプリは、100 ファイル制限を解除するために、以下のオプションのアプリ内課金を提供しています:</p>
@@ -1029,7 +1092,6 @@
     applyTabLabels(lang);
     document.documentElement.lang = lang;
     try { localStorage.setItem('silvervault-lang', lang); } catch(e) {}
-    // Reset scroll like Vellumo does — keeps perceived "no jump" feel.
     window.scrollTo(0, 0);
   }
 
@@ -1037,12 +1099,9 @@
     tabLinks.forEach(link => {
       link.classList.toggle('active', link.dataset.tab === tab);
     });
-    // Body class drives which <article data-doc=""> is visible.
     document.body.classList.toggle('tab-privacy', tab === 'privacy');
     document.body.classList.toggle('tab-terms',   tab === 'terms');
     if (doScroll) window.scrollTo(0, 0);
-    // Wrapped because some sandboxed contexts (about:srcdoc previews)
-    // throw SecurityError on history mutation.
     try {
       if (history.replaceState) history.replaceState(null, '', '#' + tab);
     } catch (e) { /* sandbox — ignore */ }
@@ -1058,7 +1117,6 @@
 
   // ===== Init =====
   (function init() {
-    // 1. Determine preferred language: stored choice > browser language > en
     let preferred = null;
     try { preferred = localStorage.getItem('silvervault-lang'); } catch(e) {}
     if (!preferred || !SUPPORTED_LANGS.includes(preferred)) {
@@ -1067,7 +1125,6 @@
     }
     setLang(preferred);
 
-    // 2. Honour incoming hash (#terms). Default to privacy without scroll.
     const initialTab = (window.location.hash === '#terms') ? 'terms' : 'privacy';
     setActiveTab(initialTab, false);
   })();
