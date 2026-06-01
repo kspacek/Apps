@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>SilkSleep — Seamless Sleep Sounds</title>
+<meta name="description" content="Real-time DSP sleep sounds with no audible loops. White noise, rain, ocean, fireplace. One-time purchase — no subscription. By UDT s.r.o.">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<style>
+  :root{
+    --bg:#06101e;
+    --bg-2:#0d1f38;
+    --surface:#ffffff;
+    --surface-soft:#f4f7fb;
+    --ink:#06101e;
+    --ink-soft:#1e3a5a;
+    --ink-muted:#5a7a9a;
+    --accent:#5B8DB8;
+    --accent-2:#3a6fa0;
+    --rule:#dce9f5;
+    --max:820px;
+    --radius:14px;
+    --serif:"Source Serif 4","Source Serif Pro",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{margin:0; font-family:var(--sans); color:var(--ink); background:#ffffff; line-height:1.65; font-size:16px;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 60%, #0a2040 100%);
+    color:#fff;
+    padding:72px 24px 64px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,141,184,0.2) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:var(--max); margin:0 auto; position:relative; z-index:1;}
+  .icon-wrap{
+    width:96px; height:96px;
+    margin:0 auto 20px;
+    border-radius:22px;
+    background:linear-gradient(135deg, #7ab5e0 0%, #5B8DB8 50%, #3a6fa0 100%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 40px rgba(91,141,184,0.45), 0 2px 8px rgba(0,0,0,0.3);
+    font-size:48px; line-height:1;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:52px; font-weight:700; letter-spacing:-0.03em;
+    margin:0 0 10px; color:#fff;
+  }
+  .hero .subtitle{font-size:20px; color:rgba(255,255,255,0.75); margin:0 0 8px; font-weight:400;}
+  .hero .tagline-small{font-size:14px; color:rgba(255,255,255,0.5); margin:0 0 32px; font-style:italic;}
+  .cta-group{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#5B8DB8; color:#fff;
+    padding:14px 28px; border-radius:999px;
+    font-size:16px; font-weight:600; text-decoration:none;
+    border:2px solid rgba(255,255,255,0.2);
+    box-shadow:0 4px 20px rgba(91,141,184,0.4);
+    transition:all 0.15s;
+  }
+  .btn-primary:hover{background:#4a7aa8; transform:translateY(-1px);}
+  .btn-secondary{
+    display:inline-flex; align-items:center;
+    color:rgba(255,255,255,0.8); padding:14px 24px; border-radius:999px;
+    font-size:15px; font-weight:500; text-decoration:none;
+    border:1px solid rgba(255,255,255,0.2); transition:all 0.15s;
+  }
+  .btn-secondary:hover{border-color:rgba(255,255,255,0.5); color:#fff;}
+
+  .badges{max-width:var(--max);margin:20px auto 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);font-size:13px;padding:6px 14px;border-radius:999px;}
+
+  /* Sections */
+  .section{padding:72px 24px; max-width:var(--max); margin:0 auto;}
+  .section-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .section-title{font-family:var(--serif);font-size:36px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);margin:0 0 16px;line-height:1.2;}
+  .section-desc{font-size:17px;color:var(--ink-soft);margin:0 0 48px;max-width:560px;}
+
+  /* Features */
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px;}
+  .feature-card{background:var(--surface-soft);border:1px solid var(--rule);border-radius:var(--radius);padding:28px 24px;transition:transform 0.15s,box-shadow 0.15s;}
+  .feature-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(91,141,184,0.12);}
+  .feature-icon{font-size:28px;margin-bottom:14px;display:block;}
+  .feature-card h3{font-size:17px;font-weight:600;color:var(--ink);margin:0 0 8px;}
+  .feature-card p{font-size:15px;color:var(--ink-soft);margin:0;line-height:1.6;}
+
+  /* Sounds strip */
+  .sounds-section{background:var(--surface-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:72px 24px;}
+  .sounds-section .inner{max-width:var(--max);margin:0 auto;}
+  .sound-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:32px;}
+  .sound-card{
+    background:#fff; border:1px solid var(--rule); border-radius:12px;
+    padding:18px 16px; text-align:center;
+    transition:border-color 0.15s, box-shadow 0.15s;
+  }
+  .sound-card:hover{border-color:var(--accent); box-shadow:0 4px 16px rgba(91,141,184,0.12);}
+  .sound-card.free{border-color:#bdd8f0;}
+  .sound-emoji{font-size:28px;display:block;margin-bottom:8px;}
+  .sound-name{font-size:14px;font-weight:600;color:var(--ink);display:block;}
+  .sound-tier{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:4px;display:block;}
+  .sound-tier.free{color:var(--accent);}
+  .sound-tier.premium{color:#8a6500;}
+
+  /* Pricing */
+  .pricing-section{padding:72px 24px;}
+  .pricing-section .inner{max-width:var(--max);margin:0 auto;}
+  .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px;}
+  .pricing-card{border:1px solid var(--rule);border-radius:var(--radius);padding:32px 28px;background:var(--surface);box-shadow:0 1px 3px rgba(6,16,30,0.06);}
+  .pricing-card.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 8px 32px rgba(91,141,184,0.15);}
+  .price-badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:16px;}
+  .price{font-family:var(--serif);font-size:42px;font-weight:700;color:var(--ink);margin:0 0 4px;letter-spacing:-0.02em;}
+  .price-note{font-size:14px;color:var(--ink-muted);margin:0 0 24px;}
+  .price-features{list-style:none;padding:0;margin:0;}
+  .price-features li{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft);}
+  .price-features li:last-child{border-bottom:none;}
+  .price-features .check{color:var(--accent);font-size:16px;flex-shrink:0;margin-top:1px;}
+  .price-features .dash{color:var(--ink-muted);font-size:16px;flex-shrink:0;}
+
+  /* No-loop callout */
+  .loop-section{padding:0 24px 72px;}
+  .loop-section .inner{max-width:var(--max);margin:0 auto;}
+  .loop-callout{
+    background:linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+    border-radius:var(--radius);
+    padding:48px 40px;
+    color:#fff;
+    text-align:center;
+  }
+  .loop-callout h2{font-family:var(--serif);font-size:32px;font-weight:600;margin:0 0 14px;color:#fff;}
+  .loop-callout p{font-size:16px;color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto;line-height:1.7;}
+  .loop-callout .tech-note{margin-top:20px;font-size:13px;color:rgba(255,255,255,0.45);font-family:monospace;background:rgba(0,0,0,0.3);display:inline-block;padding:8px 16px;border-radius:8px;}
+
+  footer{text-align:center;padding:32px 24px 48px;color:var(--ink-muted);font-size:13px;border-top:1px solid var(--rule);}
+  footer a{color:var(--ink-soft);text-decoration:none;margin:0 10px;}
+  footer a:hover{color:var(--accent);}
+  .footer-links{margin:12px 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+
+  @media(max-width:600px){
+    .hero{padding:52px 18px 48px;} .hero h1{font-size:38px;} .hero .subtitle{font-size:17px;}
+    .section{padding:52px 18px;} .section-title{font-size:28px;}
+    .sounds-section{padding:52px 18px;} .pricing-section{padding:52px 18px;}
+    .loop-section{padding:0 18px 52px;} .loop-callout{padding:36px 24px;}
+    .sound-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="icon-wrap">🌙</div>
+    <h1>SilkSleep</h1>
+    <p class="subtitle">Seamless Sleep Sounds</p>
+    <p class="tagline-small">No loops. No subscription. Just silk.</p>
+    <div class="cta-group">
+      <a href="https://apps.apple.com/app/silksleep/id0000000000" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+      <a href="../" class="btn-secondary">← All UDT Apps</a>
+    </div>
+    <div class="badges">
+      <span class="badge">iOS 17+</span>
+      <span class="badge">Apple Watch</span>
+      <span class="badge">Lock Screen Widget</span>
+      <span class="badge">Fully Offline</span>
+      <span class="badge">No Subscription</span>
+      <span class="badge">No Loops</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <p class="section-label">Why SilkSleep</p>
+  <h2 class="section-title">Sleep sounds that never repeat</h2>
+  <p class="section-desc">While other apps loop pre-recorded files (and you can hear the seam), SilkSleep generates every second of audio in real time — mathematically impossible to loop.</p>
+  <div class="features">
+    <div class="feature-card">
+      <span class="feature-icon">🔄</span>
+      <h3>Zero Loop Seams</h3>
+      <p>Real-time DSP synthesis generates sound sample-by-sample. There is no loop to hear because there is no loop.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔕</span>
+      <h3>No Ads. Ever.</h3>
+      <p>No banners, no interstitials, no video ads at 2am. SilkSleep will never show an ad. Period.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📴</span>
+      <h3>Fully Offline</h3>
+      <p>No network needed, ever. No server calls, no cloud dependency. Sound generation happens entirely on your device.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔋</span>
+      <h3>Battery Efficient</h3>
+      <p>Optimised DSP algorithms designed to minimise CPU usage during long overnight sessions. Sleep your phone and SilkSleep keeps going.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⌚️</span>
+      <h3>Apple Watch Support</h3>
+      <p>Start, pause, and switch sounds directly from your wrist. Sleep timer controls without picking up your phone.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔒</span>
+      <h3>Zero Tracking</h3>
+      <p>No account, no analytics, no SDK. We don't know who you are and we prefer it that way. Your sleep is your own.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sounds-section">
+  <div class="inner">
+    <p class="section-label">Sound generators</p>
+    <h2 class="section-title">Three free. Eight with Full Unlock.</h2>
+    <p class="section-desc">Each generator is a distinct DSP model — not a sample, not a recording. Tuned to mask noise across different frequency profiles.</p>
+    <div class="sound-grid">
+      <div class="sound-card free"><span class="sound-emoji">🌊</span><span class="sound-name">White Noise</span><span class="sound-tier free">Free</span></div>
+      <div class="sound-card free"><span class="sound-emoji">🌧</span><span class="sound-name">Rain</span><span class="sound-tier free">Free</span></div>
+      <div class="sound-card free"><span class="sound-emoji">💨</span><span class="sound-name">Fan</span><span class="sound-tier free">Free</span></div>
+      <div class="sound-card"><span class="sound-emoji">🌊</span><span class="sound-name">Ocean</span><span class="sound-tier premium">Full Unlock</span></div>
+      <div class="sound-card"><span class="sound-emoji">🔥</span><span class="sound-name">Fireplace</span><span class="sound-tier premium">Full Unlock</span></div>
+      <div class="sound-card"><span class="sound-emoji">🌿</span><span class="sound-name">Forest</span><span class="sound-tier premium">Full Unlock</span></div>
+      <div class="sound-card"><span class="sound-emoji">🚂</span><span class="sound-name">Train</span><span class="sound-tier premium">Full Unlock</span></div>
+      <div class="sound-card"><span class="sound-emoji">☕</span><span class="sound-name">Café</span><span class="sound-tier premium">Full Unlock</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="pricing-section">
+  <div class="inner">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Pay once. Sleep forever.</h2>
+    <p class="section-desc">No monthly charges. No "premium tier creep". Full Unlock is everything SilkSleep has and will ever have in v1.x.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="price">Free</p>
+        <p class="price-note">3 generators, always free</p>
+        <ul class="price-features">
+          <li><span class="check">✓</span> White Noise, Rain, Fan generators</li>
+          <li><span class="check">✓</span> 30-minute session timer</li>
+          <li><span class="check">✓</span> Sleep timer (auto-stop)</li>
+          <li><span class="check">✓</span> Fully offline</li>
+          <li><span class="dash">–</span> Ocean, Fireplace, Forest, Train, Café</li>
+          <li><span class="dash">–</span> Custom presets &amp; mix saves</li>
+          <li><span class="dash">–</span> Apple Watch app</li>
+          <li><span class="dash">–</span> Lock Screen widget</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured">
+        <span class="price-badge">Recommended</span>
+        <p class="price">$4.99</p>
+        <p class="price-note">SilkSleep Full Unlock — one-time purchase</p>
+        <ul class="price-features">
+          <li><span class="check">✓</span> All 8 sound generators</li>
+          <li><span class="check">✓</span> Unlimited session length</li>
+          <li><span class="check">✓</span> Custom presets — save your favourite mix</li>
+          <li><span class="check">✓</span> Apple Watch app + complications</li>
+          <li><span class="check">✓</span> Lock Screen &amp; StandBy widget</li>
+          <li><span class="check">✓</span> Live Activities for Dynamic Island</li>
+          <li><span class="check">✓</span> Restore on any device with Apple ID</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="loop-section">
+  <div class="inner">
+    <div class="loop-callout">
+      <h2>Why no loops matters at 3am</h2>
+      <p>Most sleep sound apps record a 30-second audio clip and loop it. Your brain detects the pattern — especially in quiet, half-awake states. SilkSleep uses real-time DSP synthesis: the audio is generated sample-by-sample using filtered noise algorithms. There is no clip. There is no loop. There is nothing to detect.</p>
+      <span class="tech-note">Gaussian noise → bandpass filters → envelope modulation → DAC output</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Made with care in Brno, Czech Republic · <a href="https://udt.cz">UDT s.r.o.</a></p>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="support.html">Support</a>
+    <a href="../">All Apps</a>
+  </div>
+  <p style="margin-top:12px">Questions? <a href="mailto:support@udt.cz">support@udt.cz</a> — we reply within 24 hours.</p>
+</footer>
+
+</body>
+</html>

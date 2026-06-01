@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Countdy — Support</title>
+<meta name="description" content="Support and FAQ for Countdy by UDT s.r.o. Get help with countdown widgets, purchases, and Apple Watch.">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<style>
+  :root{
+    --bg:#0e0826; --surface:#ffffff; --surface-soft:#f7f5ff;
+    --ink:#0e0826; --ink-soft:#3a2d6b; --ink-muted:#7b6fa8;
+    --accent:#7B61FF; --rule:#e8e3ff; --max:780px; --radius:14px;
+    --serif:"Source Serif 4","Source Serif Pro",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{margin:0; font-family:var(--sans); color:var(--ink); background:#fff; line-height:1.65; font-size:16px; min-height:100vh;}
+
+  .hero{padding:36px 24px 24px; text-align:center;}
+  .hero-inner{max-width:var(--max); margin:0 auto;}
+  .logo-wrap{width:72px;height:72px;margin:0 auto 14px;border-radius:18px;background:linear-gradient(135deg,#9b80ff,#7B61FF,#5a42e8);display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 24px rgba(123,97,255,0.25),0 1px 3px rgba(14,8,38,0.08);}
+  .brand{font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-0.02em;margin:6px 0 2px;color:var(--ink);}
+  .tagline{font-size:12px;color:var(--ink-muted);letter-spacing:0.08em;text-transform:uppercase;margin:0;}
+  .back-link{display:inline-block;margin-top:14px;color:var(--ink-muted);text-decoration:none;font-size:13px;}
+  .back-link:hover{color:var(--accent);}
+
+  .page-nav{max-width:var(--max);margin:24px auto 0;padding:0 24px;display:flex;gap:4px;border-bottom:1px solid var(--rule);}
+  .page-link{padding:12px 18px;color:var(--ink-muted);background:none;border:none;font-family:var(--sans);text-decoration:none;font-size:14px;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.15s;}
+  .page-link:hover{color:var(--ink);}
+  .page-link.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+  main{max-width:var(--max);margin:0 auto;padding:40px 24px 80px;}
+
+  .contact-card{
+    background:linear-gradient(135deg,#f0ecff 0%,#f5f0ff 100%);
+    border:1px solid #c4b5fd; border-radius:var(--radius);
+    padding:32px; margin-bottom:32px; text-align:center;
+  }
+  .contact-card h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);margin:0 0 10px;}
+  .contact-card p{color:var(--ink-soft);margin:0 0 20px;font-size:15px;}
+  .email-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent);color:#fff;
+    padding:12px 24px;border-radius:999px;
+    font-size:15px;font-weight:600;text-decoration:none;
+    transition:background 0.15s;
+  }
+  .email-btn:hover{background:#6a50f0;}
+
+  .doc-section{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:32px 36px;margin-bottom:24px;box-shadow:0 1px 2px rgba(14,8,38,0.04),0 8px 24px rgba(14,8,38,0.04);}
+  .doc-section h2{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-0.01em;margin:0 0 24px;color:var(--ink);}
+
+  .faq-item{border-bottom:1px solid var(--rule);padding:20px 0;}
+  .faq-item:last-child{border-bottom:none;padding-bottom:0;}
+  .faq-q{font-size:16px;font-weight:600;color:var(--ink);margin:0 0 8px;}
+  .faq-a{font-size:15px;color:var(--ink-soft);margin:0;}
+  .faq-a a{color:var(--accent);text-decoration:none;}
+
+  footer{text-align:center;padding:32px 24px 48px;color:var(--ink-muted);font-size:13px;border-top:1px solid var(--rule);margin-top:40px;}
+  footer a{color:var(--ink-soft);text-decoration:none;margin:0 8px;}
+  footer a:hover{color:var(--accent);}
+
+  @media(max-width:600px){
+    .hero{padding:28px 18px 18px;} .logo-wrap{width:64px;height:64px;} .brand{font-size:26px;}
+    .doc-section{padding:24px 20px;} main{padding:28px 16px 60px;}
+    .page-nav{padding:0 16px;} .page-link{padding:10px 12px;font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap">⏳</div>
+    <h1 class="brand">Countdy</h1>
+    <p class="tagline">Beautiful Countdown Widgets</p>
+    <a href="index.html" class="back-link">← Back to Countdy</a>
+  </div>
+</header>
+
+<nav class="page-nav" aria-label="Legal documents">
+  <a class="page-link" href="privacy.html">Privacy Policy</a>
+  <a class="page-link" href="terms.html">Terms of Use</a>
+  <a class="page-link active" href="support.html">Support</a>
+</nav>
+
+<main>
+  <div class="contact-card">
+    <h2>We're here to help</h2>
+    <p>Questions, bug reports, or feature requests — we read every email and respond within 24 hours.</p>
+    <a href="mailto:support@udt.cz" class="email-btn">
+      ✉ support@udt.cz
+    </a>
+  </div>
+
+  <section class="doc-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I add a Countdy widget to my Home Screen?</p>
+      <p class="faq-a">Long-press an empty area of your Home Screen → tap "+" in the top-left → search for "Countdy" → choose a size and tap "Add Widget". Then tap the widget to select which countdown to display.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">My widget isn't updating. What do I do?</p>
+      <p class="faq-a">Widgets refresh on iOS's schedule. Try removing and re-adding the widget. If the problem persists, restart your iPhone and check that Background App Refresh is enabled for Countdy in iOS Settings.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">I bought Countdy Lifetime on another device. How do I restore?</p>
+      <p class="faq-a">Tap the "Restore Purchases" button in Countdy Settings. Make sure you're signed into the same Apple ID that made the original purchase.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I add Countdy to my Apple Watch?</p>
+      <p class="faq-a">Countdy Lifetime includes the Apple Watch app. After purchasing, open the Watch app on your iPhone → My Watch → scroll to Countdy → toggle "Show App on Apple Watch". Then add a Countdy complication to your watch face.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Can I use Countdy on multiple iPhones or iPads?</p>
+      <p class="faq-a">Yes. Countdy Lifetime is tied to your Apple ID, not a single device. Sign in with the same Apple ID and restore your purchase on any device.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How do recurring countdowns work?</p>
+      <p class="faq-a">When a recurring countdown reaches zero, Countdy automatically advances it to the next occurrence (next year for yearly, next month for monthly, etc.). You'll see both the current and upcoming occurrences in the app.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">I want a refund. How do I request one?</p>
+      <p class="faq-a">All purchases are processed by Apple. Please visit <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> to request a refund directly from Apple. We don't process refunds ourselves.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Does Countdy work offline?</p>
+      <p class="faq-a">Yes, completely. Countdy requires no internet connection. All countdown calculations happen on-device.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Can I share a countdown with someone who doesn't have Countdy?</p>
+      <p class="faq-a">When you share a countdown link, the recipient needs Countdy installed to open it. If they don't have the app, they'll be directed to the App Store. The countdown opens instantly — no account required.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Will there be more themes in the future?</p>
+      <p class="faq-a">Yes! We plan to add new themes with major iOS updates. Countdy Lifetime holders get all future themes at no extra cost.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 UDT s.r.o. · <a href="index.html">Countdy</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a> · <a href="../">All Apps</a></p>
+</footer>
+
+</body>
+</html>

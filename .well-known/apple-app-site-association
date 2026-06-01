@@ -1,0 +1,36 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["8W94VQ2U2Y.cz.udt.saventa"],
+        "components": [
+          { "/": "/Saventa/share/*", "comment": "Saventa shared finance snapshots" }
+        ]
+      },
+      {
+        "appIDs": ["8W94VQ2U2Y.cz.udt.countdy"],
+        "components": [
+          { "/": "/Countdy/share/*", "comment": "Countdy shared countdown links" }
+        ]
+      },
+      {
+        "appIDs": ["8W94VQ2U2Y.cz.udt.vellumo"],
+        "components": [
+          { "/": "/Vellumo/share/*", "comment": "Vellumo shared content" }
+        ]
+      },
+      {
+        "appIDs": ["8W94VQ2U2Y.cz.udt.silvervault"],
+        "components": [
+          { "/": "/SilverVault/wifi/*", "comment": "SilverVault WiFi credential links" }
+        ]
+      },
+      {
+        "appIDs": ["8W94VQ2U2Y.cz.udt.silksleep"],
+        "components": [
+          { "/": "/SilkSleep/preset/*", "comment": "SilkSleep shared preset links" }
+        ]
+      }
+    ]
+  }
+}

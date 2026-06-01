@@ -1,0 +1,11 @@
+# GitHub Pages / Jekyll config for apps.udt.cz
+
+# Include .well-known so Jekyll doesn't exclude the dot-folder from the build
+include:
+  - .well-known
+
+# Prevent Jekyll from processing HTML files in app subfolders as templates
+# (they are self-contained pages with inline styles)
+exclude:
+  - "*.md"
+  - LICENSE
