@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Cloudpaca — Privacy Policy &amp; Terms of Use</title>
+<meta name="description" content="Privacy Policy and Terms of Use for Cloudpaca, a private iOS client for Ollama Cloud by UDT s.r.o. Cloudpaca is a client only — you bring your own Ollama API key.">
+
+<style>
+  :root{
+    --bg:#0a0a12;
+    --surface:#ffffff;
+    --surface-soft:#f6f5fb;
+    --ink:#171427;
+    --ink-soft:#443f5e;
+    --ink-muted:#6f6a8a;
+    --accent:#5341CC;
+    --accent-2:#7B5CE4;
+    --warn-bg:#fff7ed;
+    --warn-rule:#f0b070;
+    --warn-ink:#7a4410;
+    --rule:#e7e4f0;
+    --max:780px;
+    --radius:14px;
+    --serif:"Source Serif 4","Source Serif Pro",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.65;font-size:16px}
+
+  .hero{padding:36px 24px 24px;text-align:center;background:linear-gradient(180deg,#f6f5fb 0%,#ffffff 100%)}
+  .hero-inner{max-width:var(--max);margin:0 auto}
+  .logo-wrap{width:72px;height:72px;margin:0 auto 14px;border-radius:18px;overflow:hidden;
+    box-shadow:0 8px 24px rgba(83,65,204,.22),0 1px 3px rgba(0,0,0,.08)}
+  .logo-wrap img{width:100%;height:100%;display:block}
+  .brand{font-family:var(--serif);font-size:34px;margin:0 0 4px;letter-spacing:-.5px}
+  .tagline{margin:0 0 10px;color:var(--ink-muted);font-size:15px}
+  .back-link{color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
+  .back-link:hover{text-decoration:underline}
+
+  .lang-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 24px 14px;background:#fff}
+  .lang-btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--rule);background:#fff;
+    color:var(--ink-soft);border-radius:999px;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer}
+  .lang-btn[aria-current="true"]{border-color:var(--accent);color:var(--accent);background:#f3f0ff;font-weight:600}
+  .flag{width:20px;height:14px;border-radius:2px;display:block}
+
+  .tabs{display:flex;gap:4px;justify-content:center;padding:0 24px 26px;background:#fff}
+  .tab{border:none;background:var(--surface-soft);color:var(--ink-soft);border-radius:10px;
+    padding:10px 20px;font:inherit;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none}
+  .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
+
+  main{max-width:var(--max);margin:0 auto;padding:0 24px 72px}
+  .lang-section{display:none}
+  .lang-section.active{display:block}
+  article[data-doc]{display:none}
+  body.tab-privacy article[data-doc="privacy"]{display:block}
+  body.tab-terms article[data-doc="terms"]{display:block}
+
+  h2{font-family:var(--serif);font-size:26px;margin:34px 0 6px;letter-spacing:-.3px}
+  h3{font-size:17px;margin:26px 0 6px;color:var(--ink)}
+  p,li{color:var(--ink-soft)}
+  ul{padding-left:20px}
+  li{margin:5px 0}
+  .updated{color:var(--ink-muted);font-size:14px;margin:0 0 8px}
+  hr{border:none;border-top:1px solid var(--rule);margin:30px 0}
+  a{color:var(--accent)}
+
+  .callout{background:var(--warn-bg);border:1px solid var(--warn-rule);border-left-width:4px;
+    border-radius:var(--radius);padding:18px 20px;margin:22px 0}
+  .callout h3{margin-top:0;color:var(--warn-ink)}
+  .callout p,.callout li{color:var(--warn-ink)}
+  .callout strong{color:var(--warn-ink)}
+
+  footer{border-top:1px solid var(--rule);padding:26px 24px 40px;text-align:center;color:var(--ink-muted);font-size:14px}
+  footer a{color:var(--accent);text-decoration:none}
+
+  @media (prefers-color-scheme:dark){
+    :root{--surface-soft:#16141f;--ink:#f2f0f7;--ink-soft:#c6c1d6;--ink-muted:#9a94ae;--rule:#2b2740;
+      --warn-bg:#2a1d0e;--warn-rule:#8a5a22;--warn-ink:#ffd9a8}
+    body{background:#0d0b14}
+    .hero{background:linear-gradient(180deg,#16141f 0%,#0d0b14 100%)}
+    .lang-bar,.tabs{background:#0d0b14}
+    .lang-btn{background:#16141f;border-color:var(--rule);color:var(--ink-soft)}
+    .lang-btn[aria-current="true"]{background:#221c3a;border-color:var(--accent-2);color:#c7b8ff}
+  }
+</style>
+</head>
+<body class="tab-privacy">
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap">
+      <img src="data:image/jpeg;base64,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" alt="Cloudpaca logo">
+    </div>
+    <h1 class="brand">Cloudpaca</h1>
+    <p class="tagline" data-i18n="tagline">Private iOS client for Ollama Cloud</p>
+    <a href="https://apps.udt.cz/" class="back-link" data-i18n="allApps">← All Apps</a>
+  </div>
+</header>
+
+<nav class="lang-bar" aria-label="Language">
+  <button class="lang-btn" data-lang="en" aria-current="true"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>English</button>
+  <button class="lang-btn" data-lang="cs"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><path d="M0,0 h60 v15 H0z" fill="#fff"/><path d="M0,15 h60 v15 H0z" fill="#D7141A"/><path d="M0,0 L30,15 L0,30 z" fill="#11457E"/></svg>Čeština</button>
+</nav>
+
+<nav class="tabs" aria-label="Documents">
+  <button class="tab active" data-tab="privacy" data-i18n="privacy">Privacy Policy</button>
+  <button class="tab" data-tab="terms" data-i18n="terms">Terms of Use</button>
+</nav>
+
+<main>
+<section class="lang-section active" data-lang="en">
+
+<article data-doc="privacy">
+  <h2>Privacy Policy</h2>
+  <p class="updated">Last updated: 15 August 2026</p>
+
+  <p>Cloudpaca is made by UDT s.r.o., Brno, Czech Republic. This policy explains what the app does with your data. The short version: your API key and your conversations stay on your iPhone, and we operate no servers of our own.</p>
+
+  <h3>What stays on your device</h3>
+  <ul>
+    <li><strong>Your Ollama API key</strong> — stored in the iOS Keychain. It is never logged, never sent to us, and never sent anywhere except ollama.com.</li>
+    <li><strong>Your conversations</strong> — stored locally in the app's database, protected by standard iOS file encryption.</li>
+    <li><strong>Attachments</strong> — images and documents you attach are processed on device.</li>
+  </ul>
+
+  <h3>What leaves your device</h3>
+  <ul>
+    <li><strong>To ollama.com:</strong> your messages, attachments and chosen model, sent directly from your iPhone using your own key. What Ollama does with that data is governed by Ollama's own privacy policy, not ours.</li>
+    <li><strong>To the web, only when you ask:</strong> if the assistant searches the web or opens a page you requested, that request goes to the relevant site.</li>
+    <li><strong>Anonymous product analytics</strong> via Aptabase — which screens are used and whether a feature succeeded. No chat content, no prompts, no API keys, no personal identifiers. You can turn this off in Settings.</li>
+  </ul>
+
+  <h3>What we never collect</h3>
+  <p>We run no backend. We have no account system. We cannot read your conversations, we do not have your API key, and we cannot recover either if you lose your device.</p>
+
+  <h3>Device permissions</h3>
+  <p>Camera, photos, contacts, calendar, reminders, location and speech recognition are used only for features you invoke, and only after iOS asks you. Assistant actions that read personal data or write to your device are confirmed by you before they run. Calendar writes are always confirmed and this cannot be switched off.</p>
+
+  <h3>Children</h3>
+  <p>Cloudpaca is rated 17+ because it displays content generated by third-party AI models, which we do not control or moderate. It is not intended for children.</p>
+
+  <h3>Your rights</h3>
+  <p>Because we hold no personal data about you, there is nothing for us to export or erase. Deleting the app removes your conversations and your key from the device. To have data deleted on Ollama's side, contact Ollama.</p>
+
+  <h3>Contact</h3>
+  <p>UDT s.r.o., Brno, Czech Republic — <a href="mailto:support@udt.cz">support@udt.cz</a>. A real person answers, usually within 24 hours.</p>
+</article>
+
+<article data-doc="terms">
+  <h2>Terms of Use</h2>
+  <p class="updated">Last updated: 15 August 2026</p>
+
+  <div class="callout">
+    <h3>Read this first: Cloudpaca is a client, not an AI service</h3>
+    <p>Cloudpaca does not provide, host, or run any AI models. It is an <strong>intermediary</strong> between your iPhone and <strong>Ollama Cloud</strong> — a service operated by Ollama, an independent third party. We are not affiliated with Ollama, we do not resell their service, and we have no control over it.</p>
+    <ul>
+      <li><strong>You must bring your own API key</strong> from ollama.com. Without a valid key of your own, Cloudpaca cannot do anything at all. We do not sell, issue, bundle, or resell keys, credits, tokens, or model capacity.</li>
+      <li><strong>Ollama sets the rules.</strong> Model availability, pricing, rate limits, quotas, regional access and terms of service are decided by Ollama and can change at any time, without notice to us or to you. Ollama retires models on its own schedule.</li>
+      <li><strong>If Ollama changes or stops, Cloudpaca may stop being useful.</strong> That includes price increases, new limits, blocked countries, retired models, outages, account bans, or Ollama shutting the service down entirely. This is outside our control. It is <strong>not a defect of this app</strong>.</li>
+      <li><strong>Pro is not a refund guarantee against third-party change.</strong> The one-time Pro purchase unlocks features inside Cloudpaca. It is not a subscription to Ollama, it includes no AI usage or credits, and it does not entitle you to a refund if Ollama's service changes, degrades, or ends.</li>
+    </ul>
+    <p>Please buy Pro only if this arrangement is acceptable to you. If you are not sure, use the free tier first — it lets you try the app with your own key before you pay anything.</p>
+  </div>
+
+  <h3>What you are buying</h3>
+  <p>Cloudpaca Pro is a one-time, non-consumable purchase that unlocks features within the app: the assistant without a prompt limit, full conversation history, folders, search, custom system prompts and export. It is tied to your Apple Account, works on your devices and survives reinstalling the app. There is no subscription and nothing renews.</p>
+
+  <h3>Refunds</h3>
+  <p>All purchases are processed by Apple, not by us. Refunds are handled entirely through Apple's process at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>; we can neither grant nor deny them. If the app itself is broken, write to us first — we would rather fix it.</p>
+
+  <h3>Your responsibilities</h3>
+  <ul>
+    <li>Keep your API key to yourself. Anyone with it can spend your Ollama quota.</li>
+    <li>Follow Ollama's terms of service. Your key, your account, your responsibility.</li>
+    <li>Do not use Cloudpaca to break the law or to generate content that harms others.</li>
+    <li>You are responsible for what you send to the models and for what you do with their output.</li>
+  </ul>
+
+  <h3>AI output</h3>
+  <p>Answers come from third-party models. They can be wrong, outdated, biased or fabricated, and we do not review or moderate them. Do not rely on them for medical, legal, financial or other professional decisions. Verify anything that matters.</p>
+
+  <h3>Availability and liability</h3>
+  <p>Cloudpaca is provided "as is", without warranty of any kind. To the extent permitted by law, UDT s.r.o. is not liable for lost data, lost Ollama credits, service interruptions on Ollama's side, or damages arising from use of the app. Nothing here limits rights you have under mandatory consumer law in your country.</p>
+
+  <h3>Changes</h3>
+  <p>We may update these terms as the app changes. The date at the top always reflects the current version.</p>
+
+  <h3>Governing law</h3>
+  <p>These terms are governed by the law of the Czech Republic. Contact: UDT s.r.o., Brno — <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+</article>
+
+</section>
+
+<section class="lang-section" data-lang="cs">
+
+<article data-doc="privacy">
+  <h2>Zásady soukromí</h2>
+  <p class="updated">Naposledy upraveno: 15. srpna 2026</p>
+
+  <p>Cloudpaca dělá UDT s.r.o. z Brna. Tady je popsané, co aplikace dělá s tvými daty. Zkráceně: API klíč i konverzace zůstávají v tvém iPhonu a my neprovozujeme žádné vlastní servery.</p>
+
+  <h3>Co zůstává v zařízení</h3>
+  <ul>
+    <li><strong>Tvůj API klíč k Ollamě</strong> — uložený v systémové Klíčence. Nikdy se nikam neloguje, neposílá se nám a neodchází nikam než na ollama.com.</li>
+    <li><strong>Tvoje konverzace</strong> — uložené lokálně v databázi aplikace, chráněné běžným šifrováním souborů v iOS.</li>
+    <li><strong>Přílohy</strong> — obrázky a dokumenty se zpracovávají přímo v zařízení.</li>
+  </ul>
+
+  <h3>Co zařízení opouští</h3>
+  <ul>
+    <li><strong>Na ollama.com:</strong> tvoje zprávy, přílohy a zvolený model, odeslané přímo z iPhonu tvým vlastním klíčem. Co s nimi dělá Ollama, se řídí jejími zásadami soukromí, ne našimi.</li>
+    <li><strong>Na web, jen když si o to řekneš:</strong> když asistent hledá na internetu nebo otevře stránku, o kterou požádáš, jde dotaz na příslušný web.</li>
+    <li><strong>Anonymní statistiky</strong> přes Aptabase — které obrazovky se používají a jestli se funkce povedla. Žádný obsah chatu, žádné prompty, žádné klíče, žádné identifikátory. Dají se vypnout v Nastavení.</li>
+  </ul>
+
+  <h3>Co nikdy nesbíráme</h3>
+  <p>Neprovozujeme žádný server a nemáme systém účtů. Tvoje konverzace si nemůžeme přečíst, tvůj API klíč nemáme a ani jedno ti nedokážeme obnovit, když o zařízení přijdeš.</p>
+
+  <h3>Oprávnění zařízení</h3>
+  <p>Fotoaparát, fotky, kontakty, kalendář, připomínky, poloha a rozpoznávání řeči se používají jen pro funkce, které sám vyvoláš, a až poté, co se tě zeptá iOS. Akce asistenta, které čtou osobní údaje nebo něco zapisují, potvrzuješ předem. Zápis do kalendáře se potvrzuje vždy a nedá se to vypnout.</p>
+
+  <h3>Děti</h3>
+  <p>Cloudpaca má hodnocení 17+, protože zobrazuje obsah generovaný modely třetích stran, který neřídíme ani nemoderujeme. Pro děti není určená.</p>
+
+  <h3>Tvoje práva</h3>
+  <p>Protože o tobě nedržíme žádné osobní údaje, není co exportovat ani mazat. Smazáním aplikace zmizí konverzace i klíč ze zařízení. O smazání dat na straně Ollamy požádej Ollamu.</p>
+
+  <h3>Kontakt</h3>
+  <p>UDT s.r.o., Brno — <a href="mailto:support@udt.cz">support@udt.cz</a>. Odpovídá skutečný člověk, obvykle do 24 hodin.</p>
+</article>
+
+<article data-doc="terms">
+  <h2>Podmínky používání</h2>
+  <p class="updated">Naposledy upraveno: 15. srpna 2026</p>
+
+  <div class="callout">
+    <h3>Přečti si nejdřív tohle: Cloudpaca je klient, ne služba umělé inteligence</h3>
+    <p>Cloudpaca žádné modely neposkytuje, nehostuje ani neprovozuje. Je to <strong>prostředník</strong> mezi tvým iPhonem a službou <strong>Ollama Cloud</strong>, kterou provozuje nezávislá třetí strana. S Ollamou nejsme nijak propojení, její službu nepřeprodáváme a nemáme na ni vliv.</p>
+    <ul>
+      <li><strong>Vlastní API klíč z ollama.com si musíš přinést sám.</strong> Bez platného vlastního klíče Cloudpaca nesvede vůbec nic. Klíče, kredity, tokeny ani kapacitu modelů neprodáváme, nevydáváme, nepřibalujeme ani nepřeprodáváme.</li>
+      <li><strong>Pravidla určuje Ollama.</strong> Dostupnost modelů, ceny, limity, kvóty, přístup podle zemí i podmínky služby stanovuje Ollama a může je kdykoli změnit, bez upozornění nám i tobě. Modely vyřazuje podle vlastního kalendáře.</li>
+      <li><strong>Když se Ollama změní nebo skončí, může Cloudpaca přestat být použitelná.</strong> Týká se to zdražení, nových limitů, zablokovaných zemí, vyřazených modelů, výpadků, zablokovaného účtu i úplného ukončení služby. Je to mimo naši kontrolu a <strong>není to vada této aplikace</strong>.</li>
+      <li><strong>Pro není záruka vrácení peněz proti změnám u třetí strany.</strong> Jednorázový nákup Pro odemyká funkce uvnitř Cloudpaca. Není to předplatné Ollamy, nezahrnuje žádnou spotřebu modelů ani kredity a nezakládá nárok na vrácení peněz, pokud se služba Ollama změní, zhorší nebo skončí.</li>
+    </ul>
+    <p>Pro si prosím kupuj jen tehdy, když ti tohle uspořádání vyhovuje. Když si nejsi jistý, začni s bezplatnou verzí — vyzkoušíš si aplikaci s vlastním klíčem dřív, než cokoli zaplatíš.</p>
+  </div>
+
+  <h3>Co si kupuješ</h3>
+  <p>Cloudpaca Pro je jednorázový nákup, který odemyká funkce uvnitř aplikace: asistenta bez stropu promptů, celou historii konverzací, složky, hledání, vlastní systémové prompty a export. Váže se na tvůj Apple Account, platí na tvých zařízeních a přežije přeinstalaci. Není to předplatné a nic se neobnovuje.</p>
+
+  <h3>Vrácení peněz</h3>
+  <p>Platby vyřizuje Apple, ne my. Vrácení peněz se řeší výhradně přes Apple na <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>; nemůžeme ho ani schválit, ani zamítnout. Pokud je rozbitá samotná aplikace, napiš nejdřív nám — radši to spravíme.</p>
+
+  <h3>Tvoje odpovědnost</h3>
+  <ul>
+    <li>Klíč si nech pro sebe. Kdokoli s ním může spotřebovat tvoji kvótu u Ollamy.</li>
+    <li>Dodržuj podmínky Ollamy. Tvůj klíč, tvůj účet, tvoje odpovědnost.</li>
+    <li>Nepoužívej Cloudpaca k porušování zákona ani k tvorbě obsahu, který někomu škodí.</li>
+    <li>Za to, co modelům pošleš a co uděláš s jejich výstupem, odpovídáš ty.</li>
+  </ul>
+
+  <h3>Výstupy umělé inteligence</h3>
+  <p>Odpovědi pocházejí od modelů třetích stran. Můžou být chybné, zastaralé, zaujaté nebo vymyšlené a my je nekontrolujeme ani nemoderujeme. Nespoléhej se na ně u lékařských, právních, finančních ani jiných odborných rozhodnutí. Co je důležité, si ověř.</p>
+
+  <h3>Dostupnost a odpovědnost</h3>
+  <p>Cloudpaca se poskytuje „jak stojí a leží", bez jakýchkoli záruk. V rozsahu, který dovoluje zákon, UDT s.r.o. neodpovídá za ztrátu dat, ztrátu kreditů u Ollamy, výpadky na straně Ollamy ani za škody vzniklé používáním aplikace. Nic z toho neomezuje práva, která ti dává kogentní spotřebitelské právo.</p>
+
+  <h3>Změny</h3>
+  <p>Podmínky můžeme s vývojem aplikace upravovat. Datum nahoře vždy odpovídá aktuálnímu znění.</p>
+
+  <h3>Rozhodné právo</h3>
+  <p>Podmínky se řídí právem České republiky. Kontakt: UDT s.r.o., Brno — <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+</article>
+
+</section>
+
+</main>
+
+<footer>
+  <p data-i18n="footer">Cloudpaca is a client for Ollama Cloud. You bring your own API key. We are not affiliated with Ollama.</p>
+  <p>© 2026 UDT s.r.o., Brno · <a href="mailto:support@udt.cz">support@udt.cz</a></p>
+</footer>
+
+<script>
+(function () {
+  const SUPPORTED = ['en', 'cs'];
+
+  // Popisky, které v markupu existují jen jednou — zbytek textu žije
+  // uvnitř vlastní .lang-section, takže se nepřekládá skriptem.
+  const I18N = {
+    en: { privacy:'Privacy Policy', terms:'Terms of Use',
+          tagline:'Private iOS client for Ollama Cloud', allApps:'← All Apps',
+          footer:'Cloudpaca is a client for Ollama Cloud. You bring your own API key. We are not affiliated with Ollama.' },
+    cs: { privacy:'Zásady soukromí', terms:'Podmínky používání',
+          tagline:'Soukromý iOS klient pro Ollama Cloud', allApps:'← Všechny aplikace',
+          footer:'Cloudpaca je klient pro Ollama Cloud. Vlastní API klíč si přinášíš sám. S Ollamou nejsme propojení.' }
+  };
+
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const langSections = document.querySelectorAll('.lang-section');
+  const tabs = document.querySelectorAll('.tab');
+
+  // Kotvy: id="privacy"/"terms" se přiděluje jen v aktivním jazyce,
+  // jinak by v dokumentu byly dvakrát a odkazy by mířily nahodile.
+  function syncDocIds(lang) {
+    document.querySelectorAll('[data-doc]').forEach(el => {
+      const active = el.closest('.lang-section')?.dataset.lang === lang;
+      if (active) el.id = el.dataset.doc; else el.removeAttribute('id');
+    });
+  }
+
+  function applyLabels(lang) {
+    const dict = I18N[lang] || I18N.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key]) el.textContent = dict[key];
+    });
+  }
+
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = 'en';
+    langButtons.forEach(b => b.setAttribute('aria-current', b.dataset.lang === lang ? 'true' : 'false'));
+    langSections.forEach(s => s.classList.toggle('active', s.dataset.lang === lang));
+    syncDocIds(lang);
+    applyLabels(lang);
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('cloudpaca-lang', lang); } catch (e) {}
+    window.scrollTo(0, 0);
+  }
+
+  function setTab(tab) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    document.body.classList.toggle('tab-privacy', tab === 'privacy');
+    document.body.classList.toggle('tab-terms', tab === 'terms');
+    try { localStorage.setItem('cloudpaca-tab', tab); } catch (e) {}
+  }
+
+  langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+
+  let lang = null, tab = null;
+  try { lang = localStorage.getItem('cloudpaca-lang'); tab = localStorage.getItem('cloudpaca-tab'); } catch (e) {}
+  if (!lang) lang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+  // Odkaz s #terms otevře rovnou podmínky.
+  if (location.hash === '#terms') tab = 'terms';
+  setLang(lang);
+  setTab(tab === 'terms' ? 'terms' : 'privacy');
+})();
+</script>
+
+</body>
+</html>
