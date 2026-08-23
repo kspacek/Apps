@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Countdy — Privacy Policy &amp; Terms of Use</title>
+<meta name="description" content="Privacy Policy and Terms of Use for Countdy, a privacy-first countdown app by UDT s.r.o.">
+
+<style>
+  /* ===== Design tokens ===== */
+  :root{
+    --bg:#241407;
+    --bg-2:#3a2410;
+    --surface:#ffffff;
+    --surface-soft:#faf5ee;
+    --ink:#2b1c10;
+    --ink-soft:#6b5540;
+    --ink-muted:#9a8570;
+    --accent:#c9822b;
+    --accent-2:#e8b84b;
+    --rule:#eee4d6;
+    --max:780px;
+    --radius:14px;
+    --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:#ffffff;
+    line-height:1.65;
+    font-size:16px;
+    min-height:100vh;
+  }
+
+  /* ===== Header / Hero — compact, refined ===== */
+  .hero{
+    padding:36px 24px 24px;
+    text-align:center;
+    position:relative;
+  }
+  .hero-inner{ max-width:var(--max); margin:0 auto; }
+  .logo-wrap{
+    width:72px; height:72px;
+    margin:0 auto 14px;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow: 0 8px 24px rgba(201,130,43,0.22), 0 1px 3px rgba(43,28,16,0.08);
+    background:#c9822b;
+  }
+  .logo-wrap img{ width:100%; height:100%; display:block; object-fit:cover; }
+  .brand{
+    font-family:var(--serif);
+    font-size:30px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    margin:6px 0 2px;
+    color:var(--ink);
+  }
+  .tagline{
+    font-size:12px;
+    color:var(--ink-muted);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin:0;
+  }
+  .back-link{
+    display:inline-block;
+    margin-top:14px;
+    color:var(--ink-muted);
+    text-decoration:none;
+    font-size:13px;
+    transition:color 0.15s;
+  }
+  .back-link:hover{ color:var(--accent); }
+
+  /* ===== Language switcher ===== */
+  .lang-bar{
+    max-width:var(--max);
+    margin:8px auto 0;
+    padding:0 24px 4px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    justify-content:center;
+  }
+  .lang-btn{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    color:var(--ink-soft);
+    padding:6px 12px 6px 10px;
+    border-radius:999px;
+    font-size:13px;
+    font-family:var(--sans);
+    cursor:pointer;
+    transition: all 0.15s;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    line-height:1;
+  }
+  .lang-btn .flag{
+    width:18px;
+    height:13px;
+    border-radius:2px;
+    display:block;
+    flex-shrink:0;
+    box-shadow: 0 0 0 1px rgba(43,28,16,0.08);
+    overflow:hidden;
+  }
+  .lang-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .lang-btn[aria-current="true"]{
+    background:var(--ink);
+    color:#fff;
+    border-color:var(--ink);
+  }
+
+  /* ===== Tab nav (Privacy / Terms) ===== */
+  .tab-nav{
+    max-width:var(--max);
+    margin:24px auto 0;
+    padding:0 24px;
+    display:flex;
+    gap:4px;
+    border-bottom:1px solid var(--rule);
+  }
+  .tab-link{
+    padding:12px 18px;
+    color:var(--ink-muted);
+    background:none;
+    border:none;
+    font-family:var(--sans);
+    cursor:pointer;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    border-bottom:2px solid transparent;
+    margin-bottom:-1px;
+    transition: all 0.15s;
+  }
+  .tab-link:hover{ color:var(--ink); }
+  .tab-link.active{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+
+  /* ===== Main content ===== */
+  main{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:40px 24px 80px;
+  }
+
+  .lang-section{ display:none; }
+  .lang-section.active{ display:block; }
+
+  /* Within the active language, only show the document matching the
+     currently selected tab. Body carries the active-tab class. */
+  body.tab-privacy [data-doc="terms"]{ display:none; }
+  body.tab-terms   [data-doc="privacy"]{ display:none; }
+
+  .doc-section{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    padding:32px 36px;
+    margin-bottom:24px;
+    box-shadow: 0 1px 2px rgba(43,28,16,0.04), 0 8px 24px rgba(43,28,16,0.04);
+  }
+
+  .doc-section h2{
+    font-family:var(--serif);
+    font-size:28px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+  .doc-section .updated{
+    font-size:13px;
+    color:var(--ink-muted);
+    margin:0 0 28px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--rule);
+  }
+  .doc-section h3{
+    font-family:var(--sans);
+    font-size:17px;
+    font-weight:600;
+    color:var(--ink);
+    margin:32px 0 8px;
+    letter-spacing:-0.005em;
+  }
+  .doc-section p, .doc-section li{
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  .doc-section ul{ padding-left:22px; margin:8px 0 16px; }
+  .doc-section li{ margin-bottom:6px; }
+  .doc-section strong{ color:var(--ink); font-weight:600; }
+  .doc-section a{ color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(30,107,255,0.3); }
+  .doc-section a:hover{ border-bottom-color:var(--accent); }
+
+  /* Highlight box for auto-renewal disclosure */
+  .callout{
+    background: linear-gradient(135deg, #f5f8ff 0%, #fff5f5 100%);
+    border:1px solid #d4dffc;
+    border-left:3px solid var(--accent);
+    padding:16px 20px;
+    border-radius:8px;
+    margin:16px 0;
+    font-size:14px;
+  }
+  .callout strong{ display:block; margin-bottom:6px; }
+
+  /* Footer */
+  footer{
+    text-align:center;
+    padding:32px 24px 48px;
+    color:var(--ink-muted);
+    font-size:13px;
+    border-top:1px solid var(--rule);
+    margin-top:40px;
+  }
+  footer a{ color:var(--ink-soft); text-decoration:none; }
+  footer a:hover{ color:var(--accent); }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 600px){
+    .hero{ padding:28px 18px 18px; }
+    .logo-wrap{ width:64px; height:64px; }
+    .brand{ font-size:26px; }
+    .doc-section{ padding:24px 20px; }
+    .doc-section h2{ font-size:23px; }
+    main{ padding:28px 16px 60px; }
+    .tab-nav{ padding:0 16px; }
+    .tab-link{ padding:10px 12px; font-size:13px; }
+    .lang-btn{ font-size:12px; padding:5px 10px 5px 8px; }
+    .lang-btn .flag{ width:15px; height:11px; }
+  }
+
+  /* Print-friendly */
+  @media print{
+    .hero, .lang-bar, .tab-nav, footer{ display:none; }
+    .lang-section{ display:block !important; }
+    .doc-section{ box-shadow:none; border:none; padding:0; margin-bottom:40px; page-break-inside:avoid; }
+    body{ background:#fff; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap">
+      <img src="data:image/jpeg;base64,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" alt="Countdy logo">
+    </div>
+    <h1 class="brand">Countdy</h1>
+    <p class="tagline">Beautiful Private Countdowns</p>
+    <a href="https://apps.udt.cz/" class="back-link">← All Apps</a>
+  </div>
+</header>
+
+<!-- Language switcher -->
+<nav class="lang-bar" aria-label="Language">
+  <button class="lang-btn" data-lang="en" aria-current="true"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>English</button>
+  <button class="lang-btn" data-lang="cs"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><path d="M0,0 h60 v15 H0z" fill="#fff"/><path d="M0,15 h60 v15 H0z" fill="#D7141A"/><path d="M0,0 L30,15 L0,30 z" fill="#11457E"/></svg>Čeština</button>
+  <button class="lang-btn" data-lang="de"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><path d="M0,0 h60 v10 H0z" fill="#000"/><path d="M0,10 h60 v10 H0z" fill="#DD0000"/><path d="M0,20 h60 v10 H0z" fill="#FFCE00"/></svg>Deutsch</button>
+</nav>
+
+<!-- Tab nav -->
+<nav class="tab-nav" aria-label="Documents">
+  <button class="tab-link active" type="button" data-tab="privacy" data-i18n="privacy">Privacy Policy</button>
+  <button class="tab-link" type="button" data-tab="terms" data-i18n="terms">Terms of Use</button>
+</nav>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- ENGLISH                                                       -->
+<!-- ============================================================ -->
+<section class="lang-section active" data-lang="en">
+
+  <article class="doc-section" data-doc="privacy">
+    <h2>Privacy Policy</h2>
+    <p class="updated">Last updated: 23 August 2026 · Version 1.0</p>
+
+    <p>This Privacy Policy describes how UDT s.r.o. ("we", "us", "our") handles information when you use the Countdy mobile application (the "App"). Countdy is designed with a privacy-first approach: your countdowns live on your device — we run no servers and have no user accounts.</p>
+
+    <h3>1. Data Controller</h3>
+    <p>The data controller is <strong>UDT s.r.o.</strong>, a company registered in the Czech Republic (D-U-N-S 88057446). Contact: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+
+    <h3>2. What Data We Collect</h3>
+    <p><strong>Your countdowns and personal data never reach our servers.</strong> The only information we receive is anonymous, opt-out usage analytics, described below. We never collect, transmit, store, or process any of the following:</p>
+    <ul>
+      <li>Countdown titles, dates, notes, or categories you create</li>
+      <li>Photos you attach as countdown backgrounds</li>
+      <li>Calendar events — calendar access is read-only, processed entirely on your device, and used only to create the countdowns you explicitly pick</li>
+      <li>Personal identifiers, advertising IDs, or device fingerprints</li>
+    </ul>
+    <p><strong>Anonymous usage analytics.</strong> To understand which features are used and to fix problems, the App sends anonymous usage events (for example "app launched" or "countdown created") to Aptabase, a privacy-focused analytics service hosted in the European Union. These events contain <em>no</em> name, email, account, advertising identifier, or persistent device identifier, are not linked to your identity, and are never used for tracking or advertising. You can turn analytics off at any time in <strong>Settings → About → Share anonymous usage data</strong>; when off, nothing is sent.</p>
+
+    <h3>3. Where Your Data Lives</h3>
+    <p><strong>On your device:</strong> All countdowns, photos, and settings are stored locally in the App's private container. Widgets and the Apple Watch app read the same on-device data.</p>
+    <p><strong>Family sharing (optional):</strong> If you start or join a family, shared countdowns are stored in the family founder's personal Apple iCloud account via Apple CloudKit and are accessible only to the members they invite. This data is encrypted in transit and at rest by Apple; we have no access to it. Photos are never shared. Apple acts as a sub-processor under its own privacy policy (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>). You can leave the family at any time in <strong>Settings → Family Sharing</strong>; the founder can stop sharing entirely, which removes shared countdowns for all members.</p>
+    <p><strong>Share links:</strong> When you share a single countdown as a link, the countdown data travels inside the link itself. No server of ours is involved; whoever receives the link receives an independent copy.</p>
+
+    <h3>4. In-App Purchases</h3>
+    <p>Countdy offers a single one-time purchase (Countdy Unlimited) processed by <strong>Apple Inc.</strong> via the App Store and StoreKit. We do not receive, store, or have access to your payment information, credit card numbers, or Apple ID. Apple provides us only with anonymized purchase receipts to validate entitlements. Apple's privacy policy applies to all payment processing.</p>
+
+    <h3>5. Legal Basis (GDPR)</h3>
+    <p>For users in the European Economic Area, the United Kingdom, and Switzerland, our legal basis under the GDPR for the limited processing described above is:</p>
+    <ul>
+      <li><strong>Contract performance</strong> (Art. 6(1)(b) GDPR) — for processing your in-app purchase to deliver the Unlimited entitlement.</li>
+      <li><strong>Legitimate interest</strong> (Art. 6(1)(f) GDPR) — for ensuring the App functions correctly and for anonymous, opt-out usage analytics.</li>
+    </ul>
+    <p>We do not rely on consent because we do not collect personal data on our servers.</p>
+
+    <h3>6. Your Rights</h3>
+    <p>Under GDPR and similar laws (including the California Consumer Privacy Act), you have the right to access, rectify, erase, restrict, port, and object to the processing of your personal data. Because we do not hold any personal data on our servers, most of these rights are exercised directly on your device:</p>
+    <ul>
+      <li><strong>Erase your data:</strong> Delete countdowns in the App, or delete the App.</li>
+      <li><strong>Erase shared data:</strong> Leave the family in Settings → Family Sharing (your own countdowns stay on your device as personal ones); the family founder can stop sharing for everyone.</li>
+      <li><strong>Turn off analytics:</strong> Settings → About → Share anonymous usage data.</li>
+      <li><strong>Contact us:</strong> For any other request, write to <a href="mailto:support@udt.cz">support@udt.cz</a>. You also have the right to lodge a complaint with your local supervisory authority (in the Czech Republic: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
+    </ul>
+
+    <h3>7. Children</h3>
+    <p>Countdy is not directed to children under 13. We do not knowingly collect personal data from children. As we collect no personal data on our servers at all, this restriction is satisfied by design.</p>
+
+    <h3>8. International Transfers</h3>
+    <p>Because we do not collect data on our servers, no international transfers occur on our part. Anonymous analytics are hosted by Aptabase in the European Union. If you use family sharing, Apple may store the encrypted data in data centers located outside your country, subject to Apple's privacy policy and Standard Contractual Clauses.</p>
+
+    <h3>9. Changes to this Policy</h3>
+    <p>We may update this Privacy Policy. The current version will always be available at <a href="https://countdy.app/privacy">countdy.app/privacy</a>. Material changes will be announced in App Store release notes.</p>
+
+    <h3>10. Contact</h3>
+    <p>Questions about this Privacy Policy: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+  <article class="doc-section" data-doc="terms">
+    <h2>Terms of Use</h2>
+    <p class="updated">Last updated: 23 August 2026 · Version 1.0</p>
+
+    <p>These Terms of Use ("Terms") govern your use of the Countdy mobile application (the "App") published by UDT s.r.o. ("we", "us"). By installing or using the App, you agree to these Terms.</p>
+
+    <h3>1. License</h3>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App on Apple devices that you own or control, in accordance with the Apple Media Services Terms and Conditions and these Terms.</p>
+
+    <h3>2. In-App Purchase</h3>
+    <p>The free version of the App is limited to three countdowns and a selection of themes and display styles. The full experience is unlocked by a single purchase:</p>
+
+    <div class="callout">
+      <strong>Countdy Unlimited — One-Time Purchase</strong>
+      <ul>
+        <li><strong>Price:</strong> USD 9.99 (or local equivalent set by Apple's price matrix; 199 Kč in the Czech Republic). One-time, non-recurring — no subscription.</li>
+        <li><strong>Scope:</strong> Unlimited countdowns, all premium themes, display styles and effects, all widget sizes, the Apple Watch app, and family sharing.</li>
+        <li><strong>Duration:</strong> Permanent unlock for the Apple ID that made the purchase, including future premium themes.</li>
+        <li><strong>Family:</strong> The purchase supports Apple Family Sharing. Joining a Countdy family created by a paying member does not require a separate purchase.</li>
+        <li><strong>Restore:</strong> Reinstalling or switching devices? Use Settings → Restore purchases.</li>
+      </ul>
+    </div>
+
+    <p>All purchases are processed by Apple. Refunds, where applicable, are handled by Apple under its <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Media Services Terms</a>.</p>
+
+    <h3>3. Acceptable Use</h3>
+    <p>You agree not to: (a) reverse-engineer, decompile, or disassemble the App, except to the extent permitted by applicable law; (b) use the App to store or share content that is unlawful or that you do not have the right to use; (c) use the App for any unlawful purpose.</p>
+
+    <h3>4. User Content</h3>
+    <p>You retain all rights to the countdowns, notes, and photos you create in the App. They are stored on your device and, if you use family sharing, in the family founder's iCloud account — we have no access to them (see Privacy Policy). You are responsible for what you share with your family members and for backing up your data.</p>
+
+    <h3>5. Disclaimer of Warranties</h3>
+    <p>The App is provided "<strong>AS IS</strong>" and "<strong>AS AVAILABLE</strong>", without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the App will be uninterrupted, error-free, or secure, nor that notifications will be delivered at an exact moment — delivery timing is controlled by the operating system.</p>
+
+    <h3>6. Limitation of Liability</h3>
+    <p>To the maximum extent permitted by law, UDT s.r.o. shall not be liable for any indirect, incidental, consequential, or punitive damages, including loss of data or a missed event, arising from your use of or inability to use the App. Our total aggregate liability for any claim shall not exceed the amount you paid for the App in the 12 months preceding the claim.</p>
+
+    <h3>7. Apple as Third-Party Beneficiary</h3>
+    <p>You acknowledge that Apple Inc. is a third-party beneficiary of these Terms and may enforce them against you. Apple has no obligation to provide maintenance or support for the App.</p>
+
+    <h3>8. Governing Law</h3>
+    <p>These Terms are governed by the laws of the Czech Republic, without regard to conflict-of-laws principles. Disputes shall be resolved by the competent courts of the Czech Republic, without prejudice to mandatory consumer-protection rights granted by your country of residence.</p>
+
+    <h3>9. Changes to these Terms</h3>
+    <p>We may update these Terms. The current version will always be available at <a href="https://countdy.app/terms">countdy.app/terms</a>. Material changes affecting paid users will be announced in App Store release notes.</p>
+
+    <h3>10. Contact</h3>
+    <p>Questions about these Terms: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- ČEŠTINA                                                       -->
+<!-- ============================================================ -->
+<section class="lang-section" data-lang="cs">
+
+  <article class="doc-section" data-doc="privacy">
+    <h2>Zásady ochrany osobních údajů</h2>
+    <p class="updated">Poslední aktualizace: 23. srpna 2026 · Verze 1.0</p>
+
+    <p>Tyto zásady popisují, jak společnost UDT s.r.o. („my") nakládá s informacemi při používání mobilní aplikace Countdy („aplikace"). Countdy je navržená s důrazem na soukromí: vaše odpočty žijí ve vašem zařízení — neprovozujeme žádné servery a nemáme uživatelské účty.</p>
+
+    <h3>1. Správce údajů</h3>
+    <p>Správcem údajů je <strong>UDT s.r.o.</strong>, společnost registrovaná v České republice (D-U-N-S 88057446). Kontakt: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+
+    <h3>2. Jaká data shromažďujeme</h3>
+    <p><strong>Vaše odpočty ani osobní údaje se nikdy nedostanou na naše servery.</strong> Jediné, co dostáváme, je anonymní analytika používání s možností vypnutí, popsaná níže. Nikdy neshromažďujeme, nepřenášíme, neukládáme ani nezpracováváme:</p>
+    <ul>
+      <li>názvy, data, poznámky ani kategorie odpočtů, které vytvoříte</li>
+      <li>fotky, které přiložíte jako pozadí odpočtu</li>
+      <li>události z kalendáře — přístup ke kalendáři je jen pro čtení, probíhá výhradně ve vašem zařízení a slouží pouze k vytvoření odpočtů, které si sami vyberete</li>
+      <li>osobní identifikátory, reklamní ID ani otisky zařízení</li>
+    </ul>
+    <p><strong>Anonymní analytika používání.</strong> Abychom věděli, které funkce se používají, a mohli opravovat chyby, posílá aplikace anonymní události (například „aplikace spuštěna" nebo „odpočet vytvořen") službě Aptabase — analytice zaměřené na soukromí, provozované v Evropské unii. Tyto události neobsahují <em>žádné</em> jméno, e-mail, účet, reklamní identifikátor ani trvalý identifikátor zařízení, nejsou propojeny s vaší identitou a nikdy neslouží ke sledování ani reklamě. Analytiku můžete kdykoli vypnout v <strong>Nastavení → O aplikaci → Sdílet anonymní data o používání</strong>; poté se neodesílá nic.</p>
+
+    <h3>3. Kde vaše data leží</h3>
+    <p><strong>Ve vašem zařízení:</strong> Všechny odpočty, fotky a nastavení jsou uloženy lokálně v privátním kontejneru aplikace. Widgety i aplikace pro Apple Watch čtou tatáž data v zařízení.</p>
+    <p><strong>Rodinné sdílení (volitelné):</strong> Pokud založíte rodinu nebo se k ní připojíte, sdílené odpočty se ukládají do osobního účtu Apple iCloud zakladatele rodiny přes Apple CloudKit a přístup k nim mají jen pozvaní členové. Data jsou při přenosu i v úložišti šifrována společností Apple; my k nim přístup nemáme. Fotky se nikdy nesdílejí. Apple vystupuje jako dílčí zpracovatel podle vlastních zásad ochrany soukromí (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>). Rodinu můžete kdykoli opustit v <strong>Nastavení → Rodinné sdílení</strong>; zakladatel může sdílení zcela ukončit, čímž sdílené odpočty zmizí všem členům.</p>
+    <p><strong>Odkazy pro sdílení:</strong> Když sdílíte jednotlivý odpočet odkazem, data odpočtu cestují přímo v odkazu. Žádný náš server se toho neúčastní; příjemce odkazu získá nezávislou kopii.</p>
+
+    <h3>4. Nákupy v aplikaci</h3>
+    <p>Countdy nabízí jediný jednorázový nákup (Countdy Unlimited), který zpracovává <strong>Apple Inc.</strong> přes App Store a StoreKit. Nedostáváme, neukládáme a nemáme přístup k vašim platebním údajům, číslům karet ani Apple ID. Apple nám poskytuje pouze anonymizované účtenky pro ověření nároku. Na veškeré platby se vztahují zásady ochrany soukromí společnosti Apple.</p>
+
+    <h3>5. Právní základ (GDPR)</h3>
+    <p>Pro uživatele v Evropském hospodářském prostoru, Spojeném království a Švýcarsku je naším právním základem podle GDPR pro výše popsané omezené zpracování:</p>
+    <ul>
+      <li><strong>Plnění smlouvy</strong> (čl. 6 odst. 1 písm. b) GDPR) — zpracování nákupu v aplikaci a poskytnutí nároku Unlimited.</li>
+      <li><strong>Oprávněný zájem</strong> (čl. 6 odst. 1 písm. f) GDPR) — zajištění správného fungování aplikace a anonymní analytika s možností vypnutí.</li>
+    </ul>
+    <p>Na souhlas se nespoléháme, protože na svých serverech žádné osobní údaje neshromažďujeme.</p>
+
+    <h3>6. Vaše práva</h3>
+    <p>Podle GDPR a obdobných zákonů máte právo na přístup, opravu, výmaz, omezení, přenositelnost a námitku proti zpracování osobních údajů. Protože na našich serverech žádné osobní údaje nedržíme, většinu práv uplatníte přímo ve svém zařízení:</p>
+    <ul>
+      <li><strong>Výmaz dat:</strong> smažte odpočty v aplikaci, nebo smažte aplikaci.</li>
+      <li><strong>Výmaz sdílených dat:</strong> opusťte rodinu v Nastavení → Rodinné sdílení (vaše vlastní odpočty zůstanou v zařízení jako osobní); zakladatel může sdílení ukončit všem.</li>
+      <li><strong>Vypnutí analytiky:</strong> Nastavení → O aplikaci → Sdílet anonymní data o používání.</li>
+      <li><strong>Kontakt:</strong> S jakoukoli jinou žádostí pište na <a href="mailto:support@udt.cz">support@udt.cz</a>. Máte také právo podat stížnost u dozorového úřadu (v ČR: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
+    </ul>
+
+    <h3>7. Děti</h3>
+    <p>Countdy není určena dětem mladším 13 let. Osobní údaje dětí vědomě neshromažďujeme. Protože na serverech neshromažďujeme žádné osobní údaje, je toto omezení splněno už z principu.</p>
+
+    <h3>8. Mezinárodní přenosy</h3>
+    <p>Protože data na serverech neshromažďujeme, k žádným mezinárodním přenosům z naší strany nedochází. Anonymní analytika běží u Aptabase v Evropské unii. Pokud používáte rodinné sdílení, může Apple ukládat šifrovaná data v datových centrech mimo vaši zemi, v souladu se svými zásadami a standardními smluvními doložkami.</p>
+
+    <h3>9. Změny těchto zásad</h3>
+    <p>Tyto zásady můžeme aktualizovat. Aktuální verze bude vždy dostupná na <a href="https://countdy.app/privacy">countdy.app/privacy</a>. Podstatné změny oznámíme v poznámkách k vydání v App Store.</p>
+
+    <h3>10. Kontakt</h3>
+    <p>Dotazy k těmto zásadám: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+  <article class="doc-section" data-doc="terms">
+    <h2>Podmínky používání</h2>
+    <p class="updated">Poslední aktualizace: 23. srpna 2026 · Verze 1.0</p>
+
+    <p>Tyto podmínky používání („podmínky") upravují používání mobilní aplikace Countdy („aplikace") vydávané společností UDT s.r.o. („my"). Instalací nebo používáním aplikace s podmínkami souhlasíte.</p>
+
+    <h3>1. Licence</h3>
+    <p>Udělujeme vám omezenou, nevýhradní, nepřenosnou a odvolatelnou licenci k používání aplikace na zařízeních Apple, která vlastníte nebo ovládáte, v souladu s podmínkami Apple Media Services a těmito podmínkami.</p>
+
+    <h3>2. Nákup v aplikaci</h3>
+    <p>Bezplatná verze aplikace je omezena na tři odpočty a výběr témat a stylů zobrazení. Plnou verzi odemyká jediný nákup:</p>
+
+    <div class="callout">
+      <strong>Countdy Unlimited — jednorázový nákup</strong>
+      <ul>
+        <li><strong>Cena:</strong> 9,99 USD (nebo místní ekvivalent podle ceníku Apple; v České republice 199 Kč). Jednorázově, bez opakování — žádné předplatné.</li>
+        <li><strong>Rozsah:</strong> neomezený počet odpočtů, všechna prémiová témata, styly zobrazení a efekty, všechny velikosti widgetů, aplikace pro Apple Watch a rodinné sdílení.</li>
+        <li><strong>Trvání:</strong> trvalé odemčení pro Apple ID, které nákup provedlo, včetně budoucích prémiových témat.</li>
+        <li><strong>Rodina:</strong> nákup podporuje Rodinné sdílení Apple. Připojení k rodině Countdy založené platícím členem nevyžaduje další nákup.</li>
+        <li><strong>Obnovení:</strong> po přeinstalaci nebo změně zařízení použijte Nastavení → Obnovit nákupy.</li>
+      </ul>
+    </div>
+
+    <p>Všechny nákupy zpracovává Apple. Případné refundace vyřizuje Apple podle svých <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">podmínek Media Services</a>.</p>
+
+    <h3>3. Přípustné užití</h3>
+    <p>Zavazujete se, že nebudete: (a) provádět zpětnou analýzu, dekompilaci ani rozklad aplikace nad rámec povolený zákonem; (b) používat aplikaci k ukládání či sdílení obsahu, který je protiprávní nebo k němuž nemáte práva; (c) používat aplikaci k jakémukoli nezákonnému účelu.</p>
+
+    <h3>4. Uživatelský obsah</h3>
+    <p>Veškerá práva k odpočtům, poznámkám a fotkám, které v aplikaci vytvoříte, zůstávají vám. Jsou uloženy ve vašem zařízení a při použití rodinného sdílení v účtu iCloud zakladatele rodiny — my k nim přístup nemáme (viz Zásady ochrany osobních údajů). Za obsah, který sdílíte se členy rodiny, i za zálohování svých dat odpovídáte sami.</p>
+
+    <h3>5. Vyloučení záruk</h3>
+    <p>Aplikace je poskytována „<strong>TAK, JAK JE</strong>" a „<strong>JAK JE DOSTUPNÁ</strong>", bez jakýchkoli záruk, výslovných či předpokládaných, včetně záruk prodejnosti, vhodnosti pro konkrétní účel nebo neporušování práv. Nezaručujeme, že aplikace bude nepřerušovaná, bezchybná nebo bezpečná, ani že notifikace budou doručeny v přesný okamžik — načasování doručení řídí operační systém.</p>
+
+    <h3>6. Omezení odpovědnosti</h3>
+    <p>V maximálním rozsahu povoleném zákonem UDT s.r.o. neodpovídá za žádné nepřímé, nahodilé, následné ani sankční škody, včetně ztráty dat nebo zmeškané události, vzniklé používáním aplikace nebo nemožností ji používat. Naše celková souhrnná odpovědnost za jakýkoli nárok nepřesáhne částku, kterou jste za aplikaci zaplatili v posledních 12 měsících před vznikem nároku.</p>
+
+    <h3>7. Apple jako oprávněná třetí strana</h3>
+    <p>Berete na vědomí, že Apple Inc. je oprávněnou třetí stranou těchto podmínek a může je vůči vám vymáhat. Apple nemá žádnou povinnost poskytovat k aplikaci údržbu ani podporu.</p>
+
+    <h3>8. Rozhodné právo</h3>
+    <p>Tyto podmínky se řídí právem České republiky bez ohledu na kolizní normy. Spory řeší příslušné soudy České republiky, aniž jsou dotčena kogentní spotřebitelská práva země vašeho bydliště.</p>
+
+    <h3>9. Změny těchto podmínek</h3>
+    <p>Tyto podmínky můžeme aktualizovat. Aktuální verze bude vždy dostupná na <a href="https://countdy.app/terms">countdy.app/terms</a>. Podstatné změny dotýkající se platících uživatelů oznámíme v poznámkách k vydání v App Store.</p>
+
+    <h3>10. Kontakt</h3>
+    <p>Dotazy k těmto podmínkám: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- DEUTSCH                                                       -->
+<!-- ============================================================ -->
+<section class="lang-section" data-lang="de">
+
+  <article class="doc-section" data-doc="privacy">
+    <h2>Datenschutzerklärung</h2>
+    <p class="updated">Zuletzt aktualisiert: 23. August 2026 · Version 1.0</p>
+
+    <p>Diese Datenschutzerklärung beschreibt, wie UDT s.r.o. („wir", „uns") mit Informationen umgeht, wenn Sie die mobile Anwendung Countdy (die „App") nutzen. Countdy ist konsequent auf Privatsphäre ausgelegt: Ihre Countdowns bleiben auf Ihrem Gerät — wir betreiben keine Server und haben keine Benutzerkonten.</p>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>Verantwortlicher ist <strong>UDT s.r.o.</strong>, eine in der Tschechischen Republik registrierte Gesellschaft (D-U-N-S 88057446). Kontakt: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+
+    <h3>2. Welche Daten wir erheben</h3>
+    <p><strong>Ihre Countdowns und persönlichen Daten erreichen niemals unsere Server.</strong> Das Einzige, was wir erhalten, ist anonyme, abschaltbare Nutzungsanalytik (siehe unten). Wir erheben, übertragen, speichern oder verarbeiten niemals:</p>
+    <ul>
+      <li>Titel, Daten, Notizen oder Kategorien Ihrer Countdowns</li>
+      <li>Fotos, die Sie als Countdown-Hintergrund anhängen</li>
+      <li>Kalenderereignisse — der Kalenderzugriff ist schreibgeschützt, findet ausschließlich auf Ihrem Gerät statt und dient nur den Countdowns, die Sie selbst auswählen</li>
+      <li>persönliche Kennungen, Werbe-IDs oder Geräte-Fingerprints</li>
+    </ul>
+    <p><strong>Anonyme Nutzungsanalytik.</strong> Um zu verstehen, welche Funktionen genutzt werden, und um Fehler zu beheben, sendet die App anonyme Ereignisse (z. B. „App gestartet" oder „Countdown erstellt") an Aptabase, einen datenschutzfreundlichen Analysedienst mit Hosting in der Europäischen Union. Diese Ereignisse enthalten <em>keinen</em> Namen, keine E-Mail, kein Konto, keine Werbe-ID und keine dauerhafte Gerätekennung, sind nicht mit Ihrer Identität verknüpft und dienen niemals Tracking oder Werbung. Sie können die Analytik jederzeit unter <strong>Einstellungen → Über die App → Anonyme Nutzungsdaten teilen</strong> abschalten; danach wird nichts gesendet.</p>
+
+    <h3>3. Wo Ihre Daten liegen</h3>
+    <p><strong>Auf Ihrem Gerät:</strong> Alle Countdowns, Fotos und Einstellungen werden lokal im privaten Container der App gespeichert. Widgets und die Apple-Watch-App lesen dieselben Daten auf dem Gerät.</p>
+    <p><strong>Familienfreigabe (optional):</strong> Wenn Sie eine Familie gründen oder einer beitreten, werden geteilte Countdowns über Apple CloudKit im persönlichen iCloud-Konto des Familiengründers gespeichert und sind nur für eingeladene Mitglieder zugänglich. Diese Daten werden von Apple bei Übertragung und Speicherung verschlüsselt; wir haben keinen Zugriff darauf. Fotos werden niemals geteilt. Apple handelt als Unterauftragsverarbeiter nach eigener Datenschutzrichtlinie (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>). Sie können die Familie jederzeit unter <strong>Einstellungen → Familienfreigabe</strong> verlassen; der Gründer kann die Freigabe vollständig beenden, wodurch geteilte Countdowns bei allen Mitgliedern entfernt werden.</p>
+    <p><strong>Teilen-Links:</strong> Wenn Sie einen einzelnen Countdown als Link teilen, reisen die Daten im Link selbst. Kein Server von uns ist beteiligt; wer den Link erhält, bekommt eine unabhängige Kopie.</p>
+
+    <h3>4. In-App-Käufe</h3>
+    <p>Countdy bietet einen einzigen Einmalkauf (Countdy Unlimited), der von <strong>Apple Inc.</strong> über den App Store und StoreKit abgewickelt wird. Wir erhalten, speichern oder sehen keine Zahlungsdaten, Kartennummern oder Ihre Apple-ID. Apple stellt uns lediglich anonymisierte Kaufbelege zur Prüfung der Berechtigung bereit. Für die Zahlungsabwicklung gilt die Datenschutzrichtlinie von Apple.</p>
+
+    <h3>5. Rechtsgrundlage (DSGVO)</h3>
+    <p>Für Nutzer im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz ist unsere Rechtsgrundlage nach DSGVO für die oben beschriebene begrenzte Verarbeitung:</p>
+    <ul>
+      <li><strong>Vertragserfüllung</strong> (Art. 6 Abs. 1 lit. b DSGVO) — Verarbeitung Ihres In-App-Kaufs zur Bereitstellung der Unlimited-Berechtigung.</li>
+      <li><strong>Berechtigtes Interesse</strong> (Art. 6 Abs. 1 lit. f DSGVO) — Sicherstellung der Funktionsfähigkeit der App sowie anonyme, abschaltbare Nutzungsanalytik.</li>
+    </ul>
+    <p>Auf eine Einwilligung stützen wir uns nicht, da wir auf unseren Servern keine personenbezogenen Daten erheben.</p>
+
+    <h3>6. Ihre Rechte</h3>
+    <p>Nach DSGVO und vergleichbaren Gesetzen haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Da wir keine personenbezogenen Daten auf Servern halten, üben Sie die meisten Rechte direkt auf Ihrem Gerät aus:</p>
+    <ul>
+      <li><strong>Daten löschen:</strong> Countdowns in der App löschen oder die App löschen.</li>
+      <li><strong>Geteilte Daten löschen:</strong> Familie unter Einstellungen → Familienfreigabe verlassen (eigene Countdowns bleiben als persönliche auf dem Gerät); der Gründer kann die Freigabe für alle beenden.</li>
+      <li><strong>Analytik abschalten:</strong> Einstellungen → Über die App → Anonyme Nutzungsdaten teilen.</li>
+      <li><strong>Kontakt:</strong> Für alle weiteren Anliegen schreiben Sie an <a href="mailto:support@udt.cz">support@udt.cz</a>. Sie haben zudem das Recht auf Beschwerde bei Ihrer Aufsichtsbehörde (in Tschechien: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
+    </ul>
+
+    <h3>7. Kinder</h3>
+    <p>Countdy richtet sich nicht an Kinder unter 13 Jahren. Wir erheben wissentlich keine Daten von Kindern. Da wir auf Servern überhaupt keine personenbezogenen Daten erheben, ist diese Beschränkung bereits konzeptionell erfüllt.</p>
+
+    <h3>8. Internationale Übermittlungen</h3>
+    <p>Da wir keine Daten auf Servern erheben, finden unsererseits keine internationalen Übermittlungen statt. Die anonyme Analytik wird von Aptabase in der Europäischen Union gehostet. Bei Nutzung der Familienfreigabe kann Apple die verschlüsselten Daten in Rechenzentren außerhalb Ihres Landes speichern, gemäß Apples Datenschutzrichtlinie und Standardvertragsklauseln.</p>
+
+    <h3>9. Änderungen dieser Erklärung</h3>
+    <p>Wir können diese Datenschutzerklärung aktualisieren. Die aktuelle Version ist stets unter <a href="https://countdy.app/privacy">countdy.app/privacy</a> verfügbar. Wesentliche Änderungen kündigen wir in den App-Store-Versionshinweisen an.</p>
+
+    <h3>10. Kontakt</h3>
+    <p>Fragen zu dieser Datenschutzerklärung: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+  <article class="doc-section" data-doc="terms">
+    <h2>Nutzungsbedingungen</h2>
+    <p class="updated">Zuletzt aktualisiert: 23. August 2026 · Version 1.0</p>
+
+    <p>Diese Nutzungsbedingungen („Bedingungen") regeln Ihre Nutzung der mobilen Anwendung Countdy (die „App") von UDT s.r.o. („wir", „uns"). Mit der Installation oder Nutzung der App stimmen Sie diesen Bedingungen zu.</p>
+
+    <h3>1. Lizenz</h3>
+    <p>Wir gewähren Ihnen eine beschränkte, nicht ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der App auf Apple-Geräten, die Sie besitzen oder kontrollieren, gemäß den Apple Media Services Terms and Conditions und diesen Bedingungen.</p>
+
+    <h3>2. In-App-Kauf</h3>
+    <p>Die kostenlose Version der App ist auf drei Countdowns sowie eine Auswahl an Themes und Anzeigestilen beschränkt. Der volle Umfang wird durch einen einzigen Kauf freigeschaltet:</p>
+
+    <div class="callout">
+      <strong>Countdy Unlimited — Einmalkauf</strong>
+      <ul>
+        <li><strong>Preis:</strong> 9,99 USD (bzw. lokales Äquivalent gemäß Apples Preismatrix). Einmalig, ohne Wiederkehr — kein Abo.</li>
+        <li><strong>Umfang:</strong> unbegrenzte Countdowns, alle Premium-Themes, Anzeigestile und Effekte, alle Widget-Größen, die Apple-Watch-App und Familienfreigabe.</li>
+        <li><strong>Dauer:</strong> dauerhafte Freischaltung für die Apple-ID des Kaufs, einschließlich künftiger Premium-Themes.</li>
+        <li><strong>Familie:</strong> Der Kauf unterstützt die Apple-Familienfreigabe. Der Beitritt zu einer Countdy-Familie eines zahlenden Mitglieds erfordert keinen weiteren Kauf.</li>
+        <li><strong>Wiederherstellen:</strong> Nach Neuinstallation oder Gerätewechsel: Einstellungen → Käufe wiederherstellen.</li>
+      </ul>
+    </div>
+
+    <p>Alle Käufe werden von Apple abgewickelt. Erstattungen erfolgen, soweit anwendbar, durch Apple gemäß den <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Media Services Terms</a>.</p>
+
+    <h3>3. Zulässige Nutzung</h3>
+    <p>Sie verpflichten sich, (a) die App nicht zurückzuentwickeln, zu dekompilieren oder zu disassemblieren, außer soweit gesetzlich erlaubt; (b) die App nicht zum Speichern oder Teilen rechtswidriger Inhalte oder von Inhalten ohne entsprechende Rechte zu nutzen; (c) die App nicht für rechtswidrige Zwecke zu verwenden.</p>
+
+    <h3>4. Nutzerinhalte</h3>
+    <p>Alle Rechte an Countdowns, Notizen und Fotos, die Sie in der App erstellen, verbleiben bei Ihnen. Sie werden auf Ihrem Gerät gespeichert und bei Nutzung der Familienfreigabe im iCloud-Konto des Familiengründers — wir haben keinen Zugriff (siehe Datenschutzerklärung). Für Inhalte, die Sie mit Familienmitgliedern teilen, sowie für die Sicherung Ihrer Daten sind Sie selbst verantwortlich.</p>
+
+    <h3>5. Gewährleistungsausschluss</h3>
+    <p>Die App wird „<strong>WIE BESEHEN</strong>" und „<strong>WIE VERFÜGBAR</strong>" bereitgestellt, ohne jegliche ausdrückliche oder stillschweigende Gewährleistung, einschließlich der Marktgängigkeit, Eignung für einen bestimmten Zweck oder Nichtverletzung von Rechten. Wir gewährleisten nicht, dass die App unterbrechungs- oder fehlerfrei oder sicher ist, noch dass Benachrichtigungen zu einem exakten Zeitpunkt zugestellt werden — die Zustellung steuert das Betriebssystem.</p>
+
+    <h3>6. Haftungsbeschränkung</h3>
+    <p>Soweit gesetzlich zulässig, haftet UDT s.r.o. nicht für indirekte, zufällige, Folge- oder Strafschäden, einschließlich Datenverlust oder eines verpassten Ereignisses, die aus der Nutzung oder Nichtnutzbarkeit der App entstehen. Unsere Gesamthaftung übersteigt nicht den Betrag, den Sie in den 12 Monaten vor dem Anspruch für die App gezahlt haben.</p>
+
+    <h3>7. Apple als begünstigter Dritter</h3>
+    <p>Sie erkennen an, dass Apple Inc. begünstigter Dritter dieser Bedingungen ist und sie Ihnen gegenüber durchsetzen kann. Apple ist nicht verpflichtet, Wartung oder Support für die App zu leisten.</p>
+
+    <h3>8. Anwendbares Recht</h3>
+    <p>Diese Bedingungen unterliegen dem Recht der Tschechischen Republik ohne Rücksicht auf Kollisionsnormen. Streitigkeiten entscheiden die zuständigen Gerichte der Tschechischen Republik, unbeschadet zwingender Verbraucherschutzrechte Ihres Wohnsitzlandes.</p>
+
+    <h3>9. Änderungen dieser Bedingungen</h3>
+    <p>Wir können diese Bedingungen aktualisieren. Die aktuelle Version ist stets unter <a href="https://countdy.app/terms">countdy.app/terms</a> verfügbar. Wesentliche Änderungen für zahlende Nutzer kündigen wir in den App-Store-Versionshinweisen an.</p>
+
+    <h3>10. Kontakt</h3>
+    <p>Fragen zu diesen Bedingungen: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+</section>
+
+<footer>
+  © 2026 UDT s.r.o. · <a href="https://countdy.app/">countdy.app</a> · <a href="mailto:support@udt.cz">support@udt.cz</a>
+</footer>
+
+<script>
+  // ===== State =====
+  const SUPPORTED_LANGS = ['en','cs','de'];
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const langSections = document.querySelectorAll('.lang-section');
+  const tabLinks = document.querySelectorAll('.tab-link');
+
+  // Tab labels per language (only the two tab buttons are language-agnostic
+  // in the markup; everything else lives inside its own .lang-section).
+  const I18N = {
+    en: { privacy: 'Privacy Policy',         terms: 'Terms of Use' },
+    cs: { privacy: 'Zásady soukromí',        terms: 'Podmínky používání' },
+    de: { privacy: 'Datenschutz',            terms: 'Nutzungsbedingungen' }
+  };
+
+  // Apply id="privacy" / id="terms" only inside the currently active language
+  // section. This avoids duplicate IDs across the 7 lang sections, which
+  // would otherwise break anchor navigation.
+  function syncDocIds(activeLang) {
+    document.querySelectorAll('[data-doc]').forEach(el => {
+      const isActive = el.closest('.lang-section')?.dataset.lang === activeLang;
+      if (isActive) {
+        el.id = el.dataset.doc;          // e.g. id="privacy"
+      } else {
+        el.removeAttribute('id');         // hide from anchor resolution
+      }
+    });
+  }
+
+  function applyTabLabels(lang) {
+    const dict = I18N[lang] || I18N.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key]) el.textContent = dict[key];
+    });
+  }
+
+  function setLang(lang) {
+    if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
+    langButtons.forEach(btn => {
+      btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
+    });
+    langSections.forEach(sec => {
+      sec.classList.toggle('active', sec.dataset.lang === lang);
+    });
+    syncDocIds(lang);
+    applyTabLabels(lang);
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('countdy-lang', lang); } catch(e) {}
+    // Scroll back to top — same pattern as Silver Vault. Without this,
+    // language swap leaves the user mid-document with no visual context.
+    window.scrollTo(0, 0);
+  }
+
+  function setActiveTab(tab, doScroll) {
+    tabLinks.forEach(link => {
+      link.classList.toggle('active', link.dataset.tab === tab);
+    });
+    // Toggle body class so CSS shows only the matching <article data-doc>
+    document.body.classList.toggle('tab-privacy', tab === 'privacy');
+    document.body.classList.toggle('tab-terms',   tab === 'terms');
+    if (doScroll) {
+      // Scroll to top so the new document starts at the top of the
+      // viewport — keeps perceived "no jump" feel from Silver Vault.
+      window.scrollTo(0, 0);
+    }
+    // Reflect in URL hash. Wrapped in try/catch because some sandboxed
+    // contexts (e.g. cross-origin previews using about:srcdoc) reject
+    // History API mutations with a SecurityError.
+    try {
+      if (history.replaceState) {
+        history.replaceState(null, '', '#' + tab);
+      }
+    } catch (e) { /* sandbox or unsupported — ignore */ }
+  }
+
+  // ===== Wire up events =====
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  tabLinks.forEach(link => {
+    link.addEventListener('click', () => setActiveTab(link.dataset.tab, true));
+  });
+
+  // ===== Init =====
+  (function init() {
+    // 1. Determine preferred language
+    let preferred = null;
+    try { preferred = localStorage.getItem('countdy-lang'); } catch(e) {}
+    if (!preferred || !SUPPORTED_LANGS.includes(preferred)) {
+      const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+      preferred = SUPPORTED_LANGS.includes(nav) ? nav : 'en';
+    }
+    setLang(preferred);
+
+    // 2. Honour incoming hash (#privacy or #terms), default to privacy.
+    //    Don't auto-scroll on initial load — that would push the user past
+    //    the hero on first paint.
+    const initialTab = (window.location.hash === '#terms') ? 'terms' : 'privacy';
+    setActiveTab(initialTab, false);
+  })();
+</script>
+
+</body>
+</html>
