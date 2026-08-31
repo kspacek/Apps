@@ -5,6 +5,815 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <title>Saventa — Privacy Policy &amp; Terms of Use</title>
+<meta name="description" content="Privacy Policy and Terms of Use for Saventa, a privacy-first personal finance app by UDT s.r.o. Your financial data stays on your device.">
+
+<style>
+  /* ===== Design tokens — Saventa brand ===== */
+  :root{
+    --bg:#14291d;
+    --bg-2:#27543A;
+    --surface:#ffffff;
+    --surface-soft:#f5f4ef;
+    --ink:#1A1A1A;
+    --ink-soft:#3d4a42;
+    --ink-muted:#6b7a70;
+    --accent:#3E8458;
+    --accent-dark:#27543A;
+    --gold:#C9A14E;
+    --rule:#e3e8e4;
+    --max:780px;
+    --radius:14px;
+    --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:#ffffff;
+    line-height:1.65;
+    font-size:16px;
+    min-height:100vh;
+  }
+
+  /* ===== Header / Hero — compact, refined ===== */
+  .hero{
+    padding:36px 24px 24px;
+    text-align:center;
+    position:relative;
+  }
+  .hero-inner{ max-width:var(--max); margin:0 auto; }
+  .logo-wrap{
+    width:72px; height:72px;
+    margin:0 auto 14px;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow: 0 8px 24px rgba(39,84,58,0.28), 0 1px 3px rgba(20,41,29,0.10);
+    background:linear-gradient(135deg, #3E8458 0%, #27543A 100%);
+  }
+  .logo-wrap svg{ width:100%; height:100%; display:block; }
+  .brand{
+    font-family:var(--serif);
+    font-size:30px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    margin:6px 0 2px;
+    color:var(--ink);
+  }
+  .tagline{
+    font-size:12px;
+    color:var(--ink-muted);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin:0;
+  }
+  .back-link{
+    display:inline-block;
+    margin-top:14px;
+    color:var(--ink-muted);
+    text-decoration:none;
+    font-size:13px;
+    transition:color 0.15s;
+  }
+  .back-link:hover{ color:var(--accent); }
+
+  /* ===== Language switcher ===== */
+  .lang-bar{
+    max-width:var(--max);
+    margin:8px auto 0;
+    padding:0 24px 4px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    justify-content:center;
+  }
+  .lang-btn{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    color:var(--ink-soft);
+    padding:6px 12px 6px 10px;
+    border-radius:999px;
+    font-size:13px;
+    font-family:var(--sans);
+    cursor:pointer;
+    transition: all 0.15s;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    line-height:1;
+  }
+  .lang-btn .flag{
+    width:18px;
+    height:13px;
+    border-radius:2px;
+    display:block;
+    flex-shrink:0;
+    box-shadow: 0 0 0 1px rgba(20,41,29,0.08);
+    overflow:hidden;
+  }
+  .lang-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .lang-btn[aria-current="true"]{
+    background:var(--accent-dark);
+    color:#fff;
+    border-color:var(--accent-dark);
+  }
+
+  /* ===== Tab nav (Privacy / Terms) ===== */
+  .tab-nav{
+    max-width:var(--max);
+    margin:24px auto 0;
+    padding:0 24px;
+    display:flex;
+    gap:4px;
+    border-bottom:1px solid var(--rule);
+  }
+  .tab-link{
+    padding:12px 18px;
+    color:var(--ink-muted);
+    background:none;
+    border:none;
+    font-family:var(--sans);
+    cursor:pointer;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    border-bottom:2px solid transparent;
+    margin-bottom:-1px;
+    transition: all 0.15s;
+  }
+  .tab-link:hover{ color:var(--ink); }
+  .tab-link.active{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+
+  /* ===== Main content ===== */
+  main{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:40px 24px 80px;
+  }
+
+  .lang-section{ display:none; }
+  .lang-section.active{ display:block; }
+
+  /* Within the active language, only show the document matching the
+     currently selected tab. Body carries the active-tab class. */
+  body.tab-privacy [data-doc="terms"]{ display:none; }
+  body.tab-terms   [data-doc="privacy"]{ display:none; }
+
+  .doc-section{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    padding:32px 36px;
+    margin-bottom:24px;
+    box-shadow: 0 1px 2px rgba(20,41,29,0.04), 0 8px 24px rgba(20,41,29,0.04);
+  }
+  .doc-section h2{
+    font-family:var(--serif);
+    font-size:28px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+  .doc-section .updated{
+    font-size:13px;
+    color:var(--ink-muted);
+    margin:0 0 28px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--rule);
+  }
+  .doc-section h3{
+    font-family:var(--sans);
+    font-size:17px;
+    font-weight:600;
+    color:var(--ink);
+    margin:32px 0 8px;
+    letter-spacing:-0.005em;
+  }
+  .doc-section p, .doc-section li{
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  .doc-section ul{ padding-left:22px; margin:8px 0 16px; }
+  .doc-section li{ margin-bottom:6px; }
+  .doc-section strong{ color:var(--ink); font-weight:600; }
+  .doc-section a{ color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(62,132,88,0.3); }
+  .doc-section a:hover{ border-bottom-color:var(--accent); }
+
+  /* Highlight box for auto-renewal disclosure */
+  .callout{
+    background: linear-gradient(135deg, #f4f9f5 0%, #fdf9f0 100%);
+    border:1px solid #d3e4d8;
+    border-left:3px solid var(--accent);
+    padding:16px 20px;
+    border-radius:8px;
+    margin:16px 0;
+    font-size:14px;
+  }
+  .callout strong{ display:block; margin-bottom:6px; }
+
+  /* Footer */
+  footer{
+    text-align:center;
+    padding:32px 24px 48px;
+    color:var(--ink-muted);
+    font-size:13px;
+    border-top:1px solid var(--rule);
+    margin-top:40px;
+  }
+  footer a{ color:var(--ink-soft); text-decoration:none; }
+  footer a:hover{ color:var(--accent); }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 600px){
+    .hero{ padding:28px 18px 18px; }
+    .logo-wrap{ width:64px; height:64px; }
+    .brand{ font-size:26px; }
+    .doc-section{ padding:24px 20px; }
+    .doc-section h2{ font-size:23px; }
+    main{ padding:28px 16px 60px; }
+    .tab-nav{ padding:0 16px; }
+    .tab-link{ padding:10px 12px; font-size:13px; }
+  }
+
+  /* ===== Print / no-JS fallback ===== */
+  @media print{
+    .lang-bar, .tab-nav, .back-link{ display:none; }
+    .lang-section{ display:block !important; }
+  }
+</style>
+</head>
+<body class="tab-privacy">
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap" aria-hidden="true">
+      <!-- Saventa mark: money tree — gold coin blossoming green leaves -->
+      <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3E8458"/><stop offset="1" stop-color="#27543A"/>
+          </linearGradient>
+          <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F0D083"/><stop offset="1" stop-color="#C9A14E"/>
+          </linearGradient>
+        </defs>
+        <rect width="72" height="72" fill="url(#lg)"/>
+        <g stroke="#C9A14E" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M36 52 V34"/>
+          <path d="M36 44 C30 42 26 38 25 32"/>
+          <path d="M36 44 C42 42 46 38 47 32"/>
+        </g>
+        <ellipse cx="24" cy="30" rx="5" ry="3.4" fill="#7AB552" transform="rotate(-35 24 30)"/>
+        <ellipse cx="48" cy="30" rx="5" ry="3.4" fill="#7AB552" transform="rotate(35 48 30)"/>
+        <ellipse cx="29" cy="21" rx="4.4" ry="3" fill="#8FC468" transform="rotate(-15 29 21)"/>
+        <ellipse cx="43" cy="21" rx="4.4" ry="3" fill="#8FC468" transform="rotate(15 43 21)"/>
+        <circle cx="36" cy="27" r="8.5" fill="url(#gold)" stroke="#A9843C" stroke-width="1.2"/>
+        <text x="36" y="31.5" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" fill="#6d5423">$</text>
+        <path d="M28 52 h16" stroke="#C9A14E" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1 class="brand">Saventa</h1>
+    <p class="tagline">Privacy-first Personal Finance</p>
+    <a href="https://apps.udt.cz/" class="back-link">← All Apps</a>
+  </div>
+</header>
+
+<!-- Language switcher -->
+<nav class="lang-bar" aria-label="Language">
+  <button class="lang-btn" data-lang="en" aria-current="true"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>English</button>
+  <button class="lang-btn" data-lang="cs"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><path d="M0,0 h60 v15 H0z" fill="#fff"/><path d="M0,15 h60 v15 H0z" fill="#D7141A"/><path d="M0,0 L30,15 L0,30 z" fill="#11457E"/></svg>Čeština</button>
+  <button class="lang-btn" data-lang="de"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><path d="M0,0 h60 v10 H0z" fill="#000"/><path d="M0,10 h60 v10 H0z" fill="#DD0000"/><path d="M0,20 h60 v10 H0z" fill="#FFCE00"/></svg>Deutsch</button>
+</nav>
+
+<!-- Tab nav -->
+<nav class="tab-nav" aria-label="Documents">
+  <button class="tab-link active" type="button" data-tab="privacy" data-i18n="privacy">Privacy Policy</button>
+  <button class="tab-link" type="button" data-tab="terms" data-i18n="terms">Terms of Use</button>
+</nav>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- ENGLISH                                                       -->
+<!-- ============================================================ -->
+<section class="lang-section active" data-lang="en">
+
+  <article class="doc-section" data-doc="privacy">
+    <h2>Privacy Policy</h2>
+    <p class="updated">Last updated: 31 August 2026 · Version 1.0</p>
+
+    <p>This Privacy Policy describes how UDT s.r.o. ("we", "us", "our") handles information when you use the Saventa mobile application (the "App"). Saventa is designed with a privacy-first approach: your financial records stay on your device and, optionally, in your personal Apple iCloud account. We operate no servers of our own and Saventa never connects to your bank.</p>
+
+    <h3>1. Data Controller</h3>
+    <p>The data controller is <strong>UDT s.r.o.</strong>, Horníkova 2965/32f, Líšeň, 628 00 Brno, Czech Republic. Company ID: 28288670, VAT: CZ28288670, registered at the Brno Regional Court, file no. C 58849 (D-U-N-S 88057446). Contact: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+
+    <h3>2. What Data We Collect</h3>
+    <p><strong>Your financial data never reaches our servers.</strong> The App requires no registration, no login, and no bank credentials. We never collect, transmit, store, or process any of the following:</p>
+    <ul>
+      <li>Accounts, transactions, budgets, savings goals, categories, or notes you create</li>
+      <li>Receipts, screenshots, or bank statement files you import, or the text extracted from them</li>
+      <li>Bank login credentials — the App has no bank connection at all</li>
+      <li>Personal identifiers, advertising IDs, or device fingerprints</li>
+    </ul>
+    <p><strong>Anonymous usage analytics (opt-in, off by default).</strong> If — and only if — you switch on "Share anonymous statistics", the App sends anonymous usage events (for example "app launched" or "report opened") to Aptabase, a privacy-focused analytics service hosted in the European Union. These events contain <em>no</em> financial data, name, email, account, advertising identifier, or persistent device identifier, are not linked to your identity, and are never used for tracking or advertising. The toggle lives in onboarding and in <strong>Settings → Privacy</strong>; it is off unless you turn it on.</p>
+
+    <h3>3. Where Your Data Lives</h3>
+    <p><strong>On your device:</strong> All financial records are stored locally in the App's private database. Receipt and screenshot recognition runs entirely on-device using Apple's Vision framework — no image and no text leaves your device for processing. Statement files (CSV, OFX/QFX, MT940, CAMT.053) are parsed on-device as well.</p>
+    <p><strong>In your iCloud account (optional):</strong> If you enable iCloud sync, your data is synchronized to your personal Apple iCloud account via Apple CloudKit. It is encrypted in transit and at rest by Apple; we have no access to it. Apple acts under its own privacy policy (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>).</p>
+    <p><strong>Shared budgets (optional):</strong> If you invite a family member to a shared budget, the shared records travel through your own iCloud account to the people you invite — never through us.</p>
+
+    <h3>4. Exchange Rates</h3>
+    <p>To convert foreign currencies, the App downloads public exchange rates from the Czech National Bank (<a href="https://www.cnb.cz" target="_blank" rel="noopener">cnb.cz</a>) and from the European Central Bank reference rates via the frankfurter.dev service. These requests contain only currency codes and dates — no personal or financial data. Like any web request, they expose your IP address to the provider, subject to the provider's own policies. You can also enter exchange rates manually and the App works fully offline.</p>
+
+    <h3>5. Face ID / Touch ID</h3>
+    <p>The optional privacy lock uses Face ID, Touch ID, or your device passcode via Apple's LocalAuthentication framework. Biometric data is evaluated by iOS on your device only; the App never sees, stores, or transmits it.</p>
+
+    <h3>6. In-App Purchases</h3>
+    <p>Saventa offers in-app purchases (Saventa Pro — annual subscription or lifetime one-time purchase) processed by <strong>Apple Inc.</strong> via the App Store and StoreKit. We do not receive, store, or have access to your payment information, card numbers, or Apple ID. Apple provides us only with anonymized purchase receipts to validate entitlements.</p>
+
+    <h3>7. Legal Basis (GDPR)</h3>
+    <p>For users in the European Economic Area, the United Kingdom, and Switzerland, our legal basis under the GDPR for the limited processing described above is:</p>
+    <ul>
+      <li><strong>Contract performance</strong> (Art. 6(1)(b) GDPR) — processing your in-app purchase to deliver the Pro entitlement.</li>
+      <li><strong>Legitimate interest</strong> (Art. 6(1)(f) GDPR) — ensuring the App functions correctly, including fetching public exchange rates.</li>
+      <li><strong>Consent</strong> (Art. 6(1)(a) GDPR) — anonymous usage analytics, only after you opt in; withdrawable at any time in Settings → Privacy.</li>
+    </ul>
+
+    <h3>8. Your Rights</h3>
+    <p>Under GDPR and similar laws (including the California Consumer Privacy Act), you have the right to access, rectify, erase, restrict, port, and object to the processing of your personal data. Because we hold no personal data on servers, most of these rights are exercised directly on your device:</p>
+    <ul>
+      <li><strong>Export your data:</strong> Settings → Export (CSV / OFX).</li>
+      <li><strong>Erase your data:</strong> Delete records in the App, use Reset App Data, or delete the App.</li>
+      <li><strong>Erase iCloud data:</strong> iOS Settings → Apple ID → iCloud → Manage Storage → Saventa → Delete Data.</li>
+      <li><strong>Manage subscriptions:</strong> iOS Settings → Apple ID → Subscriptions.</li>
+      <li><strong>Contact us:</strong> For any other request, write to <a href="mailto:support@udt.cz">support@udt.cz</a>. You also have the right to lodge a complaint with your supervisory authority (in the Czech Republic: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
+    </ul>
+
+    <h3>9. Children</h3>
+    <p>Saventa is not directed to children under 13. We do not knowingly collect personal data from children. As we collect no personal data on servers at all, this restriction is satisfied by design.</p>
+
+    <h3>10. International Transfers</h3>
+    <p>We transfer no data internationally because we collect none. If you use iCloud sync, Apple may store your encrypted data in data centers outside your country, subject to Apple's privacy policy and Standard Contractual Clauses. Aptabase analytics (if you opt in) is hosted in the European Union.</p>
+
+    <h3>11. Changes to this Policy</h3>
+    <p>We may update this Privacy Policy. The current version will always be available at <a href="https://apps.udt.cz/Saventa/">apps.udt.cz/Saventa</a>. Material changes will be announced in App Store release notes.</p>
+
+    <h3>12. Contact</h3>
+    <p>Questions about this Privacy Policy: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+  <article class="doc-section" data-doc="terms">
+    <h2>Terms of Use</h2>
+    <p class="updated">Last updated: 31 August 2026 · Version 1.0</p>
+
+    <p>These Terms of Use ("Terms") govern your use of the Saventa mobile application (the "App") published by UDT s.r.o. ("we", "us"). By installing or using the App, you agree to these Terms.</p>
+
+    <h3>1. License</h3>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App on Apple devices that you own or control, in accordance with the Apple Media Services Terms and Conditions and these Terms.</p>
+
+    <h3>2. In-App Purchases and Subscriptions</h3>
+    <p>The free version of the App is fully functional with no ads: transactions, accounts, imports, reports, and export are unlimited. Saventa Pro removes the free-tier limits of 3 budgets and 2 savings goals. Two paid options unlock the same Pro features:</p>
+
+    <div class="callout">
+      <strong>Saventa Pro Annual — Auto-Renewable Subscription</strong>
+      <ul>
+        <li><strong>Price:</strong> USD 24.99 per year (or local equivalent set by Apple's price matrix).</li>
+        <li><strong>Duration:</strong> 1 year, automatically renewed.</li>
+        <li><strong>Payment:</strong> Charged to your Apple ID account at the moment of purchase confirmation.</li>
+        <li><strong>Auto-renewal:</strong> The subscription automatically renews unless cancelled <strong>at least 24 hours before</strong> the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period.</li>
+        <li><strong>Manage / Cancel:</strong> Subscriptions can be managed and auto-renewal turned off in iOS Settings → Apple ID → Subscriptions after purchase.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <strong>Saventa Pro Lifetime — One-Time Purchase</strong>
+      <ul>
+        <li><strong>Price:</strong> USD 49.99 (one-time, non-recurring).</li>
+        <li><strong>Duration:</strong> Permanent unlock for the Apple ID that made the purchase.</li>
+      </ul>
+    </div>
+
+    <p>All purchases are processed by Apple. Refunds, where applicable, are handled by Apple under its <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Media Services Terms</a>.</p>
+
+    <h3>3. Not Financial Advice</h3>
+    <p>Saventa is a record-keeping and budgeting tool. Nothing in the App constitutes financial, investment, tax, accounting, or legal advice. Reports, forecasts, and exchange-rate conversions are informational only; exchange rates are reference rates and may differ from the rates your bank applies. You are solely responsible for the accuracy of the records you enter or import and for any financial decisions you make.</p>
+
+    <h3>4. Acceptable Use</h3>
+    <p>You agree not to: (a) reverse-engineer, decompile, or disassemble the App, except to the extent permitted by applicable law; (b) use the App to store or process data that you do not have the legal right to handle; (c) use the App for any unlawful purpose.</p>
+
+    <h3>5. User Content</h3>
+    <p>You retain all rights to the records you create with the App. We have no access to them (see Privacy Policy). You are solely responsible for backing up your data — the App offers CSV/OFX export and an on-device backup for this purpose.</p>
+
+    <h3>6. Disclaimer of Warranties</h3>
+    <p>The App is provided "<strong>AS IS</strong>" and "<strong>AS AVAILABLE</strong>", without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the App will be uninterrupted, error-free, or secure, nor that imported data will always be recognised without errors — always review imports before saving.</p>
+
+    <h3>7. Limitation of Liability</h3>
+    <p>To the maximum extent permitted by law, UDT s.r.o. shall not be liable for any indirect, incidental, consequential, or punitive damages, including loss of data or financial loss arising from decisions based on information in the App. Our total aggregate liability for any claim shall not exceed the amount you paid for the App in the 12 months preceding the claim.</p>
+
+    <h3>8. Apple as Third-Party Beneficiary</h3>
+    <p>You acknowledge that Apple Inc. is a third-party beneficiary of these Terms and may enforce them against you. Apple has no obligation to provide maintenance or support for the App.</p>
+
+    <h3>9. Governing Law</h3>
+    <p>These Terms are governed by the laws of the Czech Republic, without regard to conflict-of-laws principles. Disputes shall be resolved by the competent courts of the Czech Republic, without prejudice to mandatory consumer-protection rights granted by your country of residence.</p>
+
+    <h3>10. Changes to these Terms</h3>
+    <p>We may update these Terms. The current version will always be available at <a href="https://apps.udt.cz/Saventa/">apps.udt.cz/Saventa</a>. Material changes affecting paid users will be announced in App Store release notes.</p>
+
+    <h3>11. Contact</h3>
+    <p>Questions about these Terms: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- ČEŠTINA                                                       -->
+<!-- ============================================================ -->
+<section class="lang-section" data-lang="cs">
+
+  <article class="doc-section" data-doc="privacy">
+    <h2>Zásady ochrany osobních údajů</h2>
+    <p class="updated">Poslední aktualizace: 31. srpna 2026 · Verze 1.0</p>
+
+    <p>Tyto zásady popisují, jak společnost UDT s.r.o. („my") nakládá s informacemi při používání mobilní aplikace Saventa („aplikace"). Saventa je navržena s důrazem na soukromí: vaše finanční záznamy zůstávají ve vašem zařízení a volitelně ve vašem osobním účtu Apple iCloud. Neprovozujeme žádné vlastní servery a aplikace se nikdy nepřipojuje k vaší bance.</p>
+
+    <h3>1. Správce údajů</h3>
+    <p>Správcem údajů je <strong>UDT s.r.o.</strong>, Horníkova 2965/32f, Líšeň, 628 00 Brno. IČ: 28288670, DIČ: CZ28288670, zapsaná u Krajského soudu v Brně, sp. zn. C 58849 (D-U-N-S 88057446). Kontakt: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+
+    <h3>2. Jaké údaje shromažďujeme</h3>
+    <p><strong>Vaše finanční data se nikdy nedostanou na naše servery.</strong> Aplikace nevyžaduje registraci, přihlášení ani přístupové údaje k bance. Nikdy neshromažďujeme, nepřenášíme, neukládáme ani nezpracováváme:</p>
+    <ul>
+      <li>účty, transakce, rozpočty, spořicí cíle, kategorie ani poznámky, které vytvoříte,</li>
+      <li>účtenky, snímky obrazovky ani soubory výpisů, které naimportujete, ani text z nich rozpoznaný,</li>
+      <li>přihlašovací údaje k bance — aplikace nemá žádné napojení na banku,</li>
+      <li>osobní identifikátory, reklamní ID ani otisky zařízení.</li>
+    </ul>
+    <p><strong>Anonymní statistiky používání (opt-in, ve výchozím stavu vypnuté).</strong> Pouze pokud zapnete „Sdílet anonymní statistiky", odesílá aplikace anonymní události o používání (např. „aplikace spuštěna" nebo „otevřen report") službě Aptabase — analytické službě zaměřené na soukromí, provozované v Evropské unii. Tyto události neobsahují <em>žádná</em> finanční data, jméno, e-mail, účet, reklamní identifikátor ani trvalý identifikátor zařízení, nejsou propojeny s vaší identitou a nikdy neslouží ke sledování či reklamě. Přepínač najdete v úvodním nastavení a v <strong>Nastavení → Soukromí</strong>; dokud ho nezapnete, nic se neodesílá.</p>
+
+    <h3>3. Kde jsou vaše data uložena</h3>
+    <p><strong>Ve vašem zařízení:</strong> Všechny finanční záznamy jsou uloženy lokálně v soukromé databázi aplikace. Rozpoznávání účtenek a snímků obrazovky běží výhradně v zařízení pomocí frameworku Apple Vision — žádný obrázek ani text neopouští vaše zařízení. Soubory výpisů (CSV, OFX/QFX, MT940, CAMT.053) se rovněž zpracovávají v zařízení.</p>
+    <p><strong>Ve vašem účtu iCloud (volitelně):</strong> Pokud zapnete synchronizaci iCloud, data se synchronizují do vašeho osobního účtu Apple iCloud přes Apple CloudKit. Apple je šifruje při přenosu i v úložišti; my k nim nemáme přístup. Apple jedná podle vlastních zásad ochrany soukromí (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>).</p>
+    <p><strong>Sdílené rozpočty (volitelně):</strong> Pokud pozvete člena rodiny ke sdílenému rozpočtu, sdílené záznamy putují přes váš vlastní iCloud pouze k lidem, které pozvete — nikdy přes nás.</p>
+
+    <h3>4. Směnné kurzy</h3>
+    <p>Pro převod cizích měn aplikace stahuje veřejné směnné kurzy České národní banky (<a href="https://www.cnb.cz" target="_blank" rel="noopener">cnb.cz</a>) a referenční kurzy Evropské centrální banky prostřednictvím služby frankfurter.dev. Tyto požadavky obsahují pouze kódy měn a data — žádné osobní ani finanční údaje. Jako u každého webového požadavku je poskytovateli viditelná vaše IP adresa, na kterou se vztahují jeho vlastní zásady. Kurzy můžete zadávat i ručně a aplikace funguje plně offline.</p>
+
+    <h3>5. Face ID / Touch ID</h3>
+    <p>Volitelný zámek soukromí využívá Face ID, Touch ID nebo kód zařízení prostřednictvím frameworku LocalAuthentication. Biometrická data vyhodnocuje výhradně iOS ve vašem zařízení; aplikace je nikdy nevidí, neukládá ani nepřenáší.</p>
+
+    <h3>6. Nákupy v aplikaci</h3>
+    <p>Saventa nabízí nákupy v aplikaci (Saventa Pro — roční předplatné nebo doživotní jednorázový nákup) zpracovávané společností <strong>Apple Inc.</strong> přes App Store a StoreKit. Nedostáváme, neukládáme ani nemáme přístup k vašim platebním údajům, číslům karet ani Apple ID. Od Apple dostáváme pouze anonymizované doklady o nákupu pro ověření oprávnění.</p>
+
+    <h3>7. Právní základ (GDPR)</h3>
+    <p>Pro uživatele v Evropském hospodářském prostoru, Spojeném království a Švýcarsku je naším právním základem podle GDPR pro výše popsané omezené zpracování:</p>
+    <ul>
+      <li><strong>Plnění smlouvy</strong> (čl. 6 odst. 1 písm. b) GDPR) — zpracování nákupu v aplikaci pro poskytnutí oprávnění Pro.</li>
+      <li><strong>Oprávněný zájem</strong> (čl. 6 odst. 1 písm. f) GDPR) — zajištění správného fungování aplikace včetně stahování veřejných směnných kurzů.</li>
+      <li><strong>Souhlas</strong> (čl. 6 odst. 1 písm. a) GDPR) — anonymní statistiky používání, pouze po vašem zapnutí; souhlas lze kdykoli odvolat v Nastavení → Soukromí.</li>
+    </ul>
+
+    <h3>8. Vaše práva</h3>
+    <p>Podle GDPR a obdobných zákonů máte právo na přístup, opravu, výmaz, omezení, přenositelnost a námitku proti zpracování osobních údajů. Protože na serverech žádné osobní údaje nedržíme, většinu těchto práv uplatníte přímo ve svém zařízení:</p>
+    <ul>
+      <li><strong>Export dat:</strong> Nastavení → Export (CSV / OFX).</li>
+      <li><strong>Výmaz dat:</strong> smažte záznamy v aplikaci, použijte Smazat data aplikace, nebo aplikaci odinstalujte.</li>
+      <li><strong>Výmaz dat na iCloudu:</strong> Nastavení iOS → Apple ID → iCloud → Spravovat úložiště → Saventa → Smazat data.</li>
+      <li><strong>Správa předplatného:</strong> Nastavení iOS → Apple ID → Předplatná.</li>
+      <li><strong>Kontakt:</strong> S jakoukoli další žádostí pište na <a href="mailto:support@udt.cz">support@udt.cz</a>. Máte také právo podat stížnost u dozorového úřadu (v ČR: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
+    </ul>
+
+    <h3>9. Děti</h3>
+    <p>Saventa není určena dětem mladším 13 let. Osobní údaje dětí vědomě neshromažďujeme. Protože na serverech neshromažďujeme žádné osobní údaje, je toto omezení splněno již ze samotného návrhu aplikace.</p>
+
+    <h3>10. Mezinárodní předávání</h3>
+    <p>Žádná data mezinárodně nepředáváme, protože žádná neshromažďujeme. Pokud používáte synchronizaci iCloud, může Apple ukládat vaše šifrovaná data v datových centrech mimo vaši zemi, v souladu se svými zásadami a standardními smluvními doložkami. Analytika Aptabase (pokud ji zapnete) běží v Evropské unii.</p>
+
+    <h3>11. Změny těchto zásad</h3>
+    <p>Tyto zásady můžeme aktualizovat. Aktuální verze bude vždy dostupná na <a href="https://apps.udt.cz/Saventa/">apps.udt.cz/Saventa</a>. Podstatné změny oznámíme v poznámkách k vydání v App Store.</p>
+
+    <h3>12. Kontakt</h3>
+    <p>Dotazy k těmto zásadám: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+  <article class="doc-section" data-doc="terms">
+    <h2>Podmínky používání</h2>
+    <p class="updated">Poslední aktualizace: 31. srpna 2026 · Verze 1.0</p>
+
+    <p>Tyto podmínky používání („podmínky") upravují používání mobilní aplikace Saventa („aplikace") vydávané společností UDT s.r.o. („my"). Instalací nebo používáním aplikace s těmito podmínkami souhlasíte.</p>
+
+    <h3>1. Licence</h3>
+    <p>Udělujeme vám omezenou, nevýhradní, nepřenosnou a odvolatelnou licenci k používání aplikace na zařízeních Apple, která vlastníte nebo ovládáte, v souladu s podmínkami Apple Media Services a těmito podmínkami.</p>
+
+    <h3>2. Nákupy v aplikaci a předplatná</h3>
+    <p>Bezplatná verze aplikace je plně funkční a bez reklam: transakce, účty, importy, reporty i export jsou neomezené. Saventa Pro ruší limity bezplatné verze — 3 rozpočty a 2 spořicí cíle. Stejné funkce Pro odemykají dvě placené varianty:</p>
+
+    <div class="callout">
+      <strong>Saventa Pro Roční — automaticky obnovované předplatné</strong>
+      <ul>
+        <li><strong>Cena:</strong> 24,99 USD ročně (nebo místní ekvivalent podle ceníku Apple).</li>
+        <li><strong>Trvání:</strong> 1 rok, automaticky se obnovuje.</li>
+        <li><strong>Platba:</strong> Účtuje se na váš účet Apple ID při potvrzení nákupu.</li>
+        <li><strong>Automatické obnovení:</strong> Předplatné se automaticky obnovuje, pokud jej nezrušíte <strong>nejpozději 24 hodin před</strong> koncem aktuálního období. Poplatek za obnovení se strhne během 24 hodin před koncem aktuálního období.</li>
+        <li><strong>Správa / zrušení:</strong> Předplatné spravujete a automatické obnovování vypnete v Nastavení iOS → Apple ID → Předplatná.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <strong>Saventa Pro Doživotní — jednorázový nákup</strong>
+      <ul>
+        <li><strong>Cena:</strong> 49,99 USD (jednorázově, bez opakování).</li>
+        <li><strong>Trvání:</strong> Trvalé odemčení pro Apple ID, které nákup provedlo.</li>
+      </ul>
+    </div>
+
+    <p>Všechny nákupy zpracovává Apple. Případné refundace vyřizuje Apple podle svých <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">podmínek Media Services</a>.</p>
+
+    <h3>3. Nejde o finanční poradenství</h3>
+    <p>Saventa je nástroj pro evidenci a rozpočtování. Nic v aplikaci nepředstavuje finanční, investiční, daňové, účetní ani právní poradenství. Reporty, výhledy a měnové převody mají pouze informativní charakter; směnné kurzy jsou referenční a mohou se lišit od kurzů vaší banky. Za správnost zadaných či importovaných záznamů a za svá finanční rozhodnutí odpovídáte výhradně vy.</p>
+
+    <h3>4. Přípustné užití</h3>
+    <p>Zavazujete se: (a) neprovádět zpětnou analýzu, dekompilaci ani rozklad aplikace, s výjimkou rozsahu povoleného právem; (b) nepoužívat aplikaci k ukládání či zpracování dat, k nimž nemáte právo; (c) nepoužívat aplikaci k žádnému protiprávnímu účelu.</p>
+
+    <h3>5. Uživatelský obsah</h3>
+    <p>Veškerá práva k záznamům vytvořeným v aplikaci zůstávají vám. My k nim nemáme přístup (viz Zásady ochrany osobních údajů). Za zálohování svých dat odpovídáte vy — aplikace k tomu nabízí export CSV/OFX a zálohu v zařízení.</p>
+
+    <h3>6. Vyloučení záruk</h3>
+    <p>Aplikace je poskytována „<strong>TAK, JAK JE</strong>" a „<strong>JAK JE DOSTUPNÁ</strong>", bez záruk jakéhokoli druhu, výslovných či předpokládaných, včetně záruk prodejnosti, vhodnosti pro určitý účel či neporušování práv. Nezaručujeme, že aplikace bude nepřerušovaná, bezchybná či bezpečná, ani že importovaná data budou vždy rozpoznána bez chyb — import před uložením vždy zkontrolujte.</p>
+
+    <h3>7. Omezení odpovědnosti</h3>
+    <p>V maximálním rozsahu povoleném právem neodpovídá UDT s.r.o. za žádné nepřímé, nahodilé, následné ani sankční škody, včetně ztráty dat či finanční újmy plynoucí z rozhodnutí založených na informacích v aplikaci. Naše celková souhrnná odpovědnost z jakéhokoli nároku nepřesáhne částku, kterou jste za aplikaci zaplatili během 12 měsíců před vznikem nároku, aniž jsou dotčena kogentní práva spotřebitele.</p>
+
+    <h3>8. Apple jako oprávněná třetí strana</h3>
+    <p>Berete na vědomí, že Apple Inc. je oprávněnou třetí stranou těchto podmínek a může je vůči vám vymáhat. Apple nemá žádnou povinnost poskytovat údržbu ani podporu aplikace.</p>
+
+    <h3>9. Rozhodné právo</h3>
+    <p>Tyto podmínky se řídí právem České republiky bez ohledu na kolizní normy. Spory řeší příslušné soudy České republiky, aniž jsou dotčena kogentní spotřebitelská práva země vašeho bydliště.</p>
+
+    <h3>10. Změny podmínek</h3>
+    <p>Tyto podmínky můžeme aktualizovat. Aktuální verze bude vždy dostupná na <a href="https://apps.udt.cz/Saventa/">apps.udt.cz/Saventa</a>. Podstatné změny týkající se platících uživatelů oznámíme v poznámkách k vydání v App Store.</p>
+
+    <h3>11. Kontakt</h3>
+    <p>Dotazy k těmto podmínkám: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- DEUTSCH                                                       -->
+<!-- ============================================================ -->
+<section class="lang-section" data-lang="de">
+
+  <article class="doc-section" data-doc="privacy">
+    <h2>Datenschutzerklärung</h2>
+    <p class="updated">Zuletzt aktualisiert: 31. August 2026 · Version 1.0</p>
+
+    <p>Diese Datenschutzerklärung beschreibt, wie die UDT s.r.o. („wir", „uns") mit Informationen umgeht, wenn Sie die mobile Anwendung Saventa (die „App") nutzen. Saventa ist konsequent auf Privatsphäre ausgelegt: Ihre Finanzdaten bleiben auf Ihrem Gerät und optional in Ihrem persönlichen Apple-iCloud-Konto. Wir betreiben keine eigenen Server, und die App verbindet sich niemals mit Ihrer Bank.</p>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>Verantwortlicher ist die <strong>UDT s.r.o.</strong>, Horníkova 2965/32f, Líšeň, 628 00 Brno, Tschechische Republik. ID: 28288670, USt-IdNr.: CZ28288670, eingetragen beim Kreisgericht Brünn, Az. C 58849 (D-U-N-S 88057446). Kontakt: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+
+    <h3>2. Welche Daten wir erheben</h3>
+    <p><strong>Ihre Finanzdaten erreichen niemals unsere Server.</strong> Die App erfordert keine Registrierung, keinen Login und keine Bankzugangsdaten. Wir erheben, übertragen, speichern oder verarbeiten niemals:</p>
+    <ul>
+      <li>Konten, Transaktionen, Budgets, Sparziele, Kategorien oder Notizen, die Sie anlegen,</li>
+      <li>Kassenbons, Screenshots oder Kontoauszugsdateien, die Sie importieren, oder daraus erkannten Text,</li>
+      <li>Bank-Zugangsdaten — die App hat überhaupt keine Bankverbindung,</li>
+      <li>persönliche Kennungen, Werbe-IDs oder Geräte-Fingerabdrücke.</li>
+    </ul>
+    <p><strong>Anonyme Nutzungsstatistiken (Opt-in, standardmäßig aus).</strong> Nur wenn Sie „Anonyme Statistiken teilen" aktivieren, sendet die App anonyme Nutzungsereignisse (z. B. „App gestartet" oder „Bericht geöffnet") an Aptabase, einen datenschutzorientierten Analysedienst mit Hosting in der Europäischen Union. Diese Ereignisse enthalten <em>keine</em> Finanzdaten, keinen Namen, keine E-Mail, kein Konto, keine Werbekennung und keine dauerhafte Gerätekennung, sind nicht mit Ihrer Identität verknüpft und werden niemals für Tracking oder Werbung verwendet. Den Schalter finden Sie im Onboarding und unter <strong>Einstellungen → Datenschutz</strong>; solange Sie ihn nicht aktivieren, wird nichts gesendet.</p>
+
+    <h3>3. Wo Ihre Daten liegen</h3>
+    <p><strong>Auf Ihrem Gerät:</strong> Alle Finanzdaten werden lokal in der privaten Datenbank der App gespeichert. Die Erkennung von Kassenbons und Screenshots läuft vollständig auf dem Gerät über Apples Vision-Framework — weder Bild noch Text verlassen Ihr Gerät. Auch Kontoauszugsdateien (CSV, OFX/QFX, MT940, CAMT.053) werden auf dem Gerät verarbeitet.</p>
+    <p><strong>In Ihrem iCloud-Konto (optional):</strong> Wenn Sie die iCloud-Synchronisierung aktivieren, werden Ihre Daten über Apple CloudKit mit Ihrem persönlichen Apple-iCloud-Konto synchronisiert. Apple verschlüsselt sie bei der Übertragung und im Ruhezustand; wir haben keinen Zugriff darauf. Apple handelt nach seiner eigenen Datenschutzrichtlinie (<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>).</p>
+    <p><strong>Geteilte Budgets (optional):</strong> Wenn Sie ein Familienmitglied zu einem geteilten Budget einladen, gelangen die geteilten Daten über Ihre eigene iCloud ausschließlich zu den von Ihnen eingeladenen Personen — niemals über uns.</p>
+
+    <h3>4. Wechselkurse</h3>
+    <p>Zur Umrechnung fremder Währungen lädt die App öffentliche Wechselkurse der Tschechischen Nationalbank (<a href="https://www.cnb.cz" target="_blank" rel="noopener">cnb.cz</a>) sowie EZB-Referenzkurse über den Dienst frankfurter.dev. Diese Anfragen enthalten nur Währungscodes und Daten — keine persönlichen oder finanziellen Informationen. Wie bei jeder Webanfrage ist dem Anbieter Ihre IP-Adresse sichtbar; es gelten dessen eigene Richtlinien. Kurse können auch manuell eingegeben werden, die App funktioniert vollständig offline.</p>
+
+    <h3>5. Face ID / Touch ID</h3>
+    <p>Die optionale Datenschutzsperre nutzt Face ID, Touch ID oder den Gerätecode über Apples LocalAuthentication-Framework. Biometrische Daten wertet ausschließlich iOS auf Ihrem Gerät aus; die App sieht, speichert oder überträgt sie niemals.</p>
+
+    <h3>6. In-App-Käufe</h3>
+    <p>Saventa bietet In-App-Käufe (Saventa Pro — Jahresabo oder einmaliger Lifetime-Kauf), die von <strong>Apple Inc.</strong> über den App Store und StoreKit abgewickelt werden. Wir erhalten, speichern oder sehen weder Ihre Zahlungsdaten noch Kartennummern oder Ihre Apple-ID. Apple stellt uns lediglich anonymisierte Kaufbelege zur Verfügung, um Berechtigungen zu prüfen.</p>
+
+    <h3>7. Rechtsgrundlage (DSGVO)</h3>
+    <p>Für Nutzer im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz ist unsere Rechtsgrundlage nach DSGVO für die oben beschriebene begrenzte Verarbeitung:</p>
+    <ul>
+      <li><strong>Vertragserfüllung</strong> (Art. 6 Abs. 1 lit. b DSGVO) — Verarbeitung Ihres In-App-Kaufs zur Bereitstellung der Pro-Berechtigung.</li>
+      <li><strong>Berechtigtes Interesse</strong> (Art. 6 Abs. 1 lit. f DSGVO) — Sicherstellung der Funktionsfähigkeit der App, einschließlich des Abrufs öffentlicher Wechselkurse.</li>
+      <li><strong>Einwilligung</strong> (Art. 6 Abs. 1 lit. a DSGVO) — anonyme Nutzungsstatistiken, nur nach Ihrem Opt-in; jederzeit widerrufbar unter Einstellungen → Datenschutz.</li>
+    </ul>
+
+    <h3>8. Ihre Rechte</h3>
+    <p>Nach der DSGVO und vergleichbaren Gesetzen haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Da wir keine personenbezogenen Daten auf Servern halten, üben Sie die meisten dieser Rechte direkt auf Ihrem Gerät aus:</p>
+    <ul>
+      <li><strong>Daten exportieren:</strong> Einstellungen → Export (CSV / OFX).</li>
+      <li><strong>Daten löschen:</strong> Einträge in der App löschen, „App-Daten zurücksetzen" verwenden oder die App deinstallieren.</li>
+      <li><strong>iCloud-Daten löschen:</strong> iOS-Einstellungen → Apple-ID → iCloud → Speicher verwalten → Saventa → Daten löschen.</li>
+      <li><strong>Abos verwalten:</strong> iOS-Einstellungen → Apple-ID → Abonnements.</li>
+      <li><strong>Kontakt:</strong> Für alle weiteren Anliegen schreiben Sie an <a href="mailto:support@udt.cz">support@udt.cz</a>. Sie haben zudem das Recht, sich bei Ihrer Aufsichtsbehörde zu beschweren (in Tschechien: Úřad pro ochranu osobních údajů, <a href="https://www.uoou.cz" target="_blank" rel="noopener">uoou.cz</a>).</li>
+    </ul>
+
+    <h3>9. Kinder</h3>
+    <p>Saventa richtet sich nicht an Kinder unter 13 Jahren. Wir erheben wissentlich keine Daten von Kindern. Da wir auf Servern überhaupt keine personenbezogenen Daten erheben, ist diese Einschränkung bereits konstruktionsbedingt erfüllt.</p>
+
+    <h3>10. Internationale Übermittlungen</h3>
+    <p>Wir übermitteln keine Daten ins Ausland, weil wir keine erheben. Bei aktivierter iCloud-Synchronisierung kann Apple Ihre verschlüsselten Daten in Rechenzentren außerhalb Ihres Landes speichern — gemäß Apples Datenschutzrichtlinie und Standardvertragsklauseln. Die Aptabase-Analytik (falls aktiviert) wird in der Europäischen Union gehostet.</p>
+
+    <h3>11. Änderungen dieser Erklärung</h3>
+    <p>Wir können diese Datenschutzerklärung aktualisieren. Die aktuelle Version ist stets unter <a href="https://apps.udt.cz/Saventa/">apps.udt.cz/Saventa</a> verfügbar. Wesentliche Änderungen kündigen wir in den App-Store-Versionshinweisen an.</p>
+
+    <h3>12. Kontakt</h3>
+    <p>Fragen zu dieser Datenschutzerklärung: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+  <article class="doc-section" data-doc="terms">
+    <h2>Nutzungsbedingungen</h2>
+    <p class="updated">Zuletzt aktualisiert: 31. August 2026 · Version 1.0</p>
+
+    <p>Diese Nutzungsbedingungen („Bedingungen") regeln die Nutzung der mobilen Anwendung Saventa (die „App"), herausgegeben von der UDT s.r.o. („wir", „uns"). Mit der Installation oder Nutzung der App stimmen Sie diesen Bedingungen zu.</p>
+
+    <h3>1. Lizenz</h3>
+    <p>Wir gewähren Ihnen eine beschränkte, nicht ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der App auf Apple-Geräten, die Sie besitzen oder kontrollieren, gemäß den Apple Media Services Terms and Conditions und diesen Bedingungen.</p>
+
+    <h3>2. In-App-Käufe und Abonnements</h3>
+    <p>Die kostenlose Version der App ist voll funktionsfähig und werbefrei: Transaktionen, Konten, Importe, Berichte und Export sind unbegrenzt. Saventa Pro hebt die Grenzen der Gratisversion auf — 3 Budgets und 2 Sparziele. Zwei Bezahloptionen schalten dieselben Pro-Funktionen frei:</p>
+
+    <div class="callout">
+      <strong>Saventa Pro Jährlich — automatisch verlängerbares Abonnement</strong>
+      <ul>
+        <li><strong>Preis:</strong> 24,99 USD pro Jahr (bzw. lokales Äquivalent gemäß Apples Preismatrix).</li>
+        <li><strong>Laufzeit:</strong> 1 Jahr, verlängert sich automatisch.</li>
+        <li><strong>Zahlung:</strong> Wird bei Kaufbestätigung über Ihr Apple-ID-Konto abgerechnet.</li>
+        <li><strong>Automatische Verlängerung:</strong> Das Abo verlängert sich automatisch, sofern es nicht <strong>mindestens 24 Stunden vor</strong> Ablauf der laufenden Periode gekündigt wird. Die Verlängerungsgebühr wird innerhalb von 24 Stunden vor Ende der laufenden Periode abgebucht.</li>
+        <li><strong>Verwalten / Kündigen:</strong> Abos verwalten und die automatische Verlängerung deaktivieren Sie nach dem Kauf unter iOS-Einstellungen → Apple-ID → Abonnements.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <strong>Saventa Pro Lifetime — Einmalkauf</strong>
+      <ul>
+        <li><strong>Preis:</strong> 49,99 USD (einmalig, nicht wiederkehrend).</li>
+        <li><strong>Laufzeit:</strong> Dauerhafte Freischaltung für die Apple-ID, die den Kauf getätigt hat.</li>
+      </ul>
+    </div>
+
+    <p>Alle Käufe werden von Apple abgewickelt. Etwaige Erstattungen erfolgen durch Apple gemäß den <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Media Services Terms</a>.</p>
+
+    <h3>3. Keine Finanzberatung</h3>
+    <p>Saventa ist ein Werkzeug zur Aufzeichnung und Budgetierung. Nichts in der App stellt eine Finanz-, Anlage-, Steuer-, Buchhaltungs- oder Rechtsberatung dar. Berichte, Prognosen und Währungsumrechnungen sind rein informativ; Wechselkurse sind Referenzkurse und können von den Kursen Ihrer Bank abweichen. Für die Richtigkeit der eingegebenen oder importierten Daten und für Ihre finanziellen Entscheidungen sind allein Sie verantwortlich.</p>
+
+    <h3>4. Zulässige Nutzung</h3>
+    <p>Sie verpflichten sich: (a) die App nicht zurückzuentwickeln, zu dekompilieren oder zu zerlegen, soweit gesetzlich nicht ausdrücklich erlaubt; (b) die App nicht zur Speicherung oder Verarbeitung von Daten zu nutzen, zu denen Sie nicht berechtigt sind; (c) die App nicht für rechtswidrige Zwecke zu verwenden.</p>
+
+    <h3>5. Nutzerinhalte</h3>
+    <p>Alle Rechte an den in der App erstellten Aufzeichnungen verbleiben bei Ihnen. Wir haben keinen Zugriff darauf (siehe Datenschutzerklärung). Für die Sicherung Ihrer Daten sind Sie selbst verantwortlich — die App bietet hierfür CSV/OFX-Export und eine geräteinterne Sicherung.</p>
+
+    <h3>6. Gewährleistungsausschluss</h3>
+    <p>Die App wird „<strong>WIE BESEHEN</strong>" und „<strong>WIE VERFÜGBAR</strong>" bereitgestellt, ohne Gewährleistungen jeglicher Art, ausdrücklich oder stillschweigend, einschließlich der Gewährleistung der Marktgängigkeit, der Eignung für einen bestimmten Zweck oder der Nichtverletzung von Rechten. Wir gewährleisten weder einen unterbrechungs- oder fehlerfreien Betrieb noch eine stets fehlerfreie Erkennung importierter Daten — prüfen Sie Importe vor dem Speichern.</p>
+
+    <h3>7. Haftungsbeschränkung</h3>
+    <p>Soweit gesetzlich zulässig haftet die UDT s.r.o. nicht für indirekte, beiläufige, Folge- oder Strafschäden, einschließlich Datenverlust oder finanzieller Verluste aufgrund von Entscheidungen, die auf Informationen in der App beruhen. Unsere gesamte Haftung je Anspruch übersteigt nicht den Betrag, den Sie in den 12 Monaten vor dem Anspruch für die App gezahlt haben. Zwingende Verbraucherrechte bleiben unberührt.</p>
+
+    <h3>8. Apple als begünstigte Drittpartei</h3>
+    <p>Sie erkennen an, dass Apple Inc. begünstigte Drittpartei dieser Bedingungen ist und sie Ihnen gegenüber durchsetzen kann. Apple ist nicht verpflichtet, Wartung oder Support für die App zu leisten.</p>
+
+    <h3>9. Anwendbares Recht</h3>
+    <p>Diese Bedingungen unterliegen dem Recht der Tschechischen Republik unter Ausschluss der Kollisionsnormen. Streitigkeiten entscheiden die zuständigen Gerichte der Tschechischen Republik; zwingende Verbraucherschutzrechte Ihres Wohnsitzlandes bleiben unberührt.</p>
+
+    <h3>10. Änderungen dieser Bedingungen</h3>
+    <p>Wir können diese Bedingungen aktualisieren. Die aktuelle Version ist stets unter <a href="https://apps.udt.cz/Saventa/">apps.udt.cz/Saventa</a> verfügbar. Wesentliche Änderungen, die zahlende Nutzer betreffen, kündigen wir in den App-Store-Versionshinweisen an.</p>
+
+    <h3>11. Kontakt</h3>
+    <p>Fragen zu diesen Bedingungen: <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+  </article>
+
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 UDT s.r.o. · Brno, Czech Republic · <a href="mailto:support@udt.cz">support@udt.cz</a></p>
+  <p><a href="https://apps.udt.cz/">apps.udt.cz</a></p>
+</footer>
+
+<script>
+  // ===== State =====
+  const SUPPORTED_LANGS = ['en','cs','de'];
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const langSections = document.querySelectorAll('.lang-section');
+  const tabLinks = document.querySelectorAll('.tab-link');
+
+  // Tab labels per language (only the two tab buttons are language-agnostic
+  // in the markup; everything else lives inside its own .lang-section).
+  const I18N = {
+    en: { privacy: 'Privacy Policy',  terms: 'Terms of Use' },
+    cs: { privacy: 'Zásady soukromí', terms: 'Podmínky používání' },
+    de: { privacy: 'Datenschutz',     terms: 'Nutzungsbedingungen' }
+  };
+
+  // Apply id="privacy" / id="terms" only inside the currently active language
+  // section. This avoids duplicate IDs across the lang sections, which
+  // would otherwise break anchor navigation.
+  function syncDocIds(activeLang) {
+    document.querySelectorAll('[data-doc]').forEach(el => {
+      const isActive = el.closest('.lang-section')?.dataset.lang === activeLang;
+      if (isActive) {
+        el.id = el.dataset.doc;          // e.g. id="privacy"
+      } else {
+        el.removeAttribute('id');         // hide from anchor resolution
+      }
+    });
+  }
+
+  function applyTabLabels(lang) {
+    const dict = I18N[lang] || I18N.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key]) el.textContent = dict[key];
+    });
+  }
+
+  function setLang(lang) {
+    if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
+    langButtons.forEach(btn => {
+      btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
+    });
+    langSections.forEach(sec => {
+      sec.classList.toggle('active', sec.dataset.lang === lang);
+    });
+    syncDocIds(lang);
+    applyTabLabels(lang);
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('saventa-lang', lang); } catch(e) {}
+    // Scroll back to top — language swap would otherwise leave the user
+    // mid-document with no visual context.
+    window.scrollTo(0, 0);
+  }
+
+  function setActiveTab(tab, doScroll) {
+    tabLinks.forEach(link => {
+      link.classList.toggle('active', link.dataset.tab === tab);
+    });
+    // Toggle body class so CSS shows only the matching <article data-doc>
+    document.body.classList.toggle('tab-privacy', tab === 'privacy');
+    document.body.classList.toggle('tab-terms',   tab === 'terms');
+    if (doScroll) {
+      window.scrollTo(0, 0);
+    }
+    // Reflect in URL hash. Wrapped in try/catch because some sandboxed
+    // contexts (e.g. cross-origin previews using about:srcdoc) reject
+    // History API mutations with a SecurityError.
+    try {
+      if (history.replaceState) {
+        history.replaceState(null, '', '#' + tab);
+      }
+    } catch (e) { /* sandbox or unsupported — ignore */ }
+  }
+
+  // ===== Wire up events =====
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  tabLinks.forEach(link => {
+    link.addEventListener('click', () => setActiveTab(link.dataset.tab, true));
+  });
+
+  // ===== Init =====
+  (function init() {
+    // 1. Determine preferred language
+    let preferred = null;
+    try { preferred = localStorage.getItem('saventa-lang'); } catch(e) {}
+    if (!preferred || !SUPPORTED_LANGS.includes(preferred)) {
+      const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+      preferred = SUPPORTED_LANGS.includes(nav) ? nav : 'en';
+    }
+    setLang(preferred);
+
+    // 2. Honour incoming hash (#privacy or #terms), default to privacy.
+    //    Don't auto-scroll on initial load — that would push the user past
+    //    the hero on first paint.
+    const initialTab = (window.location.hash === '#terms') ? 'terms' : 'privacy';
+    setActiveTab(initialTab, false);
+  })();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Saventa — Privacy Policy &amp; Terms of Use</title>
 <meta name="description" content="Privacy Policy and Terms of Use for Saventa, a privacy-first personal finance app by UDT s.r.o.">
 
 <style>
