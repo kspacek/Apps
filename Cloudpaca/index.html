@@ -103,6 +103,7 @@
 <nav class="lang-bar" aria-label="Language">
   <button class="lang-btn" data-lang="en" aria-current="true"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>English</button>
   <button class="lang-btn" data-lang="cs"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><path d="M0,0 h60 v15 H0z" fill="#fff"/><path d="M0,15 h60 v15 H0z" fill="#D7141A"/><path d="M0,0 L30,15 L0,30 z" fill="#11457E"/></svg>Čeština</button>
+  <button class="lang-btn" data-lang="de"><svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><path d="M0,0 h60 v10 H0z" fill="#000"/><path d="M0,10 h60 v10 H0z" fill="#DD0000"/><path d="M0,20 h60 v10 H0z" fill="#FFCE00"/></svg>Deutsch</button>
 </nav>
 
 <nav class="tabs" aria-label="Documents">
@@ -115,9 +116,12 @@
 
 <article data-doc="privacy">
   <h2>Privacy Policy</h2>
-  <p class="updated">Last updated: 15 August 2026</p>
+  <p class="updated">Last updated: 17 August 2026</p>
 
   <p>Cloudpaca is made by UDT s.r.o., Brno, Czech Republic. This policy explains what the app does with your data. The short version: your API key and your conversations stay on your iPhone, and we operate no servers of our own.</p>
+
+  <h3>Your consent comes first</h3>
+  <p>Nothing leaves your iPhone until you agree to it. When you set the app up, Cloudpaca lists who receives what — Ollama for your chats, Aptabase for anonymous statistics — and you have to accept before the first request is made. Statistics have their own switch on that same screen, and you can change it there or later in Settings. If we ever add another recipient, we ask again rather than assume the old answer still holds.</p>
 
   <h3>What stays on your device</h3>
   <ul>
@@ -130,7 +134,7 @@
   <ul>
     <li><strong>To ollama.com:</strong> your messages, attachments and chosen model, sent directly from your iPhone using your own key. What Ollama does with that data is governed by Ollama's own privacy policy, not ours.</li>
     <li><strong>To the web, only when you ask:</strong> if the assistant searches the web or opens a page you requested, that request goes to the relevant site.</li>
-    <li><strong>Anonymous product analytics</strong> via Aptabase — which screens are used and whether a feature succeeded. No chat content, no prompts, no API keys, no personal identifiers. You can turn this off in Settings.</li>
+    <li><strong>Anonymous product analytics</strong> via Aptabase, and only if you agreed to it — which screens are used and whether a feature succeeded. No chat content, no prompts, no API keys, no personal identifiers. You can turn this off at setup or in Settings.</li>
   </ul>
 
   <h3>What we never collect</h3>
@@ -151,7 +155,7 @@
 
 <article data-doc="terms">
   <h2>Terms of Use</h2>
-  <p class="updated">Last updated: 15 August 2026</p>
+  <p class="updated">Last updated: 17 August 2026</p>
 
   <div class="callout">
     <h3>Read this first: Cloudpaca is a client, not an AI service</h3>
@@ -198,35 +202,38 @@
 
 <article data-doc="privacy">
   <h2>Zásady soukromí</h2>
-  <p class="updated">Naposledy upraveno: 15. srpna 2026</p>
+  <p class="updated">Naposledy upraveno: 17. srpna 2026</p>
 
-  <p>Cloudpaca dělá UDT s.r.o. z Brna. Tady je popsané, co aplikace dělá s tvými daty. Zkráceně: API klíč i konverzace zůstávají v tvém iPhonu a my neprovozujeme žádné vlastní servery.</p>
+  <p>Cloudpaca dělá UDT s.r.o. z Brna. Tady je popsané, co aplikace dělá s vašimi daty. Zkráceně: API klíč i konverzace zůstávají ve vašem iPhonu a my neprovozujeme žádné vlastní servery.</p>
+
+  <h3>Nejdřív váš souhlas</h3>
+  <p>Dokud nesouhlasíte, neopustí váš iPhone nic. Při zprovoznění aplikace vám Cloudpaca vypíše, kdo co dostane — Ollama vaše chaty, Aptabase anonymní statistiky — a než odejde první request, musíte to odsouhlasit. Statistiky mají na téže obrazovce vlastní přepínač, změnit se dají tam i později v Nastavení. Když příjemců někdy přibude, zeptáme se znovu, místo abychom předpokládali, že stará odpověď pořád platí.</p>
 
   <h3>Co zůstává v zařízení</h3>
   <ul>
-    <li><strong>Tvůj API klíč k Ollamě</strong> — uložený v systémové Klíčence. Nikdy se nikam neloguje, neposílá se nám a neodchází nikam než na ollama.com.</li>
-    <li><strong>Tvoje konverzace</strong> — uložené lokálně v databázi aplikace, chráněné běžným šifrováním souborů v iOS.</li>
+    <li><strong>Váš API klíč k Ollamě</strong> — uložený v systémové Klíčence. Nikdy se nikam neloguje, neposílá se nám a neodchází nikam než na ollama.com.</li>
+    <li><strong>Vaše konverzace</strong> — uložené lokálně v databázi aplikace, chráněné běžným šifrováním souborů v iOS.</li>
     <li><strong>Přílohy</strong> — obrázky a dokumenty se zpracovávají přímo v zařízení.</li>
   </ul>
 
   <h3>Co zařízení opouští</h3>
   <ul>
-    <li><strong>Na ollama.com:</strong> tvoje zprávy, přílohy a zvolený model, odeslané přímo z iPhonu tvým vlastním klíčem. Co s nimi dělá Ollama, se řídí jejími zásadami soukromí, ne našimi.</li>
-    <li><strong>Na web, jen když si o to řekneš:</strong> když asistent hledá na internetu nebo otevře stránku, o kterou požádáš, jde dotaz na příslušný web.</li>
-    <li><strong>Anonymní statistiky</strong> přes Aptabase — které obrazovky se používají a jestli se funkce povedla. Žádný obsah chatu, žádné prompty, žádné klíče, žádné identifikátory. Dají se vypnout v Nastavení.</li>
+    <li><strong>Na ollama.com:</strong> vaše zprávy, přílohy a zvolený model, odeslané přímo z iPhonu vaším vlastním klíčem. Co s nimi dělá Ollama, se řídí jejími zásadami soukromí, ne našimi.</li>
+    <li><strong>Na web, jen když si o to řeknete:</strong> když asistent hledá na internetu nebo otevře stránku, o kterou požádáte, jde dotaz na příslušný web.</li>
+    <li><strong>Anonymní statistiky</strong> přes Aptabase, a jen když s nimi souhlasíte — které obrazovky se používají a jestli se funkce povedla. Žádný obsah chatu, žádné prompty, žádné klíče, žádné identifikátory. Vypnout se dají hned při zprovoznění nebo v Nastavení.</li>
   </ul>
 
   <h3>Co nikdy nesbíráme</h3>
-  <p>Neprovozujeme žádný server a nemáme systém účtů. Tvoje konverzace si nemůžeme přečíst, tvůj API klíč nemáme a ani jedno ti nedokážeme obnovit, když o zařízení přijdeš.</p>
+  <p>Neprovozujeme žádný server a nemáme systém účtů. Vaše konverzace si nemůžeme přečíst, váš API klíč nemáme a ani jedno vám nedokážeme obnovit, když o zařízení přijdete.</p>
 
   <h3>Oprávnění zařízení</h3>
-  <p>Fotoaparát, fotky, kontakty, kalendář, připomínky, poloha a rozpoznávání řeči se používají jen pro funkce, které sám vyvoláš, a až poté, co se tě zeptá iOS. Akce asistenta, které čtou osobní údaje nebo něco zapisují, potvrzuješ předem. Zápis do kalendáře se potvrzuje vždy a nedá se to vypnout.</p>
+  <p>Fotoaparát, fotky, kontakty, kalendář, připomínky, poloha a rozpoznávání řeči se používají jen pro funkce, které sami vyvoláte, a až poté, co se vás zeptá iOS. Akce asistenta, které čtou osobní údaje nebo něco zapisují, potvrzujete předem. Zápis do kalendáře se potvrzuje vždy a nedá se to vypnout.</p>
 
   <h3>Děti</h3>
   <p>Cloudpaca má hodnocení 17+, protože zobrazuje obsah generovaný modely třetích stran, který neřídíme ani nemoderujeme. Pro děti není určená.</p>
 
-  <h3>Tvoje práva</h3>
-  <p>Protože o tobě nedržíme žádné osobní údaje, není co exportovat ani mazat. Smazáním aplikace zmizí konverzace i klíč ze zařízení. O smazání dat na straně Ollamy požádej Ollamu.</p>
+  <h3>Vaše práva</h3>
+  <p>Protože o vás nedržíme žádné osobní údaje, není co exportovat ani mazat. Smazáním aplikace zmizí konverzace i klíč ze zařízení. O smazání dat na straně Ollamy požádejte Ollamu.</p>
 
   <h3>Kontakt</h3>
   <p>UDT s.r.o., Brno — <a href="mailto:support@udt.cz">support@udt.cz</a>. Odpovídá skutečný člověk, obvykle do 24 hodin.</p>
@@ -234,45 +241,131 @@
 
 <article data-doc="terms">
   <h2>Podmínky používání</h2>
-  <p class="updated">Naposledy upraveno: 15. srpna 2026</p>
+  <p class="updated">Naposledy upraveno: 17. srpna 2026</p>
 
   <div class="callout">
-    <h3>Přečti si nejdřív tohle: Cloudpaca je klient, ne služba umělé inteligence</h3>
-    <p>Cloudpaca žádné modely neposkytuje, nehostuje ani neprovozuje. Je to <strong>prostředník</strong> mezi tvým iPhonem a službou <strong>Ollama Cloud</strong>, kterou provozuje nezávislá třetí strana. S Ollamou nejsme nijak propojení, její službu nepřeprodáváme a nemáme na ni vliv.</p>
+    <h3>Přečtěte si nejdřív tohle: Cloudpaca je klient, ne služba umělé inteligence</h3>
+    <p>Cloudpaca žádné modely neposkytuje, nehostuje ani neprovozuje. Je to <strong>prostředník</strong> mezi vaším iPhonem a službou <strong>Ollama Cloud</strong>, kterou provozuje nezávislá třetí strana. S Ollamou nejsme nijak propojení, její službu nepřeprodáváme a nemáme na ni vliv.</p>
     <ul>
-      <li><strong>Vlastní API klíč z ollama.com si musíš přinést sám.</strong> Bez platného vlastního klíče Cloudpaca nesvede vůbec nic. Klíče, kredity, tokeny ani kapacitu modelů neprodáváme, nevydáváme, nepřibalujeme ani nepřeprodáváme.</li>
-      <li><strong>Pravidla určuje Ollama.</strong> Dostupnost modelů, ceny, limity, kvóty, přístup podle zemí i podmínky služby stanovuje Ollama a může je kdykoli změnit, bez upozornění nám i tobě. Modely vyřazuje podle vlastního kalendáře.</li>
+      <li><strong>Vlastní API klíč z ollama.com si musíte přinést sami.</strong> Bez platného vlastního klíče Cloudpaca nesvede vůbec nic. Klíče, kredity, tokeny ani kapacitu modelů neprodáváme, nevydáváme, nepřibalujeme ani nepřeprodáváme.</li>
+      <li><strong>Pravidla určuje Ollama.</strong> Dostupnost modelů, ceny, limity, kvóty, přístup podle zemí i podmínky služby stanovuje Ollama a může je kdykoli změnit, bez upozornění nám i vám. Modely vyřazuje podle vlastního kalendáře.</li>
       <li><strong>Když se Ollama změní nebo skončí, může Cloudpaca přestat být použitelná.</strong> Týká se to zdražení, nových limitů, zablokovaných zemí, vyřazených modelů, výpadků, zablokovaného účtu i úplného ukončení služby. Je to mimo naši kontrolu a <strong>není to vada této aplikace</strong>.</li>
       <li><strong>Pro není záruka vrácení peněz proti změnám u třetí strany.</strong> Jednorázový nákup Pro odemyká funkce uvnitř Cloudpaca. Není to předplatné Ollamy, nezahrnuje žádnou spotřebu modelů ani kredity a nezakládá nárok na vrácení peněz, pokud se služba Ollama změní, zhorší nebo skončí.</li>
     </ul>
-    <p>Pro si prosím kupuj jen tehdy, když ti tohle uspořádání vyhovuje. Když si nejsi jistý, začni s bezplatnou verzí — vyzkoušíš si aplikaci s vlastním klíčem dřív, než cokoli zaplatíš.</p>
+    <p>Pro si prosím kupujte jen tehdy, když vám tohle uspořádání vyhovuje. Když si nejste jistí, začněte s bezplatnou verzí — vyzkoušíte si aplikaci s vlastním klíčem dřív, než cokoli zaplatíte.</p>
   </div>
 
-  <h3>Co si kupuješ</h3>
-  <p>Cloudpaca Pro je jednorázový nákup, který odemyká funkce uvnitř aplikace: asistenta bez stropu promptů, celou historii konverzací, složky, hledání, vlastní systémové prompty a export. Váže se na tvůj Apple Account, platí na tvých zařízeních a přežije přeinstalaci. Není to předplatné a nic se neobnovuje.</p>
+  <h3>Co si kupujete</h3>
+  <p>Cloudpaca Pro je jednorázový nákup, který odemyká funkce uvnitř aplikace: asistenta bez stropu promptů, celou historii konverzací, složky, hledání, vlastní systémové prompty a export. Váže se na váš Apple Account, platí na vašich zařízeních a přežije přeinstalaci. Není to předplatné a nic se neobnovuje.</p>
 
   <h3>Vrácení peněz</h3>
-  <p>Platby vyřizuje Apple, ne my. Vrácení peněz se řeší výhradně přes Apple na <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>; nemůžeme ho ani schválit, ani zamítnout. Pokud je rozbitá samotná aplikace, napiš nejdřív nám — radši to spravíme.</p>
+  <p>Platby vyřizuje Apple, ne my. Vrácení peněz se řeší výhradně přes Apple na <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>; nemůžeme ho ani schválit, ani zamítnout. Pokud je rozbitá samotná aplikace, napište nejdřív nám — radši to spravíme.</p>
 
-  <h3>Tvoje odpovědnost</h3>
+  <h3>Vaše odpovědnost</h3>
   <ul>
-    <li>Klíč si nech pro sebe. Kdokoli s ním může spotřebovat tvoji kvótu u Ollamy.</li>
-    <li>Dodržuj podmínky Ollamy. Tvůj klíč, tvůj účet, tvoje odpovědnost.</li>
-    <li>Nepoužívej Cloudpaca k porušování zákona ani k tvorbě obsahu, který někomu škodí.</li>
-    <li>Za to, co modelům pošleš a co uděláš s jejich výstupem, odpovídáš ty.</li>
+    <li>Klíč si nechte pro sebe. Kdokoli s ním může spotřebovat vaši kvótu u Ollamy.</li>
+    <li>Dodržujte podmínky Ollamy. Váš klíč, váš účet, vaše odpovědnost.</li>
+    <li>Nepoužívejte Cloudpaca k porušování zákona ani k tvorbě obsahu, který někomu škodí.</li>
+    <li>Za to, co modelům pošlete a co uděláte s jejich výstupem, odpovídáte vy.</li>
   </ul>
 
   <h3>Výstupy umělé inteligence</h3>
-  <p>Odpovědi pocházejí od modelů třetích stran. Můžou být chybné, zastaralé, zaujaté nebo vymyšlené a my je nekontrolujeme ani nemoderujeme. Nespoléhej se na ně u lékařských, právních, finančních ani jiných odborných rozhodnutí. Co je důležité, si ověř.</p>
+  <p>Odpovědi pocházejí od modelů třetích stran. Můžou být chybné, zastaralé, zaujaté nebo vymyšlené a my je nekontrolujeme ani nemoderujeme. Nespoléhejte se na ně u lékařských, právních, finančních ani jiných odborných rozhodnutí. Co je důležité, si ověřte.</p>
 
   <h3>Dostupnost a odpovědnost</h3>
-  <p>Cloudpaca se poskytuje „jak stojí a leží", bez jakýchkoli záruk. V rozsahu, který dovoluje zákon, UDT s.r.o. neodpovídá za ztrátu dat, ztrátu kreditů u Ollamy, výpadky na straně Ollamy ani za škody vzniklé používáním aplikace. Nic z toho neomezuje práva, která ti dává kogentní spotřebitelské právo.</p>
+  <p>Cloudpaca se poskytuje „jak stojí a leží", bez jakýchkoli záruk. V rozsahu, který dovoluje zákon, UDT s.r.o. neodpovídá za ztrátu dat, ztrátu kreditů u Ollamy, výpadky na straně Ollamy ani za škody vzniklé používáním aplikace. Nic z toho neomezuje práva, která vám dává kogentní spotřebitelské právo.</p>
 
   <h3>Změny</h3>
   <p>Podmínky můžeme s vývojem aplikace upravovat. Datum nahoře vždy odpovídá aktuálnímu znění.</p>
 
   <h3>Rozhodné právo</h3>
   <p>Podmínky se řídí právem České republiky. Kontakt: UDT s.r.o., Brno — <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
+</article>
+
+</section>
+
+<section class="lang-section" data-lang="de">
+
+<article data-doc="privacy">
+  <h2>Datenschutzerklärung</h2>
+  <p class="updated">Zuletzt aktualisiert: 17. August 2026</p>
+
+  <p>Cloudpaca wird von UDT s.r.o. aus Brünn, Tschechien, entwickelt. Diese Erklärung beschreibt, was die App mit deinen Daten macht. Kurz gesagt: Dein API-Schlüssel und deine Unterhaltungen bleiben auf deinem iPhone, und wir betreiben keine eigenen Server.</p>
+
+  <h3>Deine Zustimmung kommt zuerst</h3>
+  <p>Nichts verlässt dein iPhone, bevor du zustimmst. Bei der Einrichtung listet Cloudpaca auf, wer was erhält — Ollama deine Chats, Aptabase anonyme Statistiken — und du musst das akzeptieren, bevor die erste Anfrage gesendet wird. Die Statistiken haben auf demselben Bildschirm einen eigenen Schalter; du kannst sie dort oder später in den Einstellungen ändern. Sollten wir je einen weiteren Empfänger hinzufügen, fragen wir erneut, statt anzunehmen, dass die alte Antwort noch gilt.</p>
+
+  <h3>Was auf deinem Gerät bleibt</h3>
+  <ul>
+    <li><strong>Dein Ollama-API-Schlüssel</strong> — gespeichert im iOS-Schlüsselbund. Er wird nie protokolliert, nie an uns gesendet und geht nirgendwohin außer an ollama.com.</li>
+    <li><strong>Deine Unterhaltungen</strong> — lokal in der Datenbank der App gespeichert, geschützt durch die normale iOS-Dateiverschlüsselung.</li>
+    <li><strong>Anhänge</strong> — Bilder und Dokumente, die du anhängst, werden auf dem Gerät verarbeitet.</li>
+  </ul>
+
+  <h3>Was dein Gerät verlässt</h3>
+  <ul>
+    <li><strong>An ollama.com:</strong> deine Nachrichten, Anhänge und das gewählte Modell, direkt von deinem iPhone mit deinem eigenen Schlüssel gesendet. Was Ollama mit diesen Daten macht, regelt die Datenschutzerklärung von Ollama, nicht unsere.</li>
+    <li><strong>Ins Web, nur wenn du darum bittest:</strong> Wenn der Assistent im Web sucht oder eine von dir angeforderte Seite öffnet, geht diese Anfrage an die jeweilige Website.</li>
+    <li><strong>Anonyme Produktanalytik</strong> via Aptabase, und nur wenn du zugestimmt hast — welche Bildschirme genutzt werden und ob eine Funktion erfolgreich war. Keine Chat-Inhalte, keine Prompts, keine API-Schlüssel, keine persönlichen Kennungen. Du kannst das bei der Einrichtung oder in den Einstellungen abschalten.</li>
+  </ul>
+
+  <h3>Was wir nie erheben</h3>
+  <p>Wir betreiben kein Backend und haben kein Kontosystem. Wir können deine Unterhaltungen nicht lesen, wir haben deinen API-Schlüssel nicht, und wir können beides nicht wiederherstellen, wenn du dein Gerät verlierst.</p>
+
+  <h3>Geräteberechtigungen</h3>
+  <p>Kamera, Fotos, Kontakte, Kalender, Erinnerungen, Standort und Spracherkennung werden nur für Funktionen genutzt, die du selbst aufrufst, und erst nachdem iOS dich gefragt hat. Aktionen des Assistenten, die persönliche Daten lesen oder auf dein Gerät schreiben, bestätigst du, bevor sie ausgeführt werden. Kalendereinträge werden immer bestätigt; das lässt sich nicht abschalten.</p>
+
+  <h3>Kinder</h3>
+  <p>Cloudpaca ist mit 17+ eingestuft, weil die App Inhalte anzeigt, die von KI-Modellen Dritter erzeugt werden und die wir weder kontrollieren noch moderieren. Sie ist nicht für Kinder gedacht.</p>
+
+  <h3>Deine Rechte</h3>
+  <p>Da wir keine personenbezogenen Daten über dich speichern, gibt es bei uns nichts zu exportieren oder zu löschen. Mit dem Löschen der App verschwinden deine Unterhaltungen und dein Schlüssel vom Gerät. Für die Löschung von Daten auf Seiten von Ollama wende dich an Ollama.</p>
+
+  <h3>Kontakt</h3>
+  <p>UDT s.r.o., Brünn, Tschechien — <a href="mailto:support@udt.cz">support@udt.cz</a>. Ein echter Mensch antwortet, meist innerhalb von 24 Stunden.</p>
+</article>
+
+<article data-doc="terms">
+  <h2>Nutzungsbedingungen</h2>
+  <p class="updated">Zuletzt aktualisiert: 17. August 2026</p>
+
+  <div class="callout">
+    <h3>Lies das zuerst: Cloudpaca ist ein Client, kein KI-Dienst</h3>
+    <p>Cloudpaca stellt keine KI-Modelle bereit, hostet keine und betreibt keine. Die App ist ein <strong>Vermittler</strong> zwischen deinem iPhone und <strong>Ollama Cloud</strong> — einem Dienst, den Ollama, ein unabhängiger Dritter, betreibt. Wir sind nicht mit Ollama verbunden, wir verkaufen den Dienst nicht weiter, und wir haben keinen Einfluss darauf.</p>
+    <ul>
+      <li><strong>Du musst deinen eigenen API-Schlüssel mitbringen</strong> — von ollama.com. Ohne einen gültigen eigenen Schlüssel kann Cloudpaca überhaupt nichts tun. Wir verkaufen, vergeben, bündeln oder vermitteln keine Schlüssel, kein Guthaben, keine Tokens und keine Modellkapazität.</li>
+      <li><strong>Ollama macht die Regeln.</strong> Modellverfügbarkeit, Preise, Ratenlimits, Kontingente, regionalen Zugang und Nutzungsbedingungen legt Ollama fest und kann sie jederzeit ändern — ohne Vorankündigung an uns oder an dich. Ollama stellt Modelle nach eigenem Zeitplan ein.</li>
+      <li><strong>Wenn Ollama sich ändert oder aufhört, kann Cloudpaca unbrauchbar werden.</strong> Dazu gehören Preiserhöhungen, neue Limits, gesperrte Länder, eingestellte Modelle, Ausfälle, Kontosperrungen oder die vollständige Einstellung des Dienstes durch Ollama. Das liegt außerhalb unserer Kontrolle. Es ist <strong>kein Mangel dieser App</strong>.</li>
+      <li><strong>Pro ist keine Rückerstattungsgarantie gegen Änderungen bei Dritten.</strong> Der einmalige Pro-Kauf schaltet Funktionen innerhalb von Cloudpaca frei. Er ist kein Abo bei Ollama, enthält keine KI-Nutzung und kein Guthaben, und er begründet keinen Anspruch auf Rückerstattung, wenn sich der Dienst von Ollama ändert, verschlechtert oder endet.</li>
+    </ul>
+    <p>Bitte kauf Pro nur, wenn diese Regelung für dich in Ordnung ist. Wenn du unsicher bist, nutze zuerst die kostenlose Version — sie lässt dich die App mit deinem eigenen Schlüssel ausprobieren, bevor du etwas bezahlst.</p>
+  </div>
+
+  <h3>Was du kaufst</h3>
+  <p>Cloudpaca Pro ist ein einmaliger, nicht verbrauchbarer Kauf, der Funktionen innerhalb der App freischaltet: den Assistenten ohne Prompt-Limit, den vollständigen Unterhaltungsverlauf, Ordner, Suche, eigene System-Prompts und Export. Er ist an deinen Apple Account gebunden, funktioniert auf deinen Geräten und übersteht eine Neuinstallation der App. Es gibt kein Abo, und nichts verlängert sich.</p>
+
+  <h3>Rückerstattungen</h3>
+  <p>Alle Käufe werden von Apple abgewickelt, nicht von uns. Rückerstattungen laufen ausschließlich über das Verfahren von Apple unter <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>; wir können sie weder gewähren noch ablehnen. Wenn die App selbst kaputt ist, schreib zuerst uns — wir reparieren sie lieber.</p>
+
+  <h3>Deine Pflichten</h3>
+  <ul>
+    <li>Behalte deinen API-Schlüssel für dich. Wer ihn hat, kann dein Ollama-Kontingent verbrauchen.</li>
+    <li>Halte dich an die Nutzungsbedingungen von Ollama. Dein Schlüssel, dein Konto, deine Verantwortung.</li>
+    <li>Nutze Cloudpaca nicht, um Gesetze zu brechen oder Inhalte zu erzeugen, die anderen schaden.</li>
+    <li>Du bist verantwortlich für das, was du an die Modelle sendest, und für das, was du mit ihren Antworten machst.</li>
+  </ul>
+
+  <h3>KI-Ausgaben</h3>
+  <p>Die Antworten stammen von Modellen Dritter. Sie können falsch, veraltet, voreingenommen oder erfunden sein, und wir prüfen oder moderieren sie nicht. Verlass dich bei medizinischen, rechtlichen, finanziellen oder anderen fachlichen Entscheidungen nicht darauf. Überprüfe alles, was wichtig ist.</p>
+
+  <h3>Verfügbarkeit und Haftung</h3>
+  <p>Cloudpaca wird „wie besehen“ bereitgestellt, ohne Gewährleistung jeglicher Art. Soweit gesetzlich zulässig, haftet UDT s.r.o. nicht für verlorene Daten, verlorenes Ollama-Guthaben, Dienstunterbrechungen auf Seiten von Ollama oder Schäden, die aus der Nutzung der App entstehen. Nichts hiervon beschränkt Rechte, die dir nach zwingendem Verbraucherrecht deines Landes zustehen.</p>
+
+  <h3>Änderungen</h3>
+  <p>Wir können diese Bedingungen anpassen, wenn sich die App weiterentwickelt. Das Datum oben entspricht immer der aktuellen Fassung.</p>
+
+  <h3>Anwendbares Recht</h3>
+  <p>Diese Bedingungen unterliegen dem Recht der Tschechischen Republik. Kontakt: UDT s.r.o., Brünn — <a href="mailto:support@udt.cz">support@udt.cz</a>.</p>
 </article>
 
 </section>
@@ -286,7 +379,7 @@
 
 <script>
 (function () {
-  const SUPPORTED = ['en', 'cs'];
+  const SUPPORTED = ['en', 'cs', 'de'];
 
   // Popisky, které v markupu existují jen jednou — zbytek textu žije
   // uvnitř vlastní .lang-section, takže se nepřekládá skriptem.
@@ -296,7 +389,10 @@
           footer:'Cloudpaca is a client for Ollama Cloud. You bring your own API key. We are not affiliated with Ollama.' },
     cs: { privacy:'Zásady soukromí', terms:'Podmínky používání',
           tagline:'Soukromý iOS klient pro Ollama Cloud', allApps:'← Všechny aplikace',
-          footer:'Cloudpaca je klient pro Ollama Cloud. Vlastní API klíč si přinášíš sám. S Ollamou nejsme propojení.' }
+          footer:'Cloudpaca je klient pro Ollama Cloud. Vlastní API klíč si přinášíte sami. S Ollamou nejsme propojení.' },
+    de: { privacy:'Datenschutz', terms:'Nutzungsbedingungen',
+          tagline:'Privater iOS-Client für Ollama Cloud', allApps:'← Alle Apps',
+          footer:'Cloudpaca ist ein Client für Ollama Cloud. Du bringst deinen eigenen API-Schlüssel mit. Wir sind nicht mit Ollama verbunden.' }
   };
 
   const langButtons = document.querySelectorAll('.lang-btn');
