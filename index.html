@@ -57,9 +57,7 @@
         }
 
         /* === LOGO PLINTH ===
-           Logo PNG má černý text — proto potřebuje světlý podklad.
-           Drobná krémová "deska" pod logem zachová původní barvy
-           a zároveň drží minimalistický feeling stránky. */
+           Logo PNG má černý text — proto potřebuje světlý podklad. */
         .logo-block {
             display: inline-flex;
             align-items: center;
@@ -80,11 +78,6 @@
             display: block;
             height: 32px;
             width: auto;
-        }
-
-        @media (max-width: 560px) {
-            .logo-block { padding: 10px 16px; }
-            .logo { height: 26px; }
         }
 
         h1 {
@@ -117,6 +110,9 @@
             animation: fadeUp 0.6s ease 0.3s forwards;
         }
 
+        /* === APP CARD ===
+           Celá karta je <a>. Delay animace jde přes --d nastavené inline,
+           protože :nth-of-type by počítalo i .logo-block a .section-label. */
         .app-card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -128,22 +124,22 @@
             gap: 24px;
             text-decoration: none;
             color: var(--text);
-            transition: all 0.3s ease;
+            /* transform necháváme volný pro :hover — animace jede přes `translate`,
+               jinak by fill-mode: forwards hover transform přebil */
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             opacity: 0;
-            animation: fadeUp 0.6s ease forwards;
+            animation: fadeUp 0.6s ease var(--d, 0.4s) forwards;
         }
-
-        /* Postupné naskakování karet — každá s vlastním zpožděním */
-        .app-card:nth-of-type(1) { animation-delay: 0.4s; }
-        .app-card:nth-of-type(2) { animation-delay: 0.5s; }
-        .app-card:nth-of-type(3) { animation-delay: 0.6s; }
-        .app-card:nth-of-type(4) { animation-delay: 0.7s; }
-        .app-card:nth-of-type(5) { animation-delay: 0.8s; }
 
         .app-card:hover {
             border-color: var(--accent);
             transform: translateY(-2px);
             box-shadow: 0 8px 40px rgba(196, 149, 106, 0.08);
+        }
+
+        .app-card:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
         }
 
         .app-icon {
@@ -158,7 +154,6 @@
             overflow: hidden; /* aby <img> respektoval border-radius */
         }
 
-        /* Img uvnitř ikony se roztáhne přes celou plochu */
         .app-icon img {
             width: 100%;
             height: 100%;
@@ -166,22 +161,12 @@
             display: block;
         }
 
-        /* Gradient fallback — viditelný jen pokud obrázek chybí / se nenačte */
-        .app-icon.cupweigh {
-            background: linear-gradient(135deg, #5c3d1a, #a06c2a);
-        }
-        .app-icon.silvervault {
-            background: linear-gradient(135deg, #2a3a52, #6b7d96);
-        }
-        .app-icon.vellumo {
-            background: linear-gradient(135deg, #4a3826, #8c6a47);
-        }
-        .app-icon.cloudpaca {
-            background: linear-gradient(135deg, #5341CC, #7B5CE4);
-        }
-        .app-icon.saventa {
-            background: linear-gradient(135deg, #27543A, #3E8458);
-        }
+        /* Gradient fallback — viditelný jen pokud se obrázek nenačte */
+        .app-icon.cupweigh    { background: linear-gradient(135deg, #5c3d1a, #a06c2a); }
+        .app-icon.silvervault { background: linear-gradient(135deg, #2a3a52, #6b7d96); }
+        .app-icon.vellumo     { background: linear-gradient(135deg, #4a3826, #8c6a47); }
+        .app-icon.cloudpaca   { background: linear-gradient(135deg, #5341CC, #7B5CE4); }
+        .app-icon.saventa     { background: linear-gradient(135deg, #27543A, #3E8458); }
 
         .app-info {
             min-width: 0; /* aby flex-wrap fungoval i s dlouhým textem */
@@ -215,29 +200,24 @@
             font-weight: 400;
         }
 
-        .app-links {
+        /* Vizuální CTA — klikací je celá karta, tohle je jen signál */
+        .app-cta {
             margin-left: auto;
-            display: flex;
-            gap: 12px;
             flex-shrink: 0;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .app-links a {
             font-size: 13px;
             color: var(--accent);
-            text-decoration: none;
-            padding: 6px 14px;
-            border: 1px solid rgba(196, 149, 106, 0.3);
-            border-radius: 8px;
-            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             white-space: nowrap;
         }
 
-        .app-links a:hover {
-            background: rgba(196, 149, 106, 0.1);
-            border-color: var(--accent);
+        .app-cta svg {
+            transition: transform 0.2s ease;
+        }
+
+        .app-card:hover .app-cta svg {
+            transform: translateX(3px);
         }
 
         .footer {
@@ -248,7 +228,7 @@
             color: var(--muted);
             font-weight: 300;
             opacity: 0;
-            animation: fadeUp 0.6s ease 0.8s forwards;
+            animation: fadeUp 0.6s ease 0.95s forwards;
         }
 
         .footer a {
@@ -260,14 +240,22 @@
             margin-top: 8px;
         }
 
+        /* `translate` místo `transform`, aby hover transform zůstal použitelný */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; translate: 0 16px; }
+            to   { opacity: 1; translate: 0 0; }
         }
 
         @media (max-width: 560px) {
+            .logo-block { padding: 10px 16px; }
+            .logo { height: 26px; }
             .app-card { flex-wrap: wrap; padding: 24px; }
-            .app-links { margin-left: 0; margin-top: 8px; width: 100%; justify-content: flex-start; }
+            .app-cta { margin-left: 0; margin-top: 8px; width: 100%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+            .logo-block, h1, .subtitle, .section-label, .app-card, .footer { opacity: 1; }
         }
     </style>
 </head>
@@ -280,7 +268,7 @@
             <img src="logo_udt.png" alt="UDT s.r.o." class="logo">
         </div>
 
-        <h1>Apps & Privacy</h1>
+        <h1>Apps &amp; Privacy</h1>
         <p class="subtitle">
             Privacy policies and legal information for all our apps.
             Each app respects your data — most work entirely offline with zero data collection.
@@ -288,74 +276,93 @@
 
         <div class="section-label">Applications</div>
 
-        <div class="app-card">
+        <a class="app-card" href="cupweigh/" style="--d: 0.4s">
             <div class="app-icon cupweigh">
-                <img src="cupweigh/AppIcon.png" alt="CupWeigh app icon" loading="lazy">
+                <img src="cupweigh/AppIcon.png" alt="" loading="lazy">
             </div>
             <div class="app-info">
                 <h3>CupWeigh</h3>
                 <p>Kitchen cup-to-weight converter for baking</p>
             </div>
-            <div class="app-links">
-                <a href="cupweigh/">Privacy Policy</a>
-            </div>
-        </div>
+            <span class="app-cta">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </span>
+        </a>
 
-        <div class="app-card">
+        <a class="app-card" href="SilverVault/" style="--d: 0.5s">
             <div class="app-icon silvervault">
-                <img src="SilverVault/icon-1024.png" alt="Silver Vault app icon" loading="lazy">
+                <img src="SilverVault/icon-1024.png" alt="" loading="lazy">
             </div>
             <div class="app-info">
                 <h3>Silver Vault</h3>
-                <p>Encrypted file vault with Face ID, OCR search & WiFi sharing</p>
+                <p>Encrypted file vault with Face ID, OCR search &amp; WiFi sharing</p>
             </div>
-            <div class="app-links">
-                <a href="SilverVault/">Privacy Policy</a>
-            </div>
-        </div>
+            <span class="app-cta">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </span>
+        </a>
 
-        <div class="app-card">
+        <a class="app-card" href="Vellumo/" style="--d: 0.6s">
             <div class="app-icon vellumo">
-                <img src="Vellumo/AppIcon-1024.png" alt="Vellumo app icon" loading="lazy">
+                <img src="Vellumo/AppIcon-1024.png" alt="" loading="lazy">
             </div>
             <div class="app-info">
                 <h3>Vellumo</h3>
-                <p>Document scanning & PDF management on iOS</p>
+                <p>Document scanning &amp; PDF management on iOS</p>
             </div>
-            <div class="app-links">
-                <a href="Vellumo/">Privacy Policy</a>
-            </div>
-        </div>
+            <span class="app-cta">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </span>
+        </a>
 
-        <div class="app-card">
+        <a class="app-card" href="Cloudpaca/" style="--d: 0.7s">
             <div class="app-icon cloudpaca">
-                <img src="Cloudpaca/AppIcon-1024.png" alt="Cloudpaca app icon" loading="lazy">
+                <img src="Cloudpaca/AppIcon-1024.png" alt="" loading="lazy">
             </div>
             <div class="app-info">
                 <h3>Cloudpaca</h3>
                 <p>Private iOS client for Ollama Cloud — bring your own API key</p>
             </div>
-            <div class="app-links">
-                <a href="Cloudpaca/">Privacy Policy</a>
-                <a href="Cloudpaca/#terms">Terms</a>
-            </div>
-        </div>
+            <span class="app-cta">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </span>
+        </a>
 
-        <div class="app-card">
+        <a class="app-card" href="Saventa/" style="--d: 0.8s">
             <div class="app-icon saventa">
-                <img src="Saventa/AppIcon-1024.png" alt="Saventa app icon" loading="lazy">
+                <img src="Saventa/AppIcon-1024.png" alt="" loading="lazy">
             </div>
             <div class="app-info">
                 <h3>Saventa</h3>
                 <p>Privacy-first personal finance — budgets, imports &amp; reports</p>
             </div>
-            <div class="app-links">
-                <a href="Saventa/">Privacy Policy</a>
-                <a href="Saventa/#terms">Terms</a>
-            </div>
-        </div>
+            <span class="app-cta">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </span>
+        </a>
 
-        <!-- Future apps: copy the app-card block, add matching .app-icon.<name> gradient -->
+        <!-- Nová app: zkopíruj blok <a class="app-card">, přidej .app-icon.<name>
+             gradient a nastav --d o 0.1s výš než předchozí karta. -->
 
         <div class="footer">
             &copy; 2026 UDT s.r.o. &middot; <a href="https://github.com/kspacek">GitHub</a>
